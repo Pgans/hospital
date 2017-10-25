@@ -78,10 +78,18 @@ MaterialAsset::register($this);
                         ],
                     ],
                     //['label' => 'นโยบายและแผน', 'url' => ['/site/policy_planx']],
-                    ['label' => 'คลังข้อมูล', 'url' => ['/site/dhdcservicex']],
-                    //['label' => 'การให้บริการ', 'url' => ['/site/servicex']],
+                    //['label' => 'คลังข้อมูล', 'url' => ['/site/dhdcservicex']],
+                    ['label' => 'การให้บริการ', 'url' => ['/site/servicex']],
+                    [
+                        'label' => 'ติดต่อ', 'visible',
+                        'items' => [
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งข้อร้องเรียน', 'url' => ['/requests/create']],
+                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> โครงสร้างองค์กร', 'url' => ['/site/vision_missionx']],
+                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
+                            
+                        ],
+                    ],
                     ['label' => 'ดาวน์โหลด', 'url' => ['/freelance/index']],
-                    ['label' => 'ติดต่อ', 'url' => ['/site/contact']],
                 //['label' => 'เกี่ยวกับ', 'url' => ['/site/about']],
                 ],
             ]);
@@ -97,6 +105,7 @@ MaterialAsset::register($this);
                             '<li class="dropdown-header">เมนูข่าว</li>',
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการหมวดหมู่', 'url' => ['/newscategory/index'], 'visible' => !Yii::$app->user->isGuest],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข่าวสาร', 'url' => ['/news/admin'], 'visible' => !Yii::$app->user->isGuest],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข้อร้องเรียน', 'url' => ['/requests/index'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูไฟล์</li>',
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> อัพโหลดไฟล์', 'url' => ['/freelance/admin'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูอัลบั้มภาพ</li>',
@@ -176,7 +185,7 @@ MaterialAsset::register($this);
                         <div class="footer-col col-md-4" align="center">
                             <h3><i class="fa fa-globe"></i> จำนวนผู้เข้าชมเว็บ</h3>
                             <p>
-                              <script type='text/javascript' src='http://www.siamecohost.com/member/gcounter/graphcount.php?page=namyuenhosp.in.th&style=02'>
+                              <script type='text/javascript' src='http://www.siamecohost.com/member/gcounter/graphcount.php?page=m30hospital.com&style=02'>
                               </script>
                             </p>
                         </div>

@@ -61,7 +61,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
         <p />
         <div class="row">
             <div class="col-md-9">
-                <div class="panel panel-info">
+                <div class="panel panel-black">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-bullhorn fa-flip-horizontal"></i> ข่าวประชาสัมพันธ์</h3>
                     </div>
@@ -98,7 +98,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     ]);
                     ?>
                 </div>
-                <div class="panel panel-info">
+                <div class="panel panel-black">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-calendar" aria-hidden="true"></i> ตารางปฏิบัติงาน / กิจกรรม</h3>
                     </div>
@@ -119,7 +119,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
 
                     </div>
                 </div>
-                <div class="panel panel-info">
+                <div class="panel panel-black">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-picture-o" aria-hidden="true"></i> อัลบั้มภาพ</h3>
                     </div>
@@ -133,33 +133,13 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                         ?>
                     </div>
                 </div>
-                <div class="panel panel-info">
+                <div class="panel panel-black">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> วิดีโอ</h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="panel-body">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ZEwumhAiZVs"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="panel-body">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/pBT4hqMNhio"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="panel-body">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/m0I39tjTsJA"></iframe>
-                                    </div>
-                                </div>
-                            </div>
+                       
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="panel-body">
                                     <div class="embed-responsive embed-responsive-16by9">
@@ -174,7 +154,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
             <div class="row">
                 <div class="col-md-3">
                     <!--<div class="panel-group">-->
-                    <div class="panel panel-info">
+                    <div class="panel panel-black">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-user-md" aria-hidden="true"></i> ผู้บริหาร</h4></div>
                         <div class="panel-body">
                             <div class="thumbnail" align="center">
@@ -192,7 +172,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     <!--</div>-->
                     <!--<div class="col-xs-6 col-md-4">-->
                     <!--<div class="panel-group">-->
-                    <div class="panel panel-info">
+                    <div class="panel panel-black">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-link" aria-hidden="true"></i> หน่วยงานที่เกี่ยวข้อง</h4></div>
                         <div class="panel-body">
                             <ul class="xoxo blogroll">
@@ -212,7 +192,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     <!--</div>-->
                     <!--<div class="col-xs-6 col-md-4">-->
                     <!--<div class="panel-group">-->
-                    <div class="panel panel-info">
+                    <div class="panel panel-black">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-cogs" aria-hidden="true"></i> ระบบ MIS</h4></div>
                         <div class="panel-body">
                             <ul class="xoxo blogroll">
@@ -234,7 +214,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     <!--</div>-->
                     <!--<div class="col-xs-6 col-md-4">-->
                     <!--<div class="panel-group">-->
-                    <div class="panel panel-info">
+                    <div class="panel panel-black">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> โรงพยาบาลชุมชน</h4></div>
                         <div class="panel-body">
                             <div>
@@ -260,7 +240,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-info">
+                    <div class="panel panel-black">
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> ระบบ Intranet</h3>
                         </div>

@@ -23,6 +23,9 @@ $config = [
             'cost' => 12,
             'admins' => ['admin']
         ],
+        'request' => [
+            'class' => 'app\modules\request\Module',
+        ],
     ],
     'components' => [
         'request' => [
