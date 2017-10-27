@@ -83,8 +83,8 @@ MaterialAsset::register($this);
                     [
                         'label' => 'ติดต่อ', 'visible',
                         'items' => [
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งข้อร้องเรียน', 'url' => ['/requests/create']],
-                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> โครงสร้างองค์กร', 'url' => ['/site/vision_missionx']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งข้อร้องเรียน-ร้องทุกข์', 'url' => ['/requests/create']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
                             //['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
                             
                         ],
@@ -106,6 +106,7 @@ MaterialAsset::register($this);
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการหมวดหมู่', 'url' => ['/newscategory/index'], 'visible' => !Yii::$app->user->isGuest],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข่าวสาร', 'url' => ['/news/admin'], 'visible' => !Yii::$app->user->isGuest],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข้อร้องเรียน', 'url' => ['/requests/index'], 'visible' => !Yii::$app->user->isGuest],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข้อเสนอแนะ', 'url' => ['/recommend/index'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูไฟล์</li>',
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> อัพโหลดไฟล์', 'url' => ['/freelance/admin'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูอัลบั้มภาพ</li>',
