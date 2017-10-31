@@ -71,15 +71,23 @@ MaterialAsset::register($this);
                         'label' => 'เกี่ยวกับ', 'visible',
                         'items' => [
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ประวัติโรงพยาบาล', 'url' => ['/site/storyx']],
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> โครงสร้างองค์กร', 'url' => ['/site/vision_missionx']],
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> โครงสร้างองค์กร', 'url' => ['/site/services_m30']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structure']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> บุคลากร', 'url' => ['/site/personnelx']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แผนที่', 'url' => ['/site/mapx']],
                         ],
                     ],
                     //['label' => 'นโยบายและแผน', 'url' => ['/site/policy_planx']],
                     //['label' => 'คลังข้อมูล', 'url' => ['/site/dhdcservicex']],
-                    ['label' => 'การให้บริการ', 'url' => ['/site/servicex']],
+                    [
+                        'label' => 'การให้บริการ', 'visible',
+                        'items' => [
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แพทย์แผนไทย', 'url' => ['/site/thaimed']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ศูนย์สุขภาพชุมชนม่วงสามสิบ', 'url' => ['/site/pcu']],
+                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
+                            
+                        ],
+                    ],
                     [
                         'label' => 'ติดต่อ', 'visible',
                         'items' => [

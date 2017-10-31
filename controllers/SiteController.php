@@ -163,6 +163,12 @@ class SiteController extends Controller {
     public function actionService() {
         return $this->render('service');
     }
+    public function actionThaimed() {
+        return $this->render('thaimed');
+    }
+    public  function actionPcu() {
+        return $this->render('pcu');
+    }
 
     public function actionDhdcservice() {
         return $this->render('dhdcservice');
