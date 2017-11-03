@@ -169,7 +169,15 @@ class SiteController extends Controller {
     public  function actionPcu() {
         return $this->render('pcu');
     }
-
+    public function actionStruc_m30() {
+        return $this->render('struc_m30');
+    }
+    public function actionMap_m30() {
+        return $this->render('map_m30');
+    }
+    public function actionBasic() {
+        return $this->render('basic');
+    }
     public function actionDhdcservice() {
         return $this->render('dhdcservice');
     }

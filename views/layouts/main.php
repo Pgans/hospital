@@ -70,11 +70,11 @@ MaterialAsset::register($this);
                     [
                         'label' => 'เกี่ยวกับ', 'visible',
                         'items' => [
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ประวัติโรงพยาบาล', 'url' => ['/site/storyx']],
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> โครงสร้างองค์กร', 'url' => ['/site/services_m30']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ประวัติโรงพยาบาล', 'url' => ['/site/basic']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> โครงสร้างองค์กร', 'url' => ['/site/struc_m30']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structure']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> บุคลากร', 'url' => ['/site/personnelx']],
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แผนที่', 'url' => ['/site/mapx']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แผนที่', 'url' => ['/site/map_m30']],
                         ],
                     ],
                     //['label' => 'นโยบายและแผน', 'url' => ['/site/policy_planx']],
@@ -89,7 +89,7 @@ MaterialAsset::register($this);
                         ],
                     ],
                     [
-                        'label' => 'ติดต่อ', 'visible',
+                        'label' => 'ศูนย์รับแจ้ง', 'visible',
                         'items' => [
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งข้อร้องเรียน-ร้องทุกข์', 'url' => ['/requests/create']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
@@ -149,12 +149,6 @@ MaterialAsset::register($this);
 
         </div>
 
-        <!--<footer class="footer1">
-            <div class="container">
-                <p class="pull-left">&copy;  <?= date('Y') ?>  โรพยาบาลม่วงสามสิบ อำเภอม่วงสามสิบ จังหวัดอุบลราชธานี  โทรศัพท์ : 0-4500-0000</p>
-                <p class="pull-right">พัฒนาโดย <a href="https://www.facebook.com/FREEDOOM.FINO" target="_blank"> นายนรินทร์ จุลทัศน์ </a> ตำแหน่งนักวิชาการคอมพิวเตอร์ </p>
-            </div>
-        </footer>-->
         <?=
         \ibrarturi\scrollup\ScrollUp::widget([
             'theme' => 'image', // pill, link, image, tab
