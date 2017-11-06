@@ -8,8 +8,9 @@ use app\models\RequestsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
-/**
+use yii\filters\AccessControl;  
+use yii\filters\AccessRule;
+/**;
  * RequestsController implements the CRUD actions for Requests model.
  */
 class RequestsController extends Controller
@@ -17,22 +18,64 @@ class RequestsController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * Lists all Requests models.
      * @return mixed
      */
+    public function behaviors(){
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['post'],
+                ],
+            ],
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'only'=> ['index','create','update','view','delete'],
+                'ruleConfig'=>[
+                    'class'=>AccessRule::className()
+                ],
+                'rules'=>[
+                    [
+                        'actions'=>['index','create','view'],
+                        'allow'=> true,
+                        'roles'=>[
+                            User::ROLE_USER,
+                            User::ROLE_EMPLOYEE,
+                            User::ROLE_ADMIN
+
+                        ]
+                    ],
+                    [
+                        'actions'=>['update'],
+                        'allow'=> true,
+                        'roles'=>[
+                            User::ROLE_EMPLOYEE,
+                            User::ROLE_ADMIN
+                        ]
+                    ],
+                    [
+                        'actions'=>['delete'],
+                        'allow'=> true,
+                        'roles'=>[User::ROLE_ADMIN]
+                    ]
+                ]
+            ]
+        ];
+    }
     public function actionIndex()
     {
         $searchModel = new RequestsSearch();

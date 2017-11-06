@@ -3,6 +3,10 @@
 namespace app\models;
 
 use Yii;
+/* เพิ่มคำสั่ง 3 บรรทัดต่อจากนี้ลงไป */
+use yii\filters\AccessControl;        // เรียกใช้ คลาส AccessControl
+use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
+use app\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
 
 /**
  * This is the model class for table "requests".

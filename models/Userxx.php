@@ -10,6 +10,16 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $authKey;
     public $accessToken;
 
+
+    const STATUS_DELETED = 0;
+    const STATUS_ACTIVE = 10;
+ 
+    /* เพิ่มเติม const ลงไป */
+    const ROLE_USER = 'USER';
+    const ROLE_EMPLOYEE = 'EMPLOYEE';
+    const ROLE_ADMIN = 'ADMIN';
+
+
     private static $users = [
         '100' => [
             'id' => '100',
@@ -25,12 +35,27 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             'authKey' => 'test101key',
             'accessToken' => '101-token',
         ],
+        
     ];
 
 
     /**
      * @inheritdoc
      */
+
+    public function rules(){
+        return [
+         
+            // เพิ่มเติมคำสั่ง 2 บรรทัด ต่อจากนี้ลงไป
+            ['level_user', 'default', 'value' => self::ROLE_USER],   
+            ['level_user', 'in', 'range' => [self::ROLE_USER, self::ROLE_EMPLOYEE, self::ROLE_ADMIN]],
+ 
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+        ];
+    }
+
+
     public static function findIdentity($id)
     {
         return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
