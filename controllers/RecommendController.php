@@ -8,6 +8,11 @@ use app\models\RecommendSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+/* เพิ่มคำสั่ง 3 บรรทัดต่อจากนี้ลงไป */
+use yii\filters\AccessControl;        // เรียกใช้ คลาส AccessControl
+use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
+use app\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
+
 
 /**
  * RecommendController implements the CRUD actions for Recommend model.
@@ -17,8 +22,7 @@ class RecommendController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors(){
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -26,6 +30,38 @@ class RecommendController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'only'=> ['index','create','update','view','delete'],
+                'ruleConfig'=>[
+                    'class'=>AccessRule::className()
+                ],
+                'rules'=>[
+                    [
+                        'actions'=>['index','create','view'],
+                        'allow'=> true,
+                        'roles'=>[
+                            User::ROLE_USER,
+                            User::ROLE_EMPLOYEE,
+                            User::ROLE_ADMIN
+
+                        ]
+                    ],
+                    [
+                        'actions'=>['update'],
+                        'allow'=> true,
+                        'roles'=>[
+                            User::ROLE_EMPLOYEE,
+                            User::ROLE_ADMIN
+                        ]
+                    ],
+                    [
+                        'actions'=>['delete'],
+                        'allow'=> true,
+                        'roles'=>[User::ROLE_ADMIN]
+                    ]
+                ]
+            ]
         ];
     }
 

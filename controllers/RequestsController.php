@@ -8,8 +8,11 @@ use app\models\RequestsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;  
-use yii\filters\AccessRule;
+/* เพิ่มคำสั่ง 3 บรรทัดต่อจากนี้ลงไป */
+use yii\filters\AccessControl;        // เรียกใช้ คลาส AccessControl
+use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
+use app\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
+
 /**;
  * RequestsController implements the CRUD actions for Requests model.
  */
@@ -39,7 +42,7 @@ class RequestsController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
             'access'=>[
