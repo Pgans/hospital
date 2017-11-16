@@ -3,8 +3,8 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Recommend;
-use app\models\RecommendSearch;
+use app\models\Requests;
+use app\models\RequestsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,14 +13,29 @@ use yii\filters\AccessControl;        // เรียกใช้ คลาส A
 use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
 use app\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
 
-
-/**
- * RecommendController implements the CRUD actions for Recommend model.
+/**;
+ * RequestsController implements the CRUD actions for Requests model.
  */
-class RecommendController extends Controller
+class RequestsController extends Controller
 {
     /**
      * @inheritdoc
+     */
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
+    /**
+     * Lists all Requests models.
+     * @return mixed
      */
     public function behaviors(){
         return [
@@ -65,14 +80,11 @@ class RecommendController extends Controller
             ]
         ];
     }
+    
 
-    /**
-     * Lists all Recommend models.
-     * @return mixed
-     */
     public function actionIndex()
     {
-        $searchModel = new RecommendSearch();
+        $searchModel = new RequestsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -82,7 +94,7 @@ class RecommendController extends Controller
     }
 
     /**
-     * Displays a single Recommend model.
+     * Displays a single Requests model.
      * @param integer $id
      * @return mixed
      */
@@ -94,23 +106,27 @@ class RecommendController extends Controller
     }
 
     /**
-     * Creates a new Recommend model.
+     * Creates a new Requests model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Recommend();
+        $model = new Requests();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('alert',[
-                'body'=>'ข้อเสนอแนะบันทึกเสร็จเรียบร้อย! เจ้าหน้าที่จะดำเนินการให้เร็วที่สุด....ขอบคุณค่ะ',
-                'options'=>['class'=>'alert-warning']
-            ]);
+
+             Yii::$app->getSession()->setFlash('alert',[
+                'body'=>'แจ้งข้อร้องเรียนเสร็จเรียบร้อย! เจ้าหน้าที่จะดำเนินการให้เร็วที่สุด....ขอบคุณค่ะ',
+                'options'=>['class'=>'alert-info'],
+                  ]);
+                  // Yii::$app->main->line($model->id, 'forum');//ส่ง line notify
+                  //Yii::$app->Requests->line($model->id, 'requests');//ส่ง line notify
+                 // $this->sendLine($model);
+                  Yii::$app->main->line($model->id, 'requests');//ส่ง line notify
+
             return $this->redirect(['create', 'id' => $model->id]);
 
-
-            return $this->redirect(['create', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -119,7 +135,7 @@ class RecommendController extends Controller
     }
 
     /**
-     * Updates an existing Recommend model.
+     * Updates an existing Requests model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -138,7 +154,7 @@ class RecommendController extends Controller
     }
 
     /**
-     * Deletes an existing Recommend model.
+     * Deletes an existing Requests model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -151,15 +167,15 @@ class RecommendController extends Controller
     }
 
     /**
-     * Finds the Recommend model based on its primary key value.
+     * Finds the Requests model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Recommend the loaded model
+     * @return Requests the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Recommend::findOne($id)) !== null) {
+        if (($model = Requests::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

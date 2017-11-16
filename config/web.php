@@ -32,6 +32,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 's04_d2CggaF-wTof3C32xFKG2_FpwmZ_',
         ],
+        'main' => [
+            'class' => 'app\components\Main'
+        ],
         'image' => [
             'class' => 'yii\image\ImageDriver',
             'driver' => 'GD', //GD or Imagick

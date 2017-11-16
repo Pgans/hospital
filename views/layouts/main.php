@@ -84,7 +84,10 @@ MaterialAsset::register($this);
                         'items' => [
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แพทย์แผนไทย', 'url' => ['/site/thaimed']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ศูนย์สุขภาพชุมชนม่วงสามสิบ', 'url' => ['/site/pcu']],
-                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ทันตกรรม', 'url' => ['/site/dental']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> คลินิกพิเศษ', 'url' => ['/site/clinic']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> อุบัติเหตุ-ฉุกเฉิน', 'url' => ['/site/er']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ห้องบัตร', 'url' => ['/site/register']],
                             
                         ],
                     ],

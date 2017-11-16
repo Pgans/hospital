@@ -55,12 +55,13 @@ class RequestsController extends Controller
                     [
                         'actions'=>['index','create','view'],
                         'allow'=> true,
-                        'roles'=>[
+                        'roles' => [
+                            '?', 
+                            '@',
                             User::ROLE_USER,
-                            User::ROLE_EMPLOYEE,
-                            User::ROLE_ADMIN
-
-                        ]
+                           User::ROLE_EMPLOYEE,
+                           User::ROLE_ADMIN
+                         ]
                     ],
                     [
                         'actions'=>['update'],
@@ -79,6 +80,34 @@ class RequestsController extends Controller
             ]
         ];
     }
+    public function sendLine($model)  {
+
+    $line_api = 'https://notify-api.line.me/api/notify';
+            $line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"https://notify-api.line.me/api/notify");
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
+            // follow redirects
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-type: application/x-www-form-urlencoded',
+                'Authorization: Bearer '.$line_token,
+            ]);
+            // receive server response ...
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $server_output = curl_exec ($ch);
+
+            curl_close ($ch);
+            //var_dump($server_output);
+            //echo Yii::getAlias('@webroot').'/images/programmerthailand_social.jpg';
+        }
+    
+
     public function actionIndex()
     {
         $searchModel = new RequestsSearch();
@@ -115,8 +144,12 @@ class RequestsController extends Controller
 
              Yii::$app->getSession()->setFlash('alert',[
                 'body'=>'แจ้งข้อร้องเรียนเสร็จเรียบร้อย! เจ้าหน้าที่จะดำเนินการให้เร็วที่สุด....ขอบคุณค่ะ',
-                'options'=>['class'=>'alert-info']
-            ]);
+                'options'=>['class'=>'alert-info'],
+                  ]);
+                  // Yii::$app->main->line($model->id, 'forum');//ส่ง line notify
+                  //Yii::$app->Requests->line($model->id, 'requests');//ส่ง line notify
+                  $this->sendLine($model);
+
             return $this->redirect(['create', 'id' => $model->id]);
 
         } else {

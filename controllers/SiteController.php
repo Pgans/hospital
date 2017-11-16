@@ -178,6 +178,18 @@ class SiteController extends Controller {
     public function actionBasic() {
         return $this->render('basic');
     }
+    public function actionDental(){
+        return $this->render('dental');
+    }
+    public function actionClinic() {
+        return $this->render('clinic');
+    }
+    public function actionEr() {
+        return $this->render('er');
+    }
+    public function actionRegister() {
+        return $this->render('register');
+    }
     public function actionDhdcservice() {
         return $this->render('dhdcservice');
     }

@@ -15,7 +15,11 @@ use yii\web\UploadedFile;
 use yii\helpers\BaseFileHelper;
 use yii\helpers\Json;
 use yii\helpers\ArrayHelper;
-use yii\filters\AccessControl;
+/* เพิ่มคำสั่ง 3 บรรทัดต่อจากนี้ลงไป */
+use yii\filters\AccessControl;        // เรียกใช้ คลาส AccessControl
+use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
+use app\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
+
 
 /**
  * FreelanceController implements the CRUD actions for Freelance model.
@@ -25,8 +29,34 @@ class FreelanceController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //         'access' =>[
+    //           'class' => AccessControl::className(),
+    //           'only' => ['index', 'admin', 'view', 'create', 'update', 'delete'],
+    //           'rules' => [
+    //             [
+    //               'actions' => ['admin', 'create', 'update','delete'],
+    //               'allow' => true,
+    //               'roles' => ['@']
+    //             ],
+    //             [
+    //               'actions' => ['index', 'view'],
+    //               'allow' => true,
+    //               'roles' => ['?', '@']
+    //             ]
+    //           ]
+    //         ]
+    //     ];
+    // }
+    public function behaviors(){
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -34,21 +64,38 @@ class FreelanceController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            'access' =>[
-              'class' => AccessControl::className(),
-              'only' => ['index', 'admin', 'view', 'create', 'update', 'delete'],
-              'rules' => [
-                [
-                  'actions' => ['admin', 'create', 'update','delete'],
-                  'allow' => true,
-                  'roles' => ['@']
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'only'=> ['index','create','update','view','delete'],
+                'ruleConfig'=>[
+                    'class'=>AccessRule::className()
                 ],
-                [
-                  'actions' => ['index', 'view'],
-                  'allow' => true,
-                  'roles' => ['?', '@']
+                'rules'=>[
+                    [
+                        'actions'=>['index','create','view'],
+                        'allow'=> true,
+                        'roles' => [
+                            //'?', 
+                           // '@',
+                            User::ROLE_USER,
+                           User::ROLE_EMPLOYEE,
+                           User::ROLE_ADMIN
+                         ]
+                    ],
+                    [
+                        'actions'=>['update'],
+                        'allow'=> true,
+                        'roles'=>[
+                            User::ROLE_EMPLOYEE,
+                            User::ROLE_ADMIN
+                        ]
+                    ],
+                    [
+                        'actions'=>['delete'],
+                        'allow'=> true,
+                        'roles'=>[User::ROLE_ADMIN]
+                    ]
                 ]
-              ]
             ]
         ];
     }

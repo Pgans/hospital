@@ -109,7 +109,6 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
     ปีงบประมาณ 2561  </a>
                          <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="http://thcc.or.th/43flie/60/43file_manual_standardcode_V2.2.rar" target="_blank"> โครงสร้างมาตรฐานข้อมูลสุขภาพ (43แฟ้ม) Version 2.2 
     ปีงบประมาณ 2560 </a>
-                        <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="http://www.nhso.go.th/files/userfiles/file/NHSOAuthen4_2017.rar" target="_blank"> โปรแกรม NHSO UCAuthentication 4.0 สำหรับ Authen เข้าระบบเว็บตรวจสอบสิทธิผ่านประชาชน(Smart Card)  </a>
                                   
                                 </ul>
                             </div>
@@ -172,7 +171,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
             <div class="row">
                 <div class="col-md-3">
                     <!--<div class="panel-group">-->
-                    <div class="panel panel-warning">
+                    <div class="panel panel-info">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-user-md" aria-hidden="true"></i> ผู้บริหาร</h4></div>
                         <div class="panel-body">
                             <div class="thumbnail" align="center">
@@ -191,14 +190,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     <!--</div>-->
                     <!--<div class="col-xs-6 col-md-4">-->
                     <!--<div class="panel-group">-->
-    
-                    
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmhosp-
-                            117251501692874%2F&tabs=timeline&width=270&height=500&small_header=false&adapt_container_width=true&hide_cover
-                            =false&show_facepile=true&appId" width="300" height="500" style="border:none;overflow:hidden" 
-                            scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-                     
-                   <!-- <div class="panel panel-warning">
+                    <div class="panel panel-info">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-link" aria-hidden="true"></i> หน่วยงานที่เกี่ยวข้อง</h4></div>
                         <div class="panel-body">
                             <ul class="xoxo blogroll">
@@ -213,12 +205,12 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                                 <li><a href="http://beid.ddc.moph.go.th/beid_2014/th/home" target="_blank"> สำนักโรคติดต่ออุบัติใหม่</a></li>
                             </ul>
                         </div>
-                    </div>-->
+                    </div>
                     <!--</div>-->
                     <!--</div>-->
                     <!--<div class="col-xs-6 col-md-4">-->
                     <!--<div class="panel-group">-->
-                    <div class="panel panel-warning">
+                    <div class="panel panel-info">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-cogs" aria-hidden="true"></i> ระบบ MIS</h4></div>
                         <div class="panel-body">
                             <ul class="xoxo blogroll">
@@ -240,7 +232,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     <!--</div>-->
                     <!--<div class="col-xs-6 col-md-4">-->
                     <!--<div class="panel-group">-->
-                    <div class="panel panel-warning">
+                    <div class="panel panel-info">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> โรงพยาบาลชุมชน</h4></div>
                         <div class="panel-body">
                             <div>
@@ -266,7 +258,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-warning">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> ระบบ Intranet</h3>
                         </div>
