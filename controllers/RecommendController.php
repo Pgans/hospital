@@ -66,10 +66,38 @@ class RecommendController extends Controller
         ];
     }
 
-    /**
-     * Lists all Recommend models.
-     * @return mixed
-     */
+    public function sendLine($model)  {
+
+            //$line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
+            $line_token = 'XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR';
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"https://notify-api.line.me/api/notify");
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->name);
+          //  <!--if(!empty(Yii::$app->request->getFirstImage($model->request_text))) {
+              //  curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname."imageThumbnail".Yii::$app->request->getFirstImage($model->request_text)."$imageFullsize=".Yii::$app->request->getFirstImage($model->request_text));
+          // }else{
+             //   curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname);-->
+            
+
+
+           // curl_setopt($ch, CURLOPT_POSTFIELDS, $message);
+            // follow redirects
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-type: application/x-www-form-urlencoded',
+                'Authorization: Bearer '.$line_token,
+            ]);
+            // receive server response ...
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $server_output = curl_exec ($ch);
+
+            curl_close ($ch);
+        }
     public function actionIndex()
     {
         $searchModel = new RecommendSearch();
@@ -107,6 +135,8 @@ class RecommendController extends Controller
                 'body'=>'ข้อเสนอแนะบันทึกเสร็จเรียบร้อย! เจ้าหน้าที่จะดำเนินการให้เร็วที่สุด....ขอบคุณค่ะ',
                 'options'=>['class'=>'alert-warning']
             ]);
+            //$this->sendLine($model);
+            $this->sendLine($model);
             return $this->redirect(['create', 'id' => $model->id]);
 
 
