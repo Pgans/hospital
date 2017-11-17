@@ -100,6 +100,15 @@ MaterialAsset::register($this);
                             
                         ],
                     ],
+                    [
+                        'label' => 'เครือข่ายม่วง', 'visible',
+                        'items' => [
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งเสียชีวิต', 'url' => ['/deaths30/create']],
+                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
+                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
+                            
+                        ],
+                    ],
                     ['label' => 'ดาวน์โหลด', 'url' => ['/freelance/index']],
                 //['label' => 'เกี่ยวกับ', 'url' => ['/site/about']],
                 ],
