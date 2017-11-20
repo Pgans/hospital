@@ -82,8 +82,9 @@ class RequestsController extends Controller
     }
     public function sendLine($model)  {
 
-            //$line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
-            $line_token = 'XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR';
+            $line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
+           // $line_token = 'XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR';
+          
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"https://notify-api.line.me/api/notify");

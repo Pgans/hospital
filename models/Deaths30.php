@@ -42,10 +42,30 @@ class Deaths30 extends \yii\db\ActiveRecord
             [['cid', 'fullname'], 'required'],
             [['created_by', 'updated_by'], 'integer'],
             [['created_at'], 'safe'],
-            [['cid'], 'string', 'max' => 13],
-            [['fullname'], 'string', 'max' => 100],
+            [['cid'], 'string', 'length' => [13, 13]],
+            [['cid'], 'unique'],
+            [['fullname'], 'string', 'length' => [10,100]],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
+    }
+    public function validateIdCard()
+    {
+        $id = str_split(str_replace('-','', $this->cid)); //ตัดรูปแบบและเอา ตัวอักษร ไปแยกเป็น array $id
+        $sum = 0;
+        $total = 0;
+        $digi = 13;
+        
+        for($i=0; $i<12; $i++){
+            $sum = $sum + (intval($id[$i]) * $digi);
+            $digi--;
+        }
+        $total = (11 - ($sum % 11)) % 10;
+        
+        if($total != $id[12]){ //ตัวที่ 13 มีค่าไม่เท่ากับผลรวมจากการคำนวณ ให้ add error
+            $this->addError('cid', 'หมายเลขบัตรประชาชนไม่ถูกต้อง');
+        }
+        
+        
     }
 
     /**

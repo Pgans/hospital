@@ -32,8 +32,8 @@ class Recommend extends \yii\db\ActiveRecord
             [['name', 'telephone', 'recommend'], 'required'],
             [['recommend'], 'string'],
             [['created_at'], 'safe'],
-            [['name'], 'string', 'max' => 45],
-            [['telephone'], 'string', 'max' => 10],
+            [['name'], 'string', 'length' => [10,45]],
+            [['telephone'], 'string', 'length' => [10,10]],
         ];
     }
 

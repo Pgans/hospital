@@ -36,16 +36,15 @@ class Requests extends \yii\db\ActiveRecord
         return [
             [['fullname', 'email', 'telephone', 'request_text'], 'required'],
             [['created_at'], 'safe'],
-            [['fullname'], 'string', 'max' => 45],
-            [['email'], 'string', 'max' => 20],
-            [['telephone'], 'string', 'max' => 10],
+            [['fullname'], 'string', 'length' => [10,45]],
+            [['fullname'], 'string', 'min' => 10],
+            [['email'], 'email'],
+            [['telephone'], 'string', 'length' => [10,10]],
             [['request_text'], 'string', 'max' => 250],
         ];
     }
+    
 
-    /**
-     * @inheritdoc
-     */
     public function attributeLabels()
     {
         return [

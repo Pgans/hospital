@@ -16,6 +16,11 @@ Line Notify(ตัวมันเอง)
 7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY
 
 
+Line token ประกันเครือข่าย
+Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wv
+
+
+
 
 ทดสอบการส่ง
 curl -X POST -H 'Authorization: Bearer [accessToken]' -F 'message='Test Line Notify สวัสดีครับ' https://notify-api.line.me/api/notify
@@ -23,3 +28,5 @@ curl -X POST -H 'Authorization: Bearer [accessToken]' -F 'message='Test Line Not
 curl -X POST -H 'Authorization: Bearer 7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY' -F 'message=ทดสอบLine Notify' https://notify-api.line.me/api/notify
 
 curl -X POST -H 'Authorization: Bearer XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR' -F 'message=Test Line Notify' https://notify-api.line.me/api/notify
+
+curl -X POST -H 'Authorization: Bearer Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wv' -F 'message=ทดสอบแจ้งคนเสียชีวิตผ่านหน้าเว็บส่งเข้ากลุ่มไลน์' https://notify-api.line.me/api/notify
