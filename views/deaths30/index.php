@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\widgets\Pjax;
+use app\models\User;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\Deaths30Search */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -18,19 +19,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Deaths30', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
+<?php Pjax::begin(); ?>    
+<?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-          //  'id',
+            //'id',
             'cid',
             'fullname',
-            'user_id',
+            'createdBy.username',
+            //'updated_by',
             'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-</div>
+<?php Pjax::end(); ?></div>

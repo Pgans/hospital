@@ -18,7 +18,7 @@ class Deaths30Search extends Deaths30
     public function rules()
     {
         return [
-            [['id', 'user_id'], 'integer'],
+            [['id', 'created_by', 'updated_by'], 'integer'],
             [['cid', 'fullname', 'created_at'], 'safe'],
         ];
     }
@@ -60,7 +60,8 @@ class Deaths30Search extends Deaths30
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user_id' => $this->user_id,
+            'created_by' => $this->created_by,
+            'updated_by' => $this->updated_by,
             'created_at' => $this->created_at,
         ]);
 

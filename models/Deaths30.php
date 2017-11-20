@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use app\models\User;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "deaths_m30".
@@ -10,10 +12,11 @@ use Yii;
  * @property integer $id
  * @property string $cid
  * @property string $fullname
- * @property integer $user_id
+ * @property integer $created_by
+ * @property integer $updated_by
  * @property string $created_at
  *
- * @property User $user
+ * @property User $createdBy
  */
 class Deaths30 extends \yii\db\ActiveRecord
 {
@@ -24,19 +27,24 @@ class Deaths30 extends \yii\db\ActiveRecord
     {
         return 'deaths_m30';
     }
-
+      public function behaviors()
+     {
+      return [
+          BlameableBehavior::className(),
+      ];
+     }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['cid', 'fullname', 'user_id'], 'required'],
-            [['user_id'], 'integer'],
+            [['cid', 'fullname'], 'required'],
+            [['created_by', 'updated_by'], 'integer'],
             [['created_at'], 'safe'],
             [['cid'], 'string', 'max' => 13],
             [['fullname'], 'string', 'max' => 100],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
     }
 
@@ -47,18 +55,19 @@ class Deaths30 extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'รหัส',
-            'cid' => 'เลขประจำตัวประชาชน 13 หลัก',
+            'cid' => 'เลขประชาชน13หลัก',
             'fullname' => 'ชื่อเต็ม',
-            'user_id' => 'วันบันทึก',
-            'created_at' => 'Created At',
+            'created_by' => 'ผู้บันทึก',
+            'updated_by' => 'ผู้แก้ไข',
+            'created_at' => 'วันบันทึก',
         ];
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUser()
+public function getCreatedBy()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+    public function getUpdatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'updated_by']);
     }
 }

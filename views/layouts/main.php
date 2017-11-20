@@ -80,7 +80,7 @@ MaterialAsset::register($this);
                     //['label' => 'นโยบายและแผน', 'url' => ['/site/policy_planx']],
                     //['label' => 'คลังข้อมูล', 'url' => ['/site/dhdcservicex']],
                     [
-                        'label' => 'การให้บริการ', 'visible',
+                        'label' => 'บริการ', 'visible',
                         'items' => [
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แพทย์แผนไทย', 'url' => ['/site/thaimed']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ศูนย์สุขภาพชุมชนม่วงสามสิบ', 'url' => ['/site/pcu']],
@@ -92,7 +92,7 @@ MaterialAsset::register($this);
                         ],
                     ],
                     [
-                        'label' => 'ศูนย์รับแจ้ง', 'visible',
+                        'label' => 'รับแจ้ง', 'visible',
                         'items' => [
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งข้อร้องเรียน-ร้องทุกข์', 'url' => ['/requests/create']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
@@ -101,7 +101,7 @@ MaterialAsset::register($this);
                         ],
                     ],
                     [
-                        'label' => 'เครือข่ายม่วง', 'visible',
+                        'label' => 'ประกัน', 'visible',
                         'items' => [
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งเสียชีวิต', 'url' => ['/deaths30/create']],
                             //['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
