@@ -12,6 +12,9 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $id
  * @property string $cid
  * @property string $fullname
+ * @property string $cdeath
+ * @property string $ddeath
+ * @property integer $cmu
  * @property integer $created_by
  * @property integer $updated_by
  * @property string $created_at
@@ -27,62 +30,44 @@ class Deaths30 extends \yii\db\ActiveRecord
     {
         return 'deaths_m30';
     }
-      public function behaviors()
-     {
-      return [
-          BlameableBehavior::className(),
-      ];
-     }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['cid', 'fullname'], 'required'],
-            [['created_by', 'updated_by'], 'integer'],
-            [['created_at'], 'safe'],
-            [['cid'], 'string', 'length' => [13, 13]],
+            [['cid', 'fullname', 'cdeath', 'ddeath', 'cmu'], 'required'],
+            [['ddeath', 'created_at'], 'safe'],
+            [['cmu', 'created_by', 'updated_by'], 'integer'],
+            [['cid'], 'string', 'length' =>[13,13]],
+            [['cdeath'], 'string', 'length'=> [6,6]],
             [['cid'], 'unique'],
-            [['fullname'], 'string', 'length' => [10,100]],
+            [['fullname'], 'string', 'length' =>[10,100]],
+            [['cdeath'], 'string', 'max' => 6],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
         ];
     }
-    public function validateIdCard()
-    {
-        $id = str_split(str_replace('-','', $this->cid)); //ตัดรูปแบบและเอา ตัวอักษร ไปแยกเป็น array $id
-        $sum = 0;
-        $total = 0;
-        $digi = 13;
-        
-        for($i=0; $i<12; $i++){
-            $sum = $sum + (intval($id[$i]) * $digi);
-            $digi--;
-        }
-        $total = (11 - ($sum % 11)) % 10;
-        
-        if($total != $id[12]){ //ตัวที่ 13 มีค่าไม่เท่ากับผลรวมจากการคำนวณ ให้ add error
-            $this->addError('cid', 'หมายเลขบัตรประชาชนไม่ถูกต้อง');
-        }
-        
-        
-    }
-
-    /**
-     * @inheritdoc
-     */
+    
     public function attributeLabels()
     {
         return [
             'id' => 'รหัส',
             'cid' => 'เลขประชาชน13หลัก',
-            'fullname' => 'ชื่อเต็ม',
+            'fullname' => 'ชื่อ-สกุล',
+            'cdeath' => 'สาเหตุการตาย',
+            'ddeath' => 'วันที่ตาย',
+            'cmu' => 'รพสต',
             'created_by' => 'ผู้บันทึก',
             'updated_by' => 'ผู้แก้ไข',
             'created_at' => 'วันบันทึก',
         ];
     }
-public function getCreatedBy()
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCreatedBy()
     {
         return $this->hasOne(User::className(), ['id' => 'created_by']);
     }

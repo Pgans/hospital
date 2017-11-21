@@ -21,16 +21,12 @@ class MaterialAsset extends AssetBundle {
     public $css = [
 //        'css/makerstrap.complete.min.css',
 //        'css/makerstrap.min.css',
-       'font-awesome/css/font-awesome.min.css',
-       // 'css/ripples.css',
-        'css/material-wfont.min.css',
-        // 'css/material.css',
+        'font-awesome/css/font-awesome.min.css',
         'css/ripples.css',
         'css/material.min.css',
         'css/ripples.min.css',
-        'css/style.css',
-        'css/site.css'
-      //  'fonts/fonts.css'
+        'css/site.css',
+        'fonts/fonts.css',
     ];
     public $js = [
 //        'js/main.js',

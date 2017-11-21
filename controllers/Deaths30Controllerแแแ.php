@@ -8,6 +8,7 @@ use app\models\Deaths30Search;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 use yii\widgets\ActiveForm;
 /* เพิ่มคำสั่ง 3 บรรทัดต่อจากนี้ลงไป */
 use yii\filters\AccessControl;        // เรียกใช้ คลาส AccessControl
@@ -38,8 +39,6 @@ class Deaths30Controller extends Controller
                         'actions'=>['index','create','view'],
                         'allow'=> true,
                         'roles' => [
-                            '?', 
-                            '@',
                             User::ROLE_USER,
                            User::ROLE_EMPLOYEE,
                            User::ROLE_ADMIN
@@ -64,16 +63,17 @@ class Deaths30Controller extends Controller
     }
 
     public function sendLine($model)  {
-
-            //$line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
-            $line_token = 'Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wvปป';
+       
+            $line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
+           // $line_token = 'Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wvปป';
+            
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"https://notify-api.line.me/api/notify");
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->cid);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->cid.' '.$model->stan);
           //  <!--if(!empty(Yii::$app->request->getFirstImage($model->request_text))) {
               //  curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname."imageThumbnail".Yii::$app->request->getFirstImage($model->request_text)."$imageFullsize=".Yii::$app->request->getFirstImage($model->request_text));
           // }else{
@@ -122,7 +122,6 @@ class Deaths30Controller extends Controller
     public function actionCreate()
     {
         $model = new Deaths30();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             Yii::$app->getSession()->setFlash('alert', [
@@ -137,6 +136,7 @@ class Deaths30Controller extends Controller
             ]);
         }
     }
+
 
     /**
      * Updates an existing Deaths30 model.

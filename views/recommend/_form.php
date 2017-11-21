@@ -10,13 +10,13 @@ use yii\widgets\ActiveForm;
 
 <div class="recommend-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <div class="col-md-6"><?php $form = ActiveForm::begin(); ?></div>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <div class="col-md-6"><?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?></div>
 
-    <?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?>
+    <div class="col-md-6"><?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?></div>
 
-    <?= $form->field($model, 'recommend')->textarea(['rows' => 6]) ?>
+    <div class= "col-md-6"><?= $form->field($model, 'recommend')->textarea(['rows' => 6]) ?></div>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'แก้ไข', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

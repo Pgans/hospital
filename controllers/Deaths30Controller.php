@@ -39,8 +39,6 @@ class Deaths30Controller extends Controller
                         'actions'=>['index','create','view'],
                         'allow'=> true,
                         'roles' => [
-                            '?', 
-                            '@',
                             User::ROLE_USER,
                            User::ROLE_EMPLOYEE,
                            User::ROLE_ADMIN
@@ -65,7 +63,7 @@ class Deaths30Controller extends Controller
     }
 
     public function sendLine($model)  {
-
+       
             $line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
            // $line_token = 'Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wvปป';
             
@@ -75,7 +73,7 @@ class Deaths30Controller extends Controller
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->cid);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->cid.' '.$model->stan);
           //  <!--if(!empty(Yii::$app->request->getFirstImage($model->request_text))) {
               //  curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname."imageThumbnail".Yii::$app->request->getFirstImage($model->request_text)."$imageFullsize=".Yii::$app->request->getFirstImage($model->request_text));
           // }else{
@@ -121,7 +119,7 @@ class Deaths30Controller extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+     public function actionCreate()
     {
         $model = new Deaths30();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -138,6 +136,7 @@ class Deaths30Controller extends Controller
             ]);
         }
     }
+
 
 
     /**

@@ -18,8 +18,8 @@ class Deaths30Search extends Deaths30
     public function rules()
     {
         return [
-            [['id', 'created_by', 'updated_by'], 'integer'],
-            [['cid', 'fullname', 'created_at'], 'safe'],
+            [['id', 'cmu', 'created_by', 'updated_by'], 'integer'],
+            [['cid', 'fullname', 'cdeath', 'ddeath', 'created_at'], 'safe'],
         ];
     }
 
@@ -60,13 +60,16 @@ class Deaths30Search extends Deaths30
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'ddeath' => $this->ddeath,
+            'cmu' => $this->cmu,
             'created_by' => $this->created_by,
             'updated_by' => $this->updated_by,
             'created_at' => $this->created_at,
         ]);
 
         $query->andFilterWhere(['like', 'cid', $this->cid])
-            ->andFilterWhere(['like', 'fullname', $this->fullname]);
+            ->andFilterWhere(['like', 'fullname', $this->fullname])
+            ->andFilterWhere(['like', 'cdeath', $this->cdeath]);
 
         return $dataProvider;
     }
