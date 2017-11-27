@@ -21,8 +21,9 @@ $this->registerJsFile("@web/js/index.js", ['depends' => [\yii\web\JqueryAsset::c
 // popup css
 $this->registerCssFile("http://www.jacklmoore.com/colorbox/example1/colorbox.css");
 // popup js
-// $this->registerJsFile("http://code.jquery.com/jquery-3.2.1.min.js", ['depends' => [\yii\web\JqueryAsset::className()]]);
+ //$this->registerJsFile("http://code.jquery.com/jquery-3.2.1.min.js", ['depends' => [\yii\web\JqueryAsset::className()]]);
 $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", ['depends' => [\yii\web\JqueryAsset::className()]]);
+ 
 
 ?>
 <div class="container">
@@ -198,22 +199,19 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             =false&show_facepile=true&appId" width="300" height="500" style="border:none;overflow:hidden" 
                             scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                      
-                   <!-- <div class="panel panel-warning">
-                        <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-link" aria-hidden="true"></i> หน่วยงานที่เกี่ยวข้อง</h4></div>
+                   <div class="panel panel-warning">
+                        <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-link" aria-hidden="true"></i> ระบบออนไลน์</h4></div>
                         <div class="panel-body">
-                            <ul class="xoxo blogroll">
-                                <li><a href=" " target="_blank"> กลุ่มงานเทคนิคการแพทย์</a></li>
-                                <li><a href="http://www.ddc.moph.go.th/index.php" target="_blank"> กรมควบคุมโรค</a></li>
-                                <li><a href="http://www.moph.go.th" target="_blank"> กระทรวงสาธารณสุข</a></li>
-                                <li><a href="http://www.oic.go.th/ginfo/" target="_blank"> ฐานข้อมูลหน่วยงานภาครัฐ (GINFO²)</a></li>
-                                <li><a href="http://www.thaihealth.or.th" target="_blank"> สสส.</a></li>
-                                <li><a href="http://www.nhso.go.th" target="_blank"> สำนักงานหลักประกันสุขภาพแห่งชาติ</a></li>
-                                <li><a href="http://www.spbket10.com/" target="_blank"> สำนักงานเขตสุขภาพที่ 10</a></li>
-                                <li><a href="http://ops.moph.go.th/" target="_blank"> สำนักปลัดกระทรวงสาธารณสุข</a></li>
-                                <li><a href="http://beid.ddc.moph.go.th/beid_2014/th/home" target="_blank"> สำนักโรคติดต่ออุบัติใหม่</a></li>
+                             <ul class="xoxo blogroll">
+                                <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://service.m30hospital.com/frontend/web/index.php?r=opdcard%2Fpermits" target="_blank"> ยืมเวชระเบียน</a>
+                                <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://service.m30hospital.com/backend/web/index.php?r=opdcard%2Fpermits" target="_blank"> คืนเวชระเบียน</a>
+                                <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://service.m30hospital.com/backend/web/index.php?r=personal%2Fperson" target="_blank"> ระบบบุคลากร</a>
+                                <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://m30hospital.com/web/index.php?r=deaths30%2Fcreate" target="_blank"> แจ้งตายในเครือข่าย</a>
+                                <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://service.m30hospital.com/frontend/web/index.php" target="_blank"> รายงานข้อมูลบริการ</a>
+                                <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://service.m30hospital.com/frontend/web/index.php?r=ehr" target="_blank"> ประวัติบริการ</a>
                             </ul>
                         </div>
-                    </div>-->
+                    </div>
                     <!--</div>-->
                     <!--</div>-->
                     <!--<div class="col-xs-6 col-md-4">-->
@@ -268,18 +266,16 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     </div>
                     <div class="panel panel-warning">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> ระบบ Intranet</h3>
+                            <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> ระบบในหน่วยงาน</h3>
                         </div>
                         <div class="box-body">
                             <div>
                                 <ul class="xoxo blogroll">
                                     <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://192.168.200.4/service/meeting/index.php" target="_blank"> ระบบจองห้องประชุม</a>
-                                    <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://192.168.200.2/yii2a-devices/frontend/web/index.php?r=opdcard%2Fpermits" target="_blank"> ระบบยืมคืนเวชระเบียน</a>
                                     <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://192.168.200.2/dhdc2" target="_blank">DHDC(43แฟ้ม)</a>
-                                     <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://192.168.200.2/yii2a-devices/frontend/web/index.php" target="_blank"> ข้อมูลบริการย้อนหลัง5ปี(mbase) </a>
                                     <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://192.168.200.4/service/index.php?show=add_job" target="_blank"> ระบบส่งซ่อมคอมพิวเตอร์</a>
                                     <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://192.168.200.4/service/index.php?show=add_job" target="_blank"> ระบบสื่อโสตทัศนศึกษา</a>
-                                    <br><img src="images/arrow_all.gif" width="10" height="10"><a href="http://192.168.200.2/yii2a-devices/backend/web/index.php" target="_blank"> ระบบบุคลากร</a>
+                                    
                                 </ul>
                             </div>
                         </div>

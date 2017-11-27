@@ -13,11 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="well" align="center">
 
     <p>
-        <img src="images/structrure.jpg" class="img-thumbnail">
+        <img src="images/structure.jpg" class="img-thumbnail">
     </p>
-    <p>
-        <img src="images/teams.jpg" class="img-thumbnail">
-    </p>
+    
     
 </div>
 </div>

@@ -4,29 +4,49 @@
 Chatree Notify
 
 
-zE23M3JfIsTFMyqDMitn1Bbx9I1PmlZuWGmvZL
+XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR  ::HDC_m30
 
-XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR
+Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wv  :ประกัน
 
+7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY   ::Line Notify
 
+nlCGmTEWN3uOgCB8PbcMtPQ5rrQ9QoHFDGr4690luBG   ::MRS
 
-
-Line Notify(ตัวมันเอง)
-
-7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY
-
-
-Line token ประกันเครือข่าย
-Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wv
-
+sB08xNuA9dEhqeyS6LoBolnRELMmkIZDrIj7Cr4xxpX   ::SSH
 
 
 
 ทดสอบการส่ง
 curl -X POST -H 'Authorization: Bearer [accessToken]' -F 'message='Test Line Notify สวัสดีครับ' https://notify-api.line.me/api/notify
 
-curl -X POST -H 'Authorization: Bearer 7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY' -F 'message=ทดสอบLine Notify' https://notify-api.line.me/api/notify
+curl -X POST -H 'Authorization: Bearer 7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY' -F 'message=ทดสอบLine Notify' https://notify-api.line.me/api/notify    //ตัวเอง
 
-curl -X POST -H 'Authorization: Bearer XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR' -F 'message=Test Line Notify' https://notify-api.line.me/api/notify
+curl -X POST -H 'Authorization: Bearer XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR' -F 'message=Test Line Notify' https://notify-api.line.me/api/notify   //HDC-m30
 
-curl -X POST -H 'Authorization: Bearer Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wv' -F 'message=ทดสอบแจ้งคนเสียชีวิตผ่านหน้าเว็บส่งเข้ากลุ่มไลน์' https://notify-api.line.me/api/notify
+curl -X POST -H 'Authorization: Bearer nlCGmTEWN3uOgCB8PbcMtPQ5rrQ9QoHFDGr4690luBG' -F 'message=Test Line Notify เวชระเบียน' https://notify-api.line.me/api/notify   //MRS
+
+curl -X POST -H 'Authorization: Bearer sB08xNuA9dEhqeyS6LoBolnRELMmkIZDrIj7Cr4xxpX ' -F 'message=Line Notify SSH' https://notify-api.line.me/api/notify :::SSH
+
+
+
+#############################
+m30hospit##@=.com@@@/phpmyadmin
+ Old::::mhospit1:::::Xik97be76C
+ New::::##858480=@@
+Hostname: m30hospital.com หรือ 119.59.104.40
+
+#############################
+web_maim:::admin::@#045489064@#
+		   pgans::okp=k9iu
+web_sub    admin::@#045489064@#
+		   pgans::okp=k9iu
+#############################
+
+
+
+
+
+
+
+
+
