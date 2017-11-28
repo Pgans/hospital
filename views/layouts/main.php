@@ -127,6 +127,7 @@ MaterialAsset::register($this);
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข่าวสาร', 'url' => ['/news/admin'], 'visible' => !Yii::$app->user->isGuest],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข้อร้องเรียน', 'url' => ['/requests/index'], 'visible' => !Yii::$app->user->isGuest],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> จัดการข้อเสนอแนะ', 'url' => ['/recommend/index'], 'visible' => !Yii::$app->user->isGuest],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> Upload_Slide', 'url' => ['/slideupload/index'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูไฟล์</li>',
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> อัพโหลดไฟล์', 'url' => ['/freelance/admin'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูอัลบั้มภาพ</li>',
