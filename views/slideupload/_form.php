@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'] ]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
     <div class="row">
       <div class="col-md-2">
         <div class="well text-center">

@@ -39,8 +39,8 @@ class SlideuploadController extends Controller
                         'actions'=>['index','create','view'],
                         'allow'=> true,
                         'roles' => [
-                            '?', 
-                            '@',
+                            //'?', 
+                            //'@',
                             User::ROLE_USER,
                            User::ROLE_EMPLOYEE,
                            User::ROLE_ADMIN

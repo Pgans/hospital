@@ -34,6 +34,11 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
         <div class="item"><?= Html::img('@web/images/3.jpg', ['alt' => 'ทดสอบ']) ?></div>
         <div class="item"><?= Html::img('@web/images/4.jpg', ['alt' => 'ทดสอบ']) ?></div>
         <div class="item"><?= Html::img('@web/images/5.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <div class="item"><?= Html::img('@web/images/6.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <div class="item"><?= Html::img('@web/images/7.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <div class="item"><?= Html::img('@web/images/8.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <div class="item"><?= Html::img('@web/images/9.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <div class="item"><?= Html::img('@web/images/10.jpg', ['alt' => 'ทดสอบ']) ?></div>
     </div>
         <!-- begin carousel -->
         <!-- <img src="images/black_ribbon_top_left.png" class="black-ribbon stick-left stick-bottom"> -->

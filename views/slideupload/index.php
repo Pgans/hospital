@@ -16,7 +16,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('เพิ่มภาพโชว์หน้าเว็บ', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('เพิ่มภาพโชว์หน้าเว็บ', ['create'], ['class' => 'btn btn-warning']) ?>
+    </p>
+    <p>
+        <?= Html::a('ขนาดไฟล์ 920x200 รองรับไฟล์ jpg เท่านั้น ความละเอียดภาพได้ไม่จำกัด') ?>
+    </p>
+    <p>
+        <?= Html::a('กำหนดเล่นได้ 10 ภาพ ควรตั้งชื่อเรียงตามลำดับ เช่น 1.jpg, 2jpg   แล้ว  Uploads  ทับได้เลยครับ...', ['class' => 'btn btn-info']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
