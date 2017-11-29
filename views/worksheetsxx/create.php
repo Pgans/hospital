@@ -1,0 +1,23 @@
+<?php
+
+use yii\helpers\Html;
+
+
+/* @var $this yii\web\View */
+/* @var $model app\models\Worksheets */
+
+$this->title = Yii::t('app', 'Create Worksheets');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Worksheets'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="worksheets-create">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+     <?= $this->render('_form', [
+        'model' => $model,
+        'initialPreview'=>[],
+        'initialPreviewConfig'=>[]
+    ]) ?>
+    
+</div>
