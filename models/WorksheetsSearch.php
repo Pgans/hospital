@@ -18,8 +18,8 @@ class WorksheetsSearch extends Worksheets
     public function rules()
     {
         return [
-            [['id', 'created_by', 'updated_by'], 'integer'],
-            [['ref', 'worksheet_name', 'covenant', 'docs', 'created_at'], 'safe'],
+            [['id'], 'integer'],
+            [['ref', 'title', 'covenant', 'docs', 'create_date'], 'safe'],
         ];
     }
 
@@ -60,13 +60,11 @@ class WorksheetsSearch extends Worksheets
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'created_by' => $this->created_by,
-            'updated_by' => $this->updated_by,
-            'created_at' => $this->created_at,
+            'create_date' => $this->create_date,
         ]);
 
         $query->andFilterWhere(['like', 'ref', $this->ref])
-            ->andFilterWhere(['like', 'worksheet_name', $this->worksheet_name])
+            ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'covenant', $this->covenant])
             ->andFilterWhere(['like', 'docs', $this->docs]);
 

@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Worksheets */
 
-$this->title = Yii::t('app', 'Create Worksheets');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Worksheets'), 'url' => ['index']];
+$this->title = 'เพิ่มใบงาน';
+$this->params['breadcrumbs'][] = ['label' => 'ใบงานต่างๆ', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="worksheets-create">

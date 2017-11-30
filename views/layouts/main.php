@@ -109,7 +109,8 @@ MaterialAsset::register($this);
                             
                         ],
                     ],
-                    ['label' => 'ดาวน์โหลด', 'url' => ['/freelance/index']],
+                    ['label' => 'ใบงาน', 'url' => ['/worksheets/index']],
+                    //['label' => 'ดาวน์โหลด', 'url' => ['/freelance/index']],
                 //['label' => 'เกี่ยวกับ', 'url' => ['/site/about']],
                 ],
             ]);

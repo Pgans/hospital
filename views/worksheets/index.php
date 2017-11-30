@@ -1,45 +1,34 @@
 <?php
-use yii\widgets\ListView;
-use yii\grid\GridView;
-use yii\helpers\Url;
-use yii\widgets\DetailView;
-use yii\db\Query;
+
 use yii\helpers\Html;
-use yii\models\Worksheets;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-$this->title = 'ดาวน์โหลดไฟล์';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $searchModel app\models\WorksheetsSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
+$this->title = 'ใบงานต่างๆ';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<h1><i class="glyphicon glyphicon-circle-arrow-down"></i> ดาวน์โหลดไฟล์</i></h1>
-<!-- <div class="well"> -->
-<div class="site-index">
+<div class="worksheets-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('เพิ่มใบงาน', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <div class="site-index">
   <?= GridView::widget([
       'dataProvider' => $dataProvider,
-//      'filterModel' => $searchModel,
+      'filterModel' => $searchModel,
       'columns' => [
           ['class' => 'yii\grid\SerialColumn'],
-          'worksheet_name',
+          'title',
           ['attribute'=>'covenant','value'=>function($model){return $model->listDownloadFiles('covenant');},'format'=>'html'],
-          'created_by',
-            // 'updated_by',
-            'created_at',
+          'create_date',
+          ['class' => 'yii\grid\ActionColumn'],
         ],
         'layout' => '{items}{pager}',
   ]); ?>
 </div>
-<!-- </div> -->
-
-
-columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-          //  'id',
-           // 'ref',
-            'worksheet_name',
-            'covenant',
-           // 'docs',
-             'created_by',
-            // 'updated_by',
-            'created_at',

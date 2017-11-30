@@ -26,6 +26,10 @@ $config = [
         'request' => [
             'class' => 'app\modules\request\Module',
         ],
+        'sheets' => [
+
+            'class' => 'app\modules\sheets\Module',
+        ],
     ],
     'components' => [
         'request' => [

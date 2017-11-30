@@ -19,21 +19,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ref') ?>
 
-    <?= $form->field($model, 'worksheet_name') ?>
+    <?= $form->field($model, 'title') ?>
 
     <?= $form->field($model, 'covenant') ?>
 
     <?= $form->field($model, 'docs') ?>
 
-    <?php // echo $form->field($model, 'created_by') ?>
-
-    <?php // echo $form->field($model, 'updated_by') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
+    <?php // echo $form->field($model, 'create_date') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

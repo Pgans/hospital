@@ -4,26 +4,25 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\Html;
-use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\helpers\Json;
+
 /**
  * This is the model class for table "worksheets".
  *
  * @property integer $id
  * @property string $ref
- * @property string $worksheet_name
+ * @property string $title
  * @property string $covenant
  * @property string $docs
- * @property integer $created_by
- * @property integer $updated_by
- * @property string $created_at
- *
- * @property User $createdBy
+ * @property string $create_date
  */
 class Worksheets extends \yii\db\ActiveRecord
 {
-     const UPLOAD_FOLDER = 'sheets';
-
+    const UPLOAD_FOLDER = 'sheets';
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return 'worksheets';
@@ -35,40 +34,30 @@ class Worksheets extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['worksheet_name'], 'required'],
-            [['created_by', 'updated_by'], 'integer'],
-            [['created_at'], 'safe'],
+            [['create_date'], 'safe'],
             [['ref'], 'string', 'max' => 50],
-            [['worksheet_name'], 'string', 'max' => 250],
+            [['ref'], 'string', 'max' => 50],
+            [['title'], 'string', 'max' => 255],
             [['covenant'],'file','maxFiles'=>1],
-            //[['covenant', 'docs'], 'string', 'max' => 255],
-            [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
+            //[['docs'],'file','maxFiles'=>10,'skipOnEmpty'=>true]
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
+     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'ref' => 'หลายเลข referent สำหรับอัพโหลดไฟล์ ajax',
-            'worksheet_name' => 'ชื่อใบงาน',
-            'covenant' => 'ไฟล์ดาวน์โหลด',
-            'docs' => 'Docs',
-            'created_by' => 'ผู้สร้าง',
-            'updated_by' => 'ผู้แก้ไข',
-            'created_at' => 'วันบันทึก',
+          'id' => 'ID',
+          'ref' => 'หลายเลข referent สำหรับอัพโหลดไฟล์ ajax',
+          'title' => 'หัวข้อ',
+          'covenant' => 'ดาวน์โหลดไฟล์',
+          'create_date' => 'วันที่อัพโหลด',
         ];
     }
-     
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-  
-     public static function getUploadPath(){
+    public static function getUploadPath(){
         return Yii::getAlias('@webroot').'/'.self::UPLOAD_FOLDER.'/';
     }
 
@@ -84,7 +73,7 @@ class Worksheets extends \yii\db\ActiveRecord
             if(is_array($files)){
                  $docs_file ='<ul>';
                  foreach ($files as $key => $value) {
-                    $docs_file .= '<li>'.Html::a($value,['/freelance/download','id'=>$this->id,'file'=>$key,'file_name'=>$value]).'</li>';
+                    $docs_file .= '<li>'.Html::a($value,['/worksheets/download','id'=>$this->id,'file'=>$key,'file_name'=>$value]).'</li>';
                  }
                  $docs_file .='</ul>';
             }
@@ -104,7 +93,7 @@ class Worksheets extends \yii\db\ActiveRecord
                         $initial[] = [
                             'caption'=> $value,
                             'width'  => '120px',
-                            'url'    => Url::to(['/freelance/deletefile','id'=>$this->id,'fileName'=>$key,'field'=>$field]),
+                            'url'    => Url::to(['/worksheets/deletefile','id'=>$this->id,'fileName'=>$key,'field'=>$field]),
                             'key'    => $key
                         ];
                     }
@@ -115,11 +104,6 @@ class Worksheets extends \yii\db\ActiveRecord
          }
         return $initial;
     }
-      public function getCreatedBy()
-    {
-        return $this->hasOne(User::className(), ['id' => 'created_by']);
-    }
 
 }
-
 

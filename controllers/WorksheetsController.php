@@ -5,10 +5,10 @@ namespace app\controllers;
 use Yii;
 use app\models\Worksheets;
 use app\models\WorksheetsSearch;
+use app\models\Uploads;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\models\Uploads;
 use yii\helpers\Url;
 use yii\helpers\html;
 use yii\web\UploadedFile;
@@ -20,7 +20,6 @@ use yii\filters\AccessControl;        // เรียกใช้ คลาส A
 use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
 use app\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
 
-
 /**
  * WorksheetsController implements the CRUD actions for Worksheets model.
  */
@@ -29,8 +28,7 @@ class WorksheetsController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+   public function behaviors(){
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -38,6 +36,37 @@ class WorksheetsController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'only'=> ['index','create','update','view','delete'],
+                'ruleConfig'=>[
+                    'class'=>AccessRule::className()
+                ],
+                'rules'=>[
+                    [
+                        'actions'=>['index','create','view'],
+                        'allow'=> true,
+                        'roles' => [
+                            User::ROLE_USER,
+                           User::ROLE_EMPLOYEE,
+                           User::ROLE_ADMIN
+                         ]
+                    ],
+                    [
+                        'actions'=>['update'],
+                        'allow'=> true,
+                        'roles'=>[
+                            User::ROLE_EMPLOYEE,
+                            User::ROLE_ADMIN
+                        ]
+                    ],
+                    [
+                        'actions'=>['delete'],
+                        'allow'=> true,
+                        'roles'=>[User::ROLE_ADMIN]
+                    ]
+                ]
+            ]
         ];
     }
 
@@ -76,7 +105,7 @@ class WorksheetsController extends Controller
     public function actionCreate()
     {
         $model = new Worksheets();
-
+        
         if ($model->load(Yii::$app->request->post()) ) {
 
             $this->CreateDir($model->ref);
@@ -84,7 +113,7 @@ class WorksheetsController extends Controller
             $model->docs = $this->uploadMultipleFile($model);
 
             if($model->save()){
-                 return $this->redirect(['view', 'id' => $model->id]);
+                 return $this->redirect(['index', 'id' => $model->id]);
             }
 
         } else {
@@ -114,7 +143,7 @@ class WorksheetsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $tempCovenant = $model->covenant;
+         $tempCovenant = $model->covenant;
         //$tempDocs     = $model->docs;
         if ($model->load(Yii::$app->request->post())) {
 
@@ -191,7 +220,7 @@ class WorksheetsController extends Controller
             if($type==='file'){
                $filePath = Worksheets::getUploadPath().$ref.'/'.$fileName;
             } else {
-               $filePath = Worksheete::getUploadPath().$ref.'/thumbnail/'.$fileName;
+               $filePath = Worksheets::getUploadPath().$ref.'/thumbnail/'.$fileName;
             }
             @unlink($filePath);
             return true;
@@ -271,117 +300,6 @@ class WorksheetsController extends Controller
     private function removeUploadDir($dir){
         BaseFileHelper::removeDirectory(Worksheets::getUploadPath().$dir);
     }
-     public function actionUploadAjax(){
-           $this->Uploads(true);
-     }
-
-    
-
-    private function Uploads($isAjax=false) {
-             if (Yii::$app->request->isPost) {
-                $images = UploadedFile::getInstancesByName('upload_ajax');
-                if ($images) {
-
-                    if($isAjax===true){
-                        $ref =Yii::$app->request->post('ref');
-                    }else{
-                        $PhotoLibrary = Yii::$app->request->post('PhotoLibrary');
-                        $ref = $PhotoLibrary['ref'];
-                    }
-
-                    $this->CreateDir($ref);
-
-                    foreach ($images as $file){
-                        $fileName       = $file->baseName . '.' . $file->extension;
-                        $realFileName   = md5($file->baseName.time()) . '.' . $file->extension;
-                        $savePath       = PhotoLibrary::UPLOAD_FOLDER.'/'.$ref.'/'. $realFileName;
-                        if($file->saveAs($savePath)){
-
-                            if($this->isImage(Url::base(true).'/'.$savePath)){
-                                 $this->createThumbnail($ref,$realFileName);
-                            }
-
-                            $model                  = new Uploads;
-                            $model->ref             = $ref;
-                            $model->file_name       = $fileName;
-                            $model->real_filename   = $realFileName;
-                            $model->save();
-
-                            if($isAjax===true){
-                                echo json_encode(['success' => 'true']);
-                            }
-
-                        }else{
-                            if($isAjax===true){
-                                echo json_encode(['success'=>'false','eror'=>$file->error]);
-                            }
-                        }
-
-                    }
-                }
-            }
-    }
-
-    private function getInitialPreview($ref) {
-            $datas = Uploads::find()->where(['ref'=>$ref])->all();
-            $initialPreview = [];
-            $initialPreviewConfig = [];
-            foreach ($datas as $key => $value) {
-                array_push($initialPreview, $this->getTemplatePreview($value));
-                array_push($initialPreviewConfig, [
-                    'caption'=> $value->file_name,
-                    'width'  => '120px',
-                    'url'    => Url::to(['/photo-library/deletefile-ajax']),
-                    'key'    => $value->upload_id
-                ]);
-            }
-            return  [$initialPreview,$initialPreviewConfig];
-    }
-
-    public function isImage($filePath){
-            return @is_array(getimagesize($filePath)) ? true : false;
-    }
-
-    private function getTemplatePreview(Uploads $model){
-            $filePath = PhotoLibrary::getUploadUrl().$model->ref.'/thumbnail/'.$model->real_filename;
-            $isImage  = $this->isImage($filePath);
-            if($isImage){
-                $file = Html::img($filePath,['class'=>'file-preview-image', 'alt'=>$model->file_name, 'title'=>$model->file_name]);
-            }else{
-                $file =  "<div class='file-preview-other'> " .
-                         "<h2><i class='glyphicon glyphicon-file'></i></h2>" .
-                         "</div>";
-            }
-            return $file;
-    }
-
-    private function createThumbnail($folderName,$fileName,$width=250){
-      $uploadPath   = PhotoLibrary::getUploadPath().'/'.$folderName.'/';
-      $file         = $uploadPath.$fileName;
-      $image        = Yii::$app->image->load($file);
-      $image->resize($width);
-      $image->save($uploadPath.'thumbnail/'.$fileName);
-      return;
-    }
-
-    public function actionDeletefileAjax(){
-
-        $model = Uploads::findOne(Yii::$app->request->post('key'));
-        if($model!==NULL){
-            $filename  = PhotoLibrary::getUploadPath().$model->ref.'/'.$model->real_filename;
-            $thumbnail = PhotoLibrary::getUploadPath().$model->ref.'/thumbnail/'.$model->real_filename;
-            if($model->delete()){
-                @unlink($filename);
-                @unlink($thumbnail);
-                echo json_encode(['success'=>true]);
-            }else{
-                echo json_encode(['success'=>false]);
-            }
-        }else{
-          echo json_encode(['success'=>false]);  
-        }
-    }
 }
-
 
 
