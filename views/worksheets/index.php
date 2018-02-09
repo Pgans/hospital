@@ -16,8 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('เพิ่มใบงาน', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('เพิ่มใบงาน', ['create'], ['class' => 'btn btn-warning']) ?>
     </p>
+    <p><?= Html::a('รองรับประเภทไฟล์ pdf, doc, docx, xls, xlsx')?></p>
     <div class="site-index">
   <?= GridView::widget([
       'dataProvider' => $dataProvider,

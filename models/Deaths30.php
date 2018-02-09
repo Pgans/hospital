@@ -41,7 +41,7 @@ class Deaths30 extends \yii\db\ActiveRecord
             [['ddeath', 'created_at'], 'safe'],
             [['cmu', 'created_by', 'updated_by'], 'integer'],
             [['cid'], 'string', 'length' =>[13,13]],
-            [['cdeath'], 'string', 'length'=> [6,6]],
+            [['cdeath'], 'string', 'length'=> [4,6]],
             [['cid'], 'unique'],
             [['fullname'], 'string', 'length' =>[10,100]],
             [['cdeath'], 'string', 'max' => 6],

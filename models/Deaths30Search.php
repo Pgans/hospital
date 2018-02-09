@@ -69,6 +69,7 @@ class Deaths30Search extends Deaths30
 
         $query->andFilterWhere(['like', 'cid', $this->cid])
             ->andFilterWhere(['like', 'fullname', $this->fullname])
+            ->andFilterWhere(['like', 'cmu', $this->cmu])
             ->andFilterWhere(['like', 'cdeath', $this->cdeath]);
 
         return $dataProvider;

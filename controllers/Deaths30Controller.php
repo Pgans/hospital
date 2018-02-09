@@ -64,8 +64,8 @@ class Deaths30Controller extends Controller
 
     public function sendLine($model)  {
        
-            $line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
-           // $line_token = 'Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wvปป';
+            //$line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
+            $line_token = 'Lt6mXnC22zJRNgp5SRGqiGToCt6NOZyHr4v1Rn830Wv';
             
 
             $ch = curl_init();
@@ -73,7 +73,7 @@ class Deaths30Controller extends Controller
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->cid.' '.$model->stan.'cdeath'.$model->cdeath.'ddeath'.$model->ddeath);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->cid.' '.$model->cmu.'สาหตุ'.$model->cdeath.' '.'วันตาย'.$model->ddeath);
           //  <!--if(!empty(Yii::$app->request->getFirstImage($model->request_text))) {
               //  curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname."imageThumbnail".Yii::$app->request->getFirstImage($model->request_text)."$imageFullsize=".Yii::$app->request->getFirstImage($model->request_text));
           // }else{

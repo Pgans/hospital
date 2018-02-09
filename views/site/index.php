@@ -110,9 +110,9 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                         <div class="panel-body">
                             <div>
                          <ul class="xoxo blogroll">
-                         <img src="images/arrow_all.gif" width="10" height="10"><a href="http://thcc.or.th/43flie/61/StandardCode43_(v2.3)_8Nov17.rar" target="_blank"> โครงสร้างมาตรฐานข้อมูลสุขภาพ (43แฟ้ม) Version 2.3 
+                         <img src="images/arrow_all.gif" width="10" height="10"><a href="https://drive.google.com/open?id=1i_lOFDLr-e4Z6LPyUDBRhw_fvLQImMlK" target="_blank"> โครงสร้างมาตรฐานข้อมูลสุขภาพ (43แฟ้ม) Version 2.3 
     ปีงบประมาณ 2561  </a>
-                         <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="http://thcc.or.th/43flie/60/43file_manual_standardcode_V2.2.rar" target="_blank"> โครงสร้างมาตรฐานข้อมูลสุขภาพ (43แฟ้ม) Version 2.2 
+                         <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="https://drive.google.com/open?id=0B9VVFGgnSeSuTWJuSmsyOTZJQnc" target="_blank"> โครงสร้างมาตรฐานข้อมูลสุขภาพ (43แฟ้ม) Version 2.2 
     ปีงบประมาณ 2560 </a>
                         <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="http://www.nhso.go.th/files/userfiles/file/NHSOAuthen4_2017.rar" target="_blank"> โปรแกรม NHSO UCAuthentication 4.0 สำหรับ Authen เข้าระบบเว็บตรวจสอบสิทธิผ่านประชาชน(Smart Card)  </a>
                                   
@@ -184,7 +184,6 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                                 <img src="images/boss0.jpg" alt="...">
                                 <div class="caption">
                                     <h4>นพ.ประจักษ์ สีลาชาติ</h4>
-                                    <h5>รักษาการในตำแหน่ง</h5>
                                     <h5>ผู้อำนวยการโรงพยาบาลม่วงสามสิบ</h5>
                                 </div>
                             </div>

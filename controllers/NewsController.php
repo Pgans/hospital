@@ -17,6 +17,7 @@ use yii\web\UploadedFile;
 use yii\data\ActiveDataProvider;
 use yii\helpers\BaseFileHelper;
 use app\models\Uploads;
+use app\model\TblLogs;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -52,16 +53,23 @@ class NewsController extends Controller
               ]
             ]
         ];
+           
     }
-
+    
 public function actionIndex(){
   $searchModel = new NewsSearch();
 
-  //print_r(Yii::$app->request->queryParams);
 
   $dataProvider = $searchModel->searchNewsall();
   //$dataProvider->pagination->pageSize = 3;
   $dataProvider->sort->defaultOrder = ['id'=>'DESC'];
+
+  //  save Log    
+$url_address=$this->getId();
+$log_type='Index';
+$reference='UserID='.Yii::$app()->user->user_id;
+// echo ชื่อ class :: ชื่อ function( ตัวแปรส่งค่า );
+Log::save_log($url_address,$log_type,$reference);
 
   return $this->render('index',[
     'searchModel' => $searchModel,
@@ -133,70 +141,7 @@ public function actionIndex(){
           ]);
      }
 
-    /**
-     * Updates an existing News model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    // public function actionUpdate($id)
-    // {
-    //     $model = $this->findModel($id);
-    //     $iconExtensions = ['jpg', 'png'];
-    //     // Uploads File
-    //     $tempDocs     = $model->docs;
-    // อันใหม่
-    //     if ($model->load(Yii::$app->request->post())) {
-    //         $this->CreateDir($model->ref);
-    //         $model->docs = $this->uploadMultipleFile($model,$tempDocs);
-    //
-    //         if($model->save()){
-    //           $model->icon = UploadedFile::getInstance($model,'icon');
-    //           if($model->icon){
-    //             $iconFullName = Yii::getAlias('@webroot').'/uploaded/news/icons/';
-    //             $iconFullName .= $model->id;
-    //             foreach ($iconExtensions as $key => $exe) {
-    //               $iconUnlink = $iconFullName.'.'.$exe;
-    //               if(is_file($iconUnlink)){
-    //                   unlink($iconUnlink);
-    //               }
-    //             }
-    //             $iconFullName .= '.'.$model->icon->extension;
-    //
-    //             $model->icon->saveAs($iconFullName);
-    //           }
-    //             return $this->redirect(['view', 'id' => $model->id]);
-    //         }else {
-    //             return $this->render('update', [
-    //                 'model' => $model,
-    //             ]);
-    //         }
-    //     }
-// สิ้นสุดอันใหม่
-// อันเก่า
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        //   $model->icon = UploadedFile::getInstance($model,'icon');
-        //   if($model->icon){
-        //     $iconFullName = Yii::getAlias('@webroot').'/uploaded/news/icons/';
-        //     $iconFullName .= $model->id;
-        //     foreach ($iconExtensions as $key => $exe) {
-        //       $iconUnlink = $iconFullName.'.'.$exe;
-        //       if(is_file($iconUnlink)){
-        //           unlink($iconUnlink);
-        //       }
-        //     }
-        //     $iconFullName .= '.'.$model->icon->extension;
-        //
-        //     $model->icon->saveAs($iconFullName);
-        //   }
-        //     return $this->redirect(['view', 'id' => $model->id]);
-        // } else {
-        //     return $this->render('update', [
-        //         'model' => $model,
-        //     ]);
-        // }
-        // สิ้นสุดอันเก่า
-    // }
+    
 
     public function actionUpdate($id)
     {
@@ -209,10 +154,13 @@ public function actionIndex(){
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
+        
+     
         return $this->render('update', [
             'model' => $model
         ]);
     }
+    
 
     /**
      * Deletes an existing News model.
@@ -349,9 +297,18 @@ public function actionIndex(){
        private function removeUploadDir($dir){
            BaseFileHelper::removeDirectory(News::getUploadPath().$dir);
        }
-        /**
-         * Upload & Rename file
-         * @return mixed
-         */
+
+       public $writeLog = false;
+
+        protected function afterActionindex()
+            {   
+                        if($this->writeLog)
+                        {
+                                 $sql = 'INSERT INTO tbl_logs VALUES (\''.Yii::$app->user->identity->username.'\',\''.\Yii::$app->request->getUserIP().'\',\''.date("Y-m-d H:i:s").'\',\''
+.$this->getId().'\',\''.$this->getAction()->getId().'\')';
+                        $command = Yii::$app()->db->createCommand($sql);
+                        $command->execute();
+                        }
+            }
 
 }

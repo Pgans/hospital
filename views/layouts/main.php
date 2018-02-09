@@ -51,9 +51,7 @@ MaterialAsset::register($this);
     // </script>
     // <!-- สิ้นสุด popup -->
     <body>
-        <?php $this->beginBody() ?>
-        <img src="images/black_ribbon_top_left.png" class="black-ribbon stick-top stick-left"/>
-        <div class="wrap">
+       
             <?php
             NavBar::begin([
                 'brandLabel' => '<img src="images/moph.png" style="display:inline; vertical-align: top; height:32px;" class="img-responsive"> โรงพยาบาลม่วงสามสิบ',

@@ -30,7 +30,8 @@
         "kartik-v/yii2-widget-datepicker": "@dev",
         "rmrevin/yii2-fontawesome": "~2.15",
         "dixonsatit/yii2-thai-year-formatter": "*",
-        "ibrarturi/yii2-scrollup": "dev-master"
+        "ibrarturi/yii2-scrollup": "dev-master",
+        "sylletka/yii2-log": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

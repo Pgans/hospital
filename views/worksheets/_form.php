@@ -26,7 +26,7 @@ use kartik\date\DatePicker;
     'pluginOptions' => [
         'initialPreview'=>$model->initialPreview($model->covenant,'covenant','file'),
         'initialPreviewConfig'=>$model->initialPreview($model->covenant,'covenant','config'),
-        'allowedFileExtensions'=>['zip','pdf'],
+        'allowedFileExtensions'=>['doc','docx','xls','xlsx','pdf'],
         'showPreview' => true,
         'showCaption' => true,
         'showRemove' => true,

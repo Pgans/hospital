@@ -125,4 +125,9 @@ class News extends \yii\db\ActiveRecord
     {
         return $this->hasOne(NewsCategory::className(), ['id' => 'cat_id']);
     }
+      public function getId()
+    {
+        return $this->getPrimaryKey();
+    }
+
 }

@@ -29,10 +29,6 @@ class SlickController extends Controller
         ];
     }
 
-    /**
-     * Lists all Slick models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new SlickSearch();
