@@ -82,7 +82,7 @@ class RequestsController extends Controller
     }
     public function sendLine($model)  {
 
-            $line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
+            $line_token = 'cfdpRl44nox1LUTTPWYppxN98w4WS0j1jB6dpPNB2FU';
            // $line_token = 'XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR';
           
 
@@ -91,7 +91,7 @@ class RequestsController extends Controller
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname.' '.$model->request_text.' '.$model->telephone);
           //  <!--if(!empty(Yii::$app->request->getFirstImage($model->request_text))) {
               //  curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname."imageThumbnail".Yii::$app->request->getFirstImage($model->request_text)."$imageFullsize=".Yii::$app->request->getFirstImage($model->request_text));
           // }else{

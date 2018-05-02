@@ -69,14 +69,14 @@ class RecommendController extends Controller
     public function sendLine($model)  {
 
             //$line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
-            $line_token = 'XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR';
+            $line_token = 'cfdpRl44nox1LUTTPWYppxN98w4WS0j1jB6dpPNB2FU';
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"https://notify-api.line.me/api/notify");
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->name);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->name.' '.$model->recommend.'  '.$model->telephone);
           //  <!--if(!empty(Yii::$app->request->getFirstImage($model->request_text))) {
               //  curl_setopt($ch, CURLOPT_POSTFIELDS, "message=".$model->fullname."imageThumbnail".Yii::$app->request->getFirstImage($model->request_text)."$imageFullsize=".Yii::$app->request->getFirstImage($model->request_text));
           // }else{

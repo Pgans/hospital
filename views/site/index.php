@@ -12,6 +12,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 $this->title = 'โรงพยาบาลม่วงสามสิบ อำเภอม่วงสามสิบ จังหวัดอุบลราชธานี';
 // register css files
+
+
 $this->registerCssFile("@web/owl.carousel/owl-carousel/owl.carousel.css");
 // $this->registerCssFile("@web/owl.carousel/owl-carousel/owl.theme.css");
 
@@ -39,6 +41,22 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
         <div class="item"><?= Html::img('@web/images/9.jpg', ['alt' => 'ทดสอบ']) ?></div>
         <div class="item"><?= Html::img('@web/images/10.jpg', ['alt' => 'ทดสอบ']) ?></div>
     </div>
+        
+         <div class="col-lg-6 col-md-6 col-sm-6">
+             <div class="panel-body">
+                 <div class="embed-responsive embed-responsive-16by9">
+                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RSq66Sr9uac?playlist=RSq66Sr9uac&autoplay=1&loop=1"></iframe>
+                </div>
+            </div>
+         </div>
+         <div class="col-lg-6 col-md-6 col-sm-6">
+             <div class="panel-body">
+                 <div class="embed-responsive embed-responsive-16by9">
+                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rUA_6kznu8I?playlist=rUA_6kznu8I&loop=1"></iframe>
+                </div>
+            </div>
+         </div>
+      
         <!-- begin carousel -->
         <!-- <img src="images/black_ribbon_top_left.png" class="black-ribbon stick-left stick-bottom"> -->
         <!-- <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -114,8 +132,11 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
     ปีงบประมาณ 2561  </a>
                          <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="https://drive.google.com/open?id=0B9VVFGgnSeSuTWJuSmsyOTZJQnc" target="_blank"> โครงสร้างมาตรฐานข้อมูลสุขภาพ (43แฟ้ม) Version 2.2 
     ปีงบประมาณ 2560 </a>
-                        <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="http://www.nhso.go.th/files/userfiles/file/NHSOAuthen4_2017.rar" target="_blank"> โปรแกรม NHSO UCAuthentication 4.0 สำหรับ Authen เข้าระบบเว็บตรวจสอบสิทธิผ่านประชาชน(Smart Card)  </a>
-                                  
+                        <br> <img src="images/arrow_all.gif" width="10" height="10"><a href="http://www.nhso.go.th/files/userfiles/file/NHSOAuthen4_2017.rar" target="_blank"> โปรแกรม NHSO UCAuthentication 4.0 สำหรับ Authen เข้าระบบเว็บตรวจสอบสิทธิผ่านประชาชน(Smart Card) 
+                         </a>
+
+                         
+                   
                                 </ul>
                             </div>
                         </div>
@@ -162,11 +183,31 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                       
-                            <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="panel-body">
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe> -->
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/f9Z0XnYCDHs"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bzX0L28u-Yk"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5XElfttJuWI"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XyU0r2Xo7fk"></iframe> 
                                     </div>
                                 </div>
                             </div>
