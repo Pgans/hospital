@@ -29,27 +29,27 @@ MaterialAsset::register($this);
     .stick-top { top: 0; }
     .stick-bottom { bottom: 0; }
 
-    </style>
-    // <!-- เริ่ม popup -->
-    // <script>
-    //     function openColorBox(){
-    //     //กำหนดขนาดและหน้าเว็บที่จะแสดงใน popup สามารถใส่เป็นภาพก็ได้นะครับ
-    //       $.colorbox({iframe:true, width:"900px", height:"600px", href: "images/1.png"});
-    //     }
+    /* </style>
+     <!-- เริ่ม popup -->
+     <script>
+        function openColorBox(){
+         //กำหนดขนาดและหน้าเว็บที่จะแสดงใน popup สามารถใส่เป็นภาพก็ได้นะครับ
+           $.colorbox({iframe:true, width:"900px", height:"600px", href: "images/4.png"});
+         }
 
-    //     function countDown(){
-    //       seconds--
-    //       $("#seconds").text(seconds);
-    //       if (seconds === 0){
-    //         openColorBox();
-    //         clearInterval(i);
-    //       }
-    //     }
-    //     //กำหนดเวลา วินาทีที่จะให้ popup ทำงาน
-    //     var seconds = 2,
-    //         i = setInterval(countDown, 1000);
-    // </script>
-    // <!-- สิ้นสุด popup -->
+         function countDown(){
+           seconds--
+           $("#seconds").text(seconds);
+           if (seconds === 0){
+             openColorBox();
+             clearInterval(i);
+           }
+         }
+         //กำหนดเวลา วินาทีที่จะให้ popup ทำงาน
+         var seconds = 2,
+             i = setInterval(countDown, 1000);
+     </script>
+     <!-- สิ้นสุด popup --> */
     <body>
        
             <?php
@@ -94,21 +94,29 @@ MaterialAsset::register($this);
                         'items' => [
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งข้อร้องเรียน-ร้องทุกข์', 'url' => ['/requests/create']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
-                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งเสียชีวิต', 'url' => ['/deaths30/create']],
                             
                         ],
                     ],
                     [
-                        'label' => 'ประกัน', 'visible',
+                        'label' => 'สำนักคุณภาพ', 'visible',
                         'items' => [
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งเสียชีวิต', 'url' => ['/deaths30/create']],
-                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
-                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> วิสัยทัศน์ พันธกิจ', 'url' => ['/site/structurex']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> xxxx', 'url' => ['/deaths30/create']],
+                            
+                            
                             
                         ],
                     ],
+                    [
+                        'label' => 'คู่มือ', 'visible',
+                        'items' => [
+                        
+                            ['label' =>'<a href="https://drive.google.com/file/d/16C3Kt4w-wTaMJ0gmrEjx8oopXEc4Pcpc/view?usp=sharing" target="_blank">คู่มือการสำรองข้อมูลการเงินเครื่อข่ายม่วงสามสิบ(mBase)</a>'],
+                            ['label' =>'<a href="https://drive.google.com/file/d/1JJb-H5_arwVX3YzzRXJiRRceOClN28mB/view?usp=sharing" target="_blank">การใช้งานHDC กระทรวงสาธรณสุข</a>'],
+                        ],
+                    ],
                     ['label' => 'ใบงาน', 'url' => ['/worksheets/index']],
-                    //['label' => 'ดาวน์โหลด', 'url' => ['/freelance/index']],
+                    /* ['label' => 'ดาวน์โหลด', 'url' => ['/freelance/index']], */
                 //['label' => 'เกี่ยวกับ', 'url' => ['/site/about']],
                 ],
             ]);

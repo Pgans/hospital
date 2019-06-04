@@ -69,7 +69,7 @@ class RecommendController extends Controller
     public function sendLine($model)  {
 
             //$line_token = '7vRd5JQNbxadXQa7trZbK7VTvR6fPFGErqCdJH8ZDyY';
-            $line_token = 'cfdpRl44nox1LUTTPWYppxN98w4WS0j1jB6dpPNB2FU';
+            $line_token = 'xSWLFteOuC3L7xEE92znVQOVTDBe3PgMlRmFfvEpInu';
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,"https://notify-api.line.me/api/notify");
