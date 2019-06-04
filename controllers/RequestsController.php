@@ -82,7 +82,7 @@ class RequestsController extends Controller
     }
     public function sendLine($model)  {
 
-            $line_token = 'cfdpRl44nox1LUTTPWYppxN98w4WS0j1jB6dpPNB2FU';
+            $line_token = 'xSWLFteOuC3L7xEE92znVQOVTDBe3PgMlRmFfvEpInu';
            // $line_token = 'XWsi6nQtMZI4adrvjfQFsMDQ3sSgXVLetF2TXsGJ7CR';
           
 

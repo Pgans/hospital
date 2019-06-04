@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!--<br><h2><i class="glyphicon glyphicon-star-empty"></i><b style="color:blue">วิสัยทัศน์ :</b></h2>
     <p><li>วิชาชีพมาตรฐาน บริการแบบองค์รวม มีส่วนร่วมในชุมชน มุ่งผลสุขภาพดี </li></p>
     <p>-->
-        <img src="images/er.jpg" class="img-thumbnail">
+        <img src="images/ส่งต่อ.jpg" class="img-thumbnail" width="700" height="600">
     </p>
     
 </div>

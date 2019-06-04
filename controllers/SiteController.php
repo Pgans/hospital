@@ -196,5 +196,25 @@ class SiteController extends Controller {
     public function actionDhdcservice() {
         return $this->render('dhdcservice');
     }
-
+	public function actionAids() {
+		return $this->render('aids');
+    }
+    public function actionCkd() {
+        return $this->render('ckd');
+    }
+    public function actionPhisical() {
+        return $this->render('phisical');
+    }
+    public function actionLr() {
+        return $this->render('lr');
+    }
+    public function actionManage() {
+        return $this->render('manage');
+    }
+    public function actionPharm() {
+        return $this->render('pharm');
+    }
+    public function actionHolistic() {
+        return $this->render('holistic');
+    }
 }
