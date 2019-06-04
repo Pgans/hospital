@@ -47,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
            // 'photo',
             'photos:ntext',
              'dep_id',
+<<<<<<< HEAD
              ['class' => 'yii\grid\ActionColumn',
                 'header'=>'คลิกดู',
                 'headerOptions' => ['style' => 'width:20%'],
@@ -73,6 +74,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ],
             //['class' => 'yii\grid\ActionColumn'],
+=======
+
+            ['class' => 'yii\grid\ActionColumn'],
+>>>>>>> 7874ffaaf3e721a60c969dae12abde57d60322fe
         ],
     ]); ?>
 </div>
