@@ -37,20 +37,14 @@ class Awardupload extends \yii\db\ActiveRecord
     {
         return [
             [['fullname', 'photos'], 'string'],
-            [['dep_id'], 'integer'],
+            [['receive_date', 'created_at', 'updated_at'], 'safe'],
+            [['created_by', 'updated_by', 'dep_id'], 'integer'],
             [['award_name'], 'string', 'max' => 100],
-            [['photo'], 'file',
-          'skipOnEmpty' => true,
-          'extensions' => 'png,jpg'
-         
-        ], 
-        [['photos'], 'file',
-        'skipOnEmpty' => true,
-        'maxFiles' => 3,
-        'extensions' => 'png,jpg'
-      ]
-  ];
-}
+            [['photo'], 'string', 'max' => 255],
+            [['dep_id'], 'exist', 'skipOnError' => true, 'targetClass' => Departments::className(), 'targetAttribute' => ['dep_id' => 'id']],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -58,40 +52,32 @@ class Awardupload extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'award_name' => 'Award Name',
-            'fullname' => 'Fullname',
-            'photo' => 'Photo',
+            'award_name' => 'รางวัล',
+            'fullname' => 'รายละเอียด',
+            'photo' => 'รูปภาพ',
             'photos' => 'Photos',
+            'receive_date' => 'วันได้รับรางวัล',
+            'created_at' => 'วันบันทึก',
+            'updated_at' => 'วันแก้ไข',
+            'created_by' => 'ผู้บันทึก',
+            'updated_by' => 'ผู้แก้ไข',
             'dep_id' => 'Dep ID',
         ];
     }
 
-    public function upload($model,$attribute)
-{
-    $photo  = UploadedFile::getInstance($model, $attribute);
-      $path = $this->getUploadPath();
-    if ($this->validate() && $photo !== null) {
-
-        $fileName = md5($photo->baseName.time()) . '.' . $photo->extension;
-        //$fileName = $photo->baseName . '.' . $photo->extension;
-        if($photo->saveAs($path.$fileName)){
-          return $fileName;
-        }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDep()
+    {
+        return $this->hasOne(Departments::className(), ['id' => 'dep_id']);
     }
-    return $model->isNewRecord ? false : $model->getOldAttribute($attribute);
-}
-
-public function getUploadPath(){
-  return Yii::getAlias('@webroot').'/'.$this->upload_foler.'/';
-}
-
-public function getUploadUrl(){
-  return Yii::getAlias('@web').'/'.$this->upload_foler.'/';
-}
-
-public function getPhotoViewer(){
-  return empty($this->photo) ? Yii::getAlias('@web').'/img/none.png' : $this->getUploadUrl().$this->photo;
-}
-
-   
+    public function getCreatedBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+    public function getUpdateBy()
+    {
+        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+    }
 }

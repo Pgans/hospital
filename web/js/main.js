@@ -1,5 +1,11 @@
 //fc-day popup เพิ่มข้อมูลในปฏืทิน
 $(function () {
+	$('#modalButton').click(function () {
+        $('#modal').modal('show')
+                .find('#modalContent')
+                .load($(this).attr('value'));
+    });
+});
     $(document).on('click', '.fc-day', function () {
         var date = $(this).attr('data-date');
         $.get('admin.php?r=event/create', {'date': date}, function (data) {
@@ -8,12 +14,7 @@ $(function () {
                     .html(data);
         });
     });
-    $('#modalButton').click(function () {
-        $('#modal').modal('show')
-                .find('#modalContent')
-                .load($(this).attr('value'));
-    });
-});
+    
 //tooltip โชว์ข้อมูลปฏิทิน
 function eventDetail(event, element) {
     var tooltip = '<div class="tooltipevent" style="width:250px;position:absolute;z-index:10001;">'+

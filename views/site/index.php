@@ -279,7 +279,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                                     <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobcom%2Findex" target="_blank">แจ้งซ่อมคอมพิวเตอร์</a></li>
                                    <!-- <li><a href="http://m30hospital.com/service/frontend/web/index.php" target="_blank">ยืมคืนเวชระเบียน</a></li> -->
                                     <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=opdcard%2Fpermits" target="_blank">ยืมเวชระเบียน</a></li> 
-                                    <li><a href="http://192.168.200.4/service/meeting/index.php" target="_blank">จองห้องประชุม(ใช้ปัจจุบัน)</a></li>
+                                    <li><a href="http://192.168.200.4/meeting/index.php" target="_blank">จองห้องประชุม</a></li>
                                     <li><a href="http://192.168.200.8/service-support/fullcalendar1_2.php" target="_blank">จองรถยนต์</a></li>
                                     <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=apdcard%2Fpermits" target="_blank">คืนเวชระเบียน(admin)</a></li>
                                     <li><a href="http://192.168.200.9/yii2a-services/backend/web/index.php?r=jobservice%2Findex" target="_blank">หน่วยซ่อมบำรุง(admin)</a></li>

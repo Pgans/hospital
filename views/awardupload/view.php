@@ -3,11 +3,12 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Awardupload */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Awarduploads', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'รางวัลดีเด่น', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="awardupload-view">
@@ -36,8 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'photo',
                 'value'=>Html::img($model->photoViewer,['class'=>'img-thumbnail','style'=>'width:200px;'])
             ],
-            'photos:ntext',
-            'dep_id',
+            //'photos:ntext',
+            'dep.name',
         ],
     ]) ?>
 

@@ -38,7 +38,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function attributeLabels() {
       return  [
-        'username' => 'Username',
+        'username' => 'ผู้บันทึก',
         'password_hash' => 'Password',
         'email' => 'อีเมล์'
       ];

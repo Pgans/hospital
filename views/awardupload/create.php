@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Awardupload */
 
 $this->title = 'เพิ่มรางวัลยอดเยี่ยม';
-$this->params['breadcrumbs'][] = ['label' => 'Awarduploads', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'รางวัลดีเด่น', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="panel panel-danger">

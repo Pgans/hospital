@@ -6,9 +6,11 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\MaterialAsset;
+use app\assets\AppAsset;
+//use app\assets\MaterialAsset;
 
-MaterialAsset::register($this);
+AppAsset::register($this);
+//MaterialAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,36 +22,16 @@ MaterialAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <style>
+    <!-- <style>
     .black-ribbon {   position: fixed;   z-index: 9999;   width: 70px; }
     @media only all and (min-width: 768px) { .black-ribbon { width: auto; } }
 
     .stick-left { left: 0; }
     .stick-right { right: 0; }
     .stick-top { top: 0; }
-    .stick-bottom { bottom: 0; }
+    .stick-bottom { bottom: 0; } -->
 
-    /* </style>
-     <!-- เริ่ม popup -->
-     <script>
-        function openColorBox(){
-         //กำหนดขนาดและหน้าเว็บที่จะแสดงใน popup สามารถใส่เป็นภาพก็ได้นะครับ
-           $.colorbox({iframe:true, width:"900px", height:"600px", href: "images/4.png"});
-         }
-
-         function countDown(){
-           seconds--
-           $("#seconds").text(seconds);
-           if (seconds === 0){
-             openColorBox();
-             clearInterval(i);
-           }
-         }
-         //กำหนดเวลา วินาทีที่จะให้ popup ทำงาน
-         var seconds = 2,
-             i = setInterval(countDown, 1000);
-     </script>
-     <!-- สิ้นสุด popup --> */
+    
     <body>
        
             <?php
@@ -101,7 +83,7 @@ MaterialAsset::register($this);
                     [
                         'label' => 'สำนักคุณภาพ', 'visible',
                         'items' => [
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> xxxx', 'url' => ['/deaths30/create']],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> รางวัลAward', 'url' => ['/award1/index']],
                             
                             
                             

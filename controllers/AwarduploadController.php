@@ -70,7 +70,7 @@ class AwarduploadController extends Controller
             $model->save();
             return $this->redirect(['index', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }

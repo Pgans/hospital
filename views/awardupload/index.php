@@ -2,12 +2,15 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\AwarduploadSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Award';
+$this->title = 'รางวัลดีเด่น';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="awardupload-index">
@@ -18,10 +21,22 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="panel-body">
                         <div class="row">
 
-    <p>
-        <?= Html::a('เพิ่มรางวัลดีเด่น', ['create'], ['class' => 'btn btn-warning']) ?>
-    </p>
-    <?= GridView::widget([
+      <p>
+        <?= Html::button('เพิ่มรางวัลดีเด่น', ['value'=>Url::to(['awardupload/create']), 'class' =>
+         'btn btn-success btn-lg btn-block btn-raised','id'=>'modalButton']); ?> 
+         </p>
+    
+    <?php Modal::begin([
+        'id' => 'modal',
+        'header' => '<h4><a color-blue>CREATE AWARD</a></h4>',
+        'size'=>'modal-lg',
+        'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">ปิด</a>',
+        ]);
+        echo "<div id='modalContent'></div>";
+        Modal::end();
+        ?>
+  
+   <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -45,18 +60,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'award_name',
             'fullname:ntext',
            // 'photo',
-            'photos:ntext',
-             'dep_id',
-<<<<<<< HEAD
+            //'photos:ntext',
+             'dep.name',
              ['class' => 'yii\grid\ActionColumn',
                 'header'=>'คลิกดู',
-                'headerOptions' => ['style' => 'width:20%'],
+                'headerOptions' => ['style' => 'width:13%'],
                 'template'=>'<div class="btn-group btn-group-sm text-center" role="group"> {detail} {edit} {del} </div>',
                 'buttons'=>[
                     'detail' => function($url,$model,$key){
-                        return Html::a('View',
+                        return Html::a('ดู',
                             ['view', 'id' => $model->id],
-                            ['class' => 'btn btn-inverse'],
+                            ['class' => 'btn btn-info'],
                             $url);
                     },
                     'edit' => function($url,$model,$key){
@@ -74,10 +88,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ],
             //['class' => 'yii\grid\ActionColumn'],
-=======
-
-            ['class' => 'yii\grid\ActionColumn'],
->>>>>>> 7874ffaaf3e721a60c969dae12abde57d60322fe
         ],
     ]); ?>
+    
 </div>
+<?php
+$this->registerJsFile('@web/js/main.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+ ?>
