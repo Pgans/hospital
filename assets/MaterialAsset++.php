@@ -14,15 +14,14 @@ class MaterialAsset extends AssetBundle {
     public $sourcePath = '@themes/material';
     public $baseUrl = '@web';
     public $css = [
-        'css/material-wfont.min.css',
+        // 'css/material-wfont.min.css',
         // 'css/material.css',
         'css/ripples.css',
         'css/material.min.css',
         'css/ripples.min.css',
-        'css/style.css'
-       // 'font-awesome/css/font-awesome.min.css',
-      //  'css/fonts.css',
-       // 'css/site.css'
+        'font-awesome/css/font-awesome.min.css',
+        'css/fonts.css',
+        'css/site.css'
 
         //'css/style.css',
     ];
