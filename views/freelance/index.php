@@ -12,9 +12,11 @@ $this->title = 'ดาวน์โหลดไฟล์';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<h1><i class="glyphicon glyphicon-circle-arrow-down"></i> ดาวน์โหลดไฟล์</i></h1>
-<!-- <div class="well"> -->
-<div class="site-index">
+<div class="panel panel-warning">
+                        <div class="panel-heading"><h4><i class="glyphicon glyphicon-download-alt"></i> ดาวน์โหลดไฟล์</h4></div>
+                        <div class="panel-body">
+                        <div class="row">
+
   <?= GridView::widget([
       'dataProvider' => $dataProvider,
 //      'filterModel' => $searchModel,

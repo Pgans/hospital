@@ -5,14 +5,17 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\award */
 
-$this->title = 'Update award: ' . $model->title;
+$this->title = 'แก้ไขรางวัล: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'รางวัลAward', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="award-update">
+<div class="award-create">
+    <div class="panel panel-success">
+                        <div class="panel-heading"><h4><i class="glyphicon glyphicon-user"></i> แก้ไข</h4></div>
+                        <div class="panel-body">
+                        <div class="row">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

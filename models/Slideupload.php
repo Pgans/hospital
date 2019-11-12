@@ -33,7 +33,7 @@ class Slideupload extends \yii\db\ActiveRecord
             [['d_update'], 'safe'],
             [['name'], 'string', 'skipOnEmpty' => true,'max' =>100],
             //['name', 'required'], ['name', 'string', 'length' => [5,100],'pattern' => '/^[a-z]\w*$/i'],
-            [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png']
+            [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg']
             //[['photo'], 'string', 'max' => 255],
         ];
     }

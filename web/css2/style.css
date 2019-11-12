@@ -1,0 +1,1587 @@
+/*  
+Theme Name: RedTweet
+Theme URI: http://www.customblogdesigner.com/redtweet-wordpress-theme/
+Description: Red magazine style wordpress theme with twitter support
+Version: 1.0
+Author: CustomBlogDesigner
+Author URI: http://www.CustomBlogDesigner.com/
+
+*/
+
+
+
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input{
+	margin:0;
+	padding:0;
+}
+ul{
+	list-style:none;
+}
+a{
+	color:#333333;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+a img{
+	border:0;
+}
+.clear{
+	clear:both;
+}
+html{
+	background:#b30101 url(images/bgr_html.png) repeat-x;
+}
+body{
+	margin:0px;
+	padding:0 0 40px 0;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	background:url(images/bgr_main.png) repeat-x bottom;
+	color:#333333;
+}
+#page{
+	width:1000px;
+	margin:0 auto;
+}
+/* mainmenu */
+#mainmenu{
+	width:961px;
+	height:43px;
+	border-bottom:12px solid #b30101;
+	margin:0 0 0 19px;
+}
+#mainmenu ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	z-index:1000;
+	float:right;
+}
+/*Top level list items*/
+#mainmenu ul li{
+	position: relative;
+	display: inline;
+	float: left;
+	z-index:1000;
+	color:#fff;
+	border-bottom:0;
+	margin:0;
+	padding:0 0 0 2px;
+	font-size:14px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+#mainmenu ul li.first{
+	padding:0;
+	background:none;
+	border-left:0;
+}
+/*Top level menu link items style*/
+#mainmenu ul li a{
+	display:block;
+	color:#fff;
+	z-index:1000;
+	height:30px;
+	background:url(images/bgr_menu_nav.png) repeat-x;
+	padding:13px 14px 0 14px;
+	margin:0;
+}
+* html #mainmenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+	display: inline-block;
+	float:left;
+}
+* html #mainmenu ul li ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+	float:none;
+}
+#mainmenu ul li a:link, #mainmenucat ul li a:visited{
+	text-decoration:none;
+}
+#mainmenu ul li a:hover, #mainmenu .current_page_item a, #mainmenu .select a{
+	text-decoration:none;
+	background:url(images/bgr_menu_nav_hover.png) repeat-x;
+}
+/*1st sub level menu*/
+#mainmenu ul li ul{
+	position: absolute;
+	left: 0;
+	display: block;
+	visibility: hidden;
+	border:0;
+	padding:0;
+	margin:-1px 0 0 0;
+	background:#b30101;
+}
+/*Sub level menu list items (undo style from Top level List Items)*/
+#mainmenu ul li ul li{
+	display: list-item;
+	float: none;
+	font-size:1.0em;
+	background:none;
+	padding:0;
+	margin:0;
+	border:0;
+}
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+#mainmenu ul li ul li ul{
+	top: 0;
+	margin:0;
+	background:#800101;
+}
+/* Sub level menu links style */
+#mainmenu ul li ul li a, #mainmenu ul li.current_page_item ul a, #mainmenu ul li.select ul a{
+	width: 164px; /*width of sub menus*/
+	height:auto;
+	padding: 7px 5px 7px 14px;
+	margin: 0;
+	background:#b30101;
+	border-bottom:1px solid #8f0101;
+	text-align:left;
+	text-decoration:none;
+	color:#f0cccc;
+	font-size:15px;
+	text-transform:capitalize;
+	font-weight:normal;
+}
+#mainmenu ul li ul li a:hover{ /*sub menus hover style*/
+	text-decoration:none;
+	background:#800101;
+}
+/* #
+/* Sub level menu links style */
+#mainmenu ul li ul li ul li a, #mainmenu ul li.current_page_item ul li ul a, #mainmenu ul li.select ul li ul a{
+	background:#800101;
+	border-bottom:1px solid #993434;
+}
+#mainmenu ul li ul li ul li a:hover{ /*sub menus hover style*/
+	text-decoration:none;
+	background:#b30101;
+}
+/*######## CSS classes applied to down and right arrow images  ######### */
+/* HEADER */
+
+#header{
+	width:100%;
+	height:96px;
+}
+#logo{
+	padding:40px 0 0 95px;
+}
+#logo a{
+	font-size:48px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#fff;
+	font-style:italic;
+}
+/* BODY */
+.body{
+	width:100%;
+	background:url(images/bgr_body.png) repeat-y;
+}
+.body_top{
+	width:100%;
+	background:url(images/bgr_body_top.png) no-repeat;
+}
+.body_end{
+	width:961px;
+	overflow:hidden;
+	padding:0 20px 60px 19px;
+	background:url(images/bgr_body_end.png) no-repeat left bottom;
+}
+#content{
+	width:638px;
+	float:left;
+}
+#sidebar{
+	width:323px;
+	float:right;
+}
+#sidebar_left{
+	float:left;
+	width:146px;
+	padding:0 14px 0 9px;
+}
+#sidebar_right{
+	float:right;
+	width:145px;
+	padding:0 9px 0 0;
+}
+/*irecent_post*/
+#irecent_post{
+	width:100%;
+	overflow:hidden;
+}
+#irecent_post_left{
+	float:left;
+	width:293px;
+}
+#irecent_post_right{
+	float:right;
+	width:295px;
+}
+/*irecent_post_left*/
+#irecent_post_left h2{
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#000;
+	font-style:italic;
+	font-size:23px;
+	border-bottom:1px solid #c1c1c1;
+	padding:0 0 10px 0;
+	margin:0 0 10px 0;
+	font-weight:normal;
+}
+.irecent_post{
+	width:100%;
+	overflow:hidden;
+}
+.irecent_post_title h3{
+	color:#980101;
+	font-size:13px;
+}
+.irecent_post_title h3 a{
+	color:#980101;
+}
+.irecent_post_title .info, .irecent_post_title .rate{
+	color:#7d4800;
+	font-size:10px;
+	padding:6px 0 7px 0;
+	background:url(images/dotted_grey.gif) repeat-x bottom;
+}
+.irecent_post_title .info a, .irecent_post_title .info b.author{
+	color:#f26521;
+}
+.irecent_post_title .rate img{
+	position:relative;
+	top:2px;
+}
+.irecent_post_entry{
+	width:100%;
+	overflow:hidden;
+	line-height:1.6em;
+	font-size:12px;
+	padding:6px 0 7px 0;
+	background:url(images/dotted_grey.gif) repeat-x bottom;
+	margin:0 0 10px 0;
+}
+.irecent_post_entry img{
+	float:left;
+	margin:0 10px 5px 0;
+	width:100px;
+	height:100px;
+}
+#irecent_post .banner_left{
+	padding:0 0 14px 0;
+	margin:0 0 10px 0;
+	background:url(images/dotted_grey.gif) repeat-x bottom;
+}
+/*irecent_post_tabs*/
+#irecent_post_tabs{
+	width:293px;
+	margin:0 0 15px 0;
+	border:1px solid #dcd7cc;
+	background:#f9f6ef;
+}
+#irecent_post_tabs_links{
+	width:100%;
+	overflow:hidden;
+	background:#e1dcd1;
+}
+#irecent_post_tabs_links li{
+	float:left;
+}
+#irecent_post_tabs_links li span{
+	display:block;
+}
+#irecent_post_tabs_links li a{
+	font-size:11px;
+	color:#000;
+	text-align:center;
+	float:left;
+	display:block;
+	padding:8px 0 0 0;
+	width:98px;
+	height:35px;
+}
+#irecent_post_tabs_links li.last a{
+	width:97px;
+}
+#irecent_post_tabs_links li a.selected{
+	background:#f9f6ef;
+	text-decoration:none;
+	font-weight:bold;
+}
+.irecent_post_tabs_item{
+	width:100%;
+	padding:0 0 15px 0;
+}
+.irecent_post_tabs_item li{
+	font-size:12px;
+	line-height:16px;
+	color:#323130;
+	border-bottom:1px dotted #d49795;
+	padding:8px 0 8px 0;
+	margin:0 12px 0 12px;
+}
+.irecent_post_tabs_item li a{
+	font-weight:bold;
+	color:#af383a;
+}
+/* post*/
+#post_container{
+	width:578px;
+	background:url(images/bgr_post_container.png) no-repeat;
+	padding:24px 27px 0 33px;
+}
+.home #post_container{
+	width:606px;
+	padding:15px 15px 0 17px;
+}
+.post{
+	width:100%;
+	margin:0 0 30px 0;
+}
+.post-top{
+	width:100%;
+	overflow:hidden;
+}
+.post-top h2{
+	font-size:30px;
+	color:#000;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0 0 6px 0;
+	float:left;
+	width:515px;
+}
+.post-top h2 a{
+	color:#000;
+}
+.post-top .post_comments{
+	float:right;
+	text-align:center;
+	color:#d7d7d7;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:25px;
+	background:url(images/bgr_post_comments.png) no-repeat;
+	width:63px;
+	height:52px;
+	text-align:center;
+}
+.post-top .post_comments p{
+	padding:4px 0 0 0;
+}
+.post-top .post_comments p a{
+	color:#d7d7d7;
+}
+.post .info{
+	width:100%;
+	border-bottom:1px solid #cccccc;
+	color:#7d7d7d;
+	font-size:12px;
+	padding:5px 0 7px 0;
+}
+.post .info a, .post .info span, .post .info b{
+	color:#9d080d;
+}
+.post .rate{
+	width:100%;
+	border-bottom:1px solid #cccccc;
+	color:#7d7d7d;
+	font-size:12px;
+	padding:5px 0 7px 0;
+}
+.post .rate img{
+	position:relative;
+	top:2px;
+}
+.entry{
+	line-height:20px;
+	font-size:13px;
+	margin:15px 0 0 0;
+	width:100%;
+	overflow:hidden;
+}
+.entry p{
+	padding-bottom:15px;
+}
+.entry p a{
+	font-weight:bold;
+	color:#ba3333;
+	text-decoration:underline;
+}
+.entry p a:hover{
+	text-decoration:none;
+}
+.entry .banner{
+	text-align:center;
+	padding:0 0 15px 0;
+}
+.entry .banner_left{
+	float:left;
+	padding:0 10px 5px 0;
+}
+.postmetadata{
+	width:100%;
+	overflow:hidden;
+	clear:both;
+	font-size:12px;
+	background:url(images/bgr_postmetadata.png) no-repeat;
+	padding:15px 0 20px 0;
+	text-align:right;
+}
+.postmetadata a{
+	color:#b20101;
+	text-decoration:underline;
+	font-weight:bold;
+	background:url(images/ico_postmetadata.gif) no-repeat left 2px;
+	padding:0 0 0 16px;
+	margin:0 10px 0 0;
+}
+.postmetadata a:hover{
+	text-decoration:none;
+}
+
+.post-page{
+	width:100%;
+	margin:0 0 30px 0;
+}
+
+h2.page_title{
+	font-size:29px;
+	color:#000;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0 0 6px 0;
+	padding:0 0 7px 0;
+	border-bottom:1px solid #d1ccc8;
+}
+.post-page .entry strong{
+	color:#000;
+}
+.post-page .entry h1, .post-page .entry h2, .post-page .entry h3, .post-page .entry h4, .post-page .entry h5, .post-page .entry h6{
+	font-size:31px;
+	color:#000;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+.post-page .entry h1{
+	font-size:24px;
+	padding:0 0 14px 0;
+}
+
+.post-page .entry h2{
+	font-size:22px;
+	padding:0 0 14px 0;
+}
+
+.post-page .entry h3{
+	font-size:20px;
+	padding:0 0 12px 0;
+}
+
+.post-page .entry h4{
+	font-size:18px;
+	padding:0 0 10px 0;
+}
+
+.post-page .entry h5{
+	font-size:16px;
+	padding:0 0 8px 0;
+}
+
+.post-page .entry h6{
+	font-size:14px;
+	padding:0 0 6px 0;
+} 
+/*wp_related_posts*/
+#wp_related_posts{
+	width:536px;
+	margin:0 0 30px 0;
+	background:#fafafa;
+	border:1px solid #dedede;
+	padding:10px 20px 20px 20px;
+}
+
+#wp_related_posts h2{
+	color:#b20101;
+	font-size:27px;
+	line-height:1.3em;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+#wp_related_posts ul{
+	padding:10px 0 0 0;
+	margin:0;
+	list-style:none;
+}
+
+#wp_related_posts ul li{
+	font-size:13px;
+	line-height:1.6em;
+	border-bottom:1px solid #dbdbdb;
+	padding:6px 0 6px 0;
+	list-style:none;
+}
+
+#wp_related_posts ul li a{
+	background:url(images/ico_related_posts.gif) no-repeat left 6px;
+	padding:0 0 0 14px;
+	display:block;
+}
+/*post_digtwit*/
+.post_digtwit{
+	width:536px;
+	margin:20px 0 0 0;
+	background:#fafafa;
+	border:1px solid #dedede;
+	padding:10px 20px 20px 20px;
+}
+.post_digtwit h2{
+	color:#b20101;
+	font-size:27px;
+	line-height:1.3em;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+#content .post_digtwit ul{
+	width:100%;
+	overflow:hidden;
+	padding:14px 0 0 0;
+}
+#content .post_digtwit li{
+	float:left;
+	background:none;
+	padding:0 25px 0 0;
+	margin:0;
+	border:0;
+}
+#content .post_digtwit li a{
+	background:none;
+	padding:0;
+	margin:0;
+}
+/*sidebar_twitter*/
+#sidebar_twitter{
+	width:100%;
+	height:131px;
+	background:url(images/bgr_sidebar_twitter.png) no-repeat;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-style:italic;
+}
+#sidebar_twitter h2{
+	color:#0753a0;
+	font-size:15px;
+	font-weight:normal;
+	padding:10px 0 10px 75px;
+}
+#sidebar_twitter h2 a{
+	color:#0753a0;
+}
+#twitter_update_list{
+	padding:0 15px 0 75px;
+	font-size:12px;
+	line-height:1.5em;
+}
+#twitter_update_list span{
+	display:block;
+}
+#twitter_update_list a{
+	font-weight:bold;
+	color:#316eaf;
+	font-size:12px !important;
+}
+#twitter_update_list span a{
+	font-weight:normal;
+	color:#0753a0;
+}
+/*sidebars*/
+.sidebar_widgets{
+	font-size:13px;
+	line-height:1.5em;
+	color:#323130;
+	padding:10px 0 0 0;
+}
+.sidebar_widgets a{
+	color:#323130;
+}
+#sidebar_right a{
+	text-decoration:underline;
+}
+#sidebar_right a:hover{
+	text-decoration:none;
+}
+.sidebar_widgets .widgettitle{
+	font-size:20px;
+	color:#9a0101;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0 0 5px 0;
+	padding:10px 0 5px 0;
+	border-bottom:1px solid #cccccc;
+	font-weight:normal;
+	text-transform:capitalize;
+}
+.sidebar_widgets .widget_categories a, .sidebar_widgets .widget_archive a, .sidebar_widgets .widget_links a, .sidebar_widgets .widget_meta a, .sidebar_widgets .widget_pages a, .sidebar_widgets .widget_meta a, .sidebar_widgets .widget_recent_entries a{
+	display:block;
+}
+.sidebar_widgets .widget_categories a{
+	display:inline;
+}
+.sidebar_widgets ul{
+}
+.sidebar_widgets ul li{
+	margin:0 0 20px 0;
+}
+.sidebar_widgets ul ul{
+}
+.sidebar_widgets ul li ul li{
+	background:none;
+	border:0;
+	padding:4px 0 4px 3px;
+	margin:0;
+}
+.sidebar_widgets ul ul ul{
+	margin:0 0 0 5px;
+}
+.sidebar_widgets ul li ul li ul li{
+	border:0;
+}
+.widget_tag_cloud a, .widget_text .textwidget{
+	padding:5px 15px 5px 15px;
+	line-height:1.4em;
+}
+.sidebar_widgets .widget_polls li{
+	border:0;
+}
+.sidebar_widgets ul li.widget_recent_entries ul li{
+	background:url(images/bgr_widget_recent_entries.gif) no-repeat left bottom;
+	padding:5px 0 6px 0;
+}
+.widget_recent_entries, .widget_recent_entries a{
+	color:#555555;
+	font-weight:bold;
+}
+/*sidebar_ads*/
+#sidebar_ads{
+	background:#fff;
+	padding:20px 0 0 9px;
+	width:314px;
+	overflow:hidden;
+	clear:both;
+	background:#fff url(images/bgr_sidebar_container.png) no-repeat;
+}
+#sidebar_ads_body{
+	width:100%;
+	overflow:hidden;
+}
+#sidebar_ads div{
+	float:left;
+	padding:0 10px 10px 10px;
+}
+/*sidebar_search*/
+#sidebar_search{
+	width:100%;
+	height:73px;
+	background:url(images/bgr_sidebar_search.png) no-repeat;
+	overflow:hidden;
+}
+#sidebar_search div{
+	float:left;
+	padding:19px 0 0 19px;
+}
+#sidebar_search_val{
+	float:left;
+	background:#fff;
+	border:1px solid #ccc3b2;
+	width:217px;
+	font-size:13px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#7f7f7f;
+	padding:8px 9px 9px 9px;
+	margin:0 13px 0 0;
+}
+#sidebar_search_sub{
+	float:right;
+}
+/*sidebar_social*/
+#sidebar_social{
+	width:100%;
+	height:60px;
+	overflow:hidden;
+	background:url(images/bgr_sidebar_social.png) no-repeat;
+}
+#sidebar_social ul{
+	float:left;
+	padding:12px 0 0 0;
+}
+#sidebar_social li{
+	float:left;
+	padding:0 11px 0 16px;
+}
+#sidebar_social img{
+	float:left;
+}
+/*board*/
+#board{
+	width:100%;
+	height:264px;
+	overflow:hidden;
+	background:#eddec2 url(images/bgr_board.png) no-repeat;
+}
+#board_items{
+	width:545px;
+	padding:15px 0 0 27px;
+}
+#board_body{
+	width:100%;
+}
+#board_carusel{
+	width:545px;
+	height:170px;
+	position:relative;
+}
+#board_carusel .belt{
+	position: absolute; /*leave this value alone*/
+	left: 0;
+	top: 0;
+}
+.board_item{
+	width:545px;
+	height:170px;
+	overflow:hidden;
+}
+#board_body h2{
+	color:#b30101;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:23px;
+	font-weight:normal;
+	margin:0 0 15px 0;
+}
+#board_body strong{
+	font-size:12px;
+	color:#000;
+	line-height:18px;
+	display:block;
+}
+#board_body p{
+	font-size:12px;
+	color:#2f2c27;
+	line-height:18px;
+	padding:0 0 10px 0;
+}
+#board_body p img{
+	float:left;
+	margin:0 10px 0 0;
+	width:160px;
+	height:160px;
+	border:1px solid #b9af9c;
+}
+#board_body p a{
+	color:#000;
+}
+#board_body p.more a{
+	text-decoration:underline;
+	color:#bf2d27;
+}
+#board_body p.more a:hover{
+	text-decoration:none;
+}
+
+#board_carusel_nav{
+	width:100%;
+	overflow:hidden;
+}
+#board_carusel_nav li{
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+	float:left;
+	padding:0 3px 0 0;
+}
+#board_carusel_nav a{
+	display:block;
+	float:left;
+	background:#e9dcc4;
+	color:#000;
+	text-align:center;
+	padding:2px 4px 2px 4px;
+}
+#board_carusel_nav a.selected, #board_carusel_nav a:hover{
+	text-decoration:none;
+	font-weight:bold;
+	background:#bc8d75;
+	color:#ffffff;
+}
+/* FOOTER */
+#footer{
+	width:100%;
+	height:101px;
+	overflow:hidden;
+}
+#footer_logo{
+	float:left;
+	padding:0 25px 0 44px;
+	margin:35px 0 0 0;
+	border-right:1px solid #b48080;
+}
+#footer_logo a{
+	font-size:48px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-style:italic;
+	color:#fff;
+}
+#footer_logo a span{
+	color:#fff;
+}
+#footer_info{
+	float:left;
+	padding:15px 0 0 25px;
+}
+#footer_info p{
+	color:#b48080;
+	font-size:12px;
+	line-height:1.6em;
+}
+#footer_info p a{
+	color:#b48080;
+}
+#footer_info p.valid a{
+	text-decoration:underline;
+	background:url(images/ico_valid.gif) no-repeat left center;
+	padding:2px 0 2px 20px;
+}
+#footer_info p.valid a:hover{
+	text-decoration:none;
+}
+/* Begin Typography & Colors */
+
+#wp-calendar #prev a, #wp-calendar #next a {
+	font-size: 9pt;
+	}
+
+#wp-calendar a {
+	text-decoration: none;
+	}
+
+#wp-calendar caption {
+	font: bold 1.3em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	text-align: center;
+	}
+
+#wp-calendar th {
+	font-style: normal;
+	text-transform: capitalize;
+	}
+/* End Typography & Colors */
+
+
+
+
+/* Begin Images */
+p img {
+	padding: 0;
+	max-width: 100%;
+	}
+
+/*	Using 'class="alignright"' on an image will (who would've
+	thought?!) align the image to the right. And using 'class="centered',
+	will of course center the image. This is much better than using
+	align="center", being much more futureproof (and valid) */
+
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+img.alignright {
+	padding: 4px;
+	margin: 0 0 2px 7px;
+	display: inline;
+	}
+
+img.alignleft {
+	padding: 4px;
+	margin: 0 7px 2px 0;
+	display: inline;
+	}
+
+.alignright {
+	float: right;
+	}
+
+.alignleft {
+	float: left
+	}
+/* End Images */
+
+
+
+/* Begin Calendar */
+#wp-calendar {
+	empty-cells: show;
+	margin: 10px auto 0;
+	width: 98%;
+	}
+
+#wp-calendar #next a {
+	padding-right: 10px;
+	text-align: right;
+	}
+
+#wp-calendar #prev a {
+	padding-left: 10px;
+	text-align: left;
+	}
+
+#wp-calendar a {
+	display: block;
+	}
+
+#wp-calendar caption {
+	text-align: center;
+	width: 100%;
+	}
+
+#wp-calendar td {
+	padding: 3px 0;
+	text-align: center;
+	}
+
+#wp-calendar td.pad:hover { /* Doesn't work in IE */
+	background-color: #fff; }
+/* End Calendar */
+
+
+
+/* Begin Various Tags & Classes */
+acronym, abbr, span.caps {
+	cursor: help;
+	}
+
+acronym, abbr {
+	border-bottom: 1px dashed #999;
+	}
+
+blockquote {
+	margin: 15px 30px 10px 10px;
+	padding-left: 24px;
+	padding-bottom:7px;
+	background:url(images/blockquote_bg.gif) repeat-y;
+	}
+
+blockquote blockquote{
+	background:url(images/blockquote_bg2.gif) repeat-y;
+	}
+
+blockquote cite {
+	margin: 5px 0 0;
+	display: block;
+	}
+
+.center {
+	text-align: center;
+	}
+
+hr {
+	display: none;
+	}
+
+a img {
+	border: none;
+	}
+
+.navigation {
+	display: block;
+	margin:0 28px 0 28px;
+	overflow:hidden;
+	clear:both;
+	color:#000;
+	font-size:12px;
+	line-height:1.8em;
+	}
+.navigation a{
+	color:#000;
+	font-size:13px;
+	}
+.wp-pagenavi{
+	background:#f7f7f7;
+	border:1px solid #dddddd;
+	padding:10px 15px 10px 15px;
+	text-align:center;
+	font-weight:bold;
+}
+.wp-pagenavi a {
+	padding: 6px; 
+	margin: 2px;
+	color:#000;
+	background:#e5e3e3;
+}
+.wp-pagenavi span.pages {
+	padding: 6px; 
+	margin: 2px;
+	background:#363636;
+	color:#fff;
+}
+.wp-pagenavi span.current {
+	padding: 6px; 
+	margin: 2px;
+	background:#858585;
+	color:#fff;
+}
+.wp-pagenavi span.extend {
+	padding: 4px 2px 4px 2px; 
+	margin: 2px;
+	background:#e5e3e3;
+	color:#fff;
+}
+/* End Various Tags & Classes*/
+
+/* Begin Lists
+
+	Special stylized non-IE bullets
+	Do not work in Internet Explorer, which merely default to normal bullets. */
+
+.entry ul {
+	margin: 0 10px 25px 5px;
+	list-style: none;
+	padding:15px 15px 15px 20px;
+	background:#fafafa;
+	border:1px solid #dedede;
+	} 
+
+.entry ul li {
+	border-bottom:1px solid #cecece;
+	background:url(images/entry_before.gif) no-repeat left 12px;
+	padding:6px 0 6px 16px;
+	display:block;
+	}
+
+.entry ol {
+	margin: 0 10px 25px 5px;
+	padding:15px 15px 15px 40px;
+	background:#fafafa;
+	border:1px solid #dedede;
+	}
+
+.entry ol li {
+	margin: 0;
+	padding:6px 0 6px 0;
+	border-bottom:1px solid #cecece;
+	}
+
+.postmetadata ul, .postmetadata li {
+	display: inline;
+	list-style-type: none;
+	list-style-image: none;
+	}
+	
+ol li{
+	list-style: decimal outside;
+	}
+/* End Entry Lists */
+
+
+
+/* Begin Form Elements */
+#searchform {
+	margin: 10px auto;
+	padding: 5px 3px; 
+	text-align: center;
+	}
+
+#sidebar #searchform #s {
+	width: 108px;
+	padding: 2px;
+	}
+
+#sidebar #searchsubmit {
+	padding: 1px;
+	}
+
+.entry form { /* This is mainly for password protected posts, makes them look better. */
+	text-align:center;
+	}
+
+select {
+	width: 130px;
+	}
+
+#commentform{
+	width:400px;
+}
+
+#commentform input {
+	width: 170px;
+	padding: 2px;
+	margin: 5px 5px 1px 0;
+	}
+
+#commentform textarea {
+	width: 350px;
+	padding: 2px;
+	}
+
+#commentform #submit {
+	margin: 5px 0 0 0;
+	padding:0;
+	width:85px;
+	height:35px;
+	}
+/* End Form Elements */
+
+
+
+/* Begin Comments*/
+
+#comment_container{
+	width:100%;
+	margin:0 0 30px 0;
+}
+h2#comments{
+	font-size:29px;
+	color:#000;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0 0 6px 30px;
+	padding:0 0 7px 0;
+	border-bottom:1px solid #d1ccc8;
+}
+
+.alt {
+	margin: 0;
+	padding: 10px;
+	}
+
+.commentlist {
+	padding: 0;
+	text-align: justify;
+	margin:0 0 0 30px;
+	}
+
+.commentlist .comment {
+	margin: 15px 0 0 0;
+	padding: 10px 15px 20px 15px;
+	list-style: none;
+	background:#fafafa;
+	border:1px solid #d8d8d8;
+	}
+
+.commentlist .alt {
+	background:#fefefe;
+	}
+
+.commentlist .comment .comment {
+	margin: 15px 15px 15px 15px;
+	padding: 10px 15px 20px 15px;
+	width:auto;
+	}
+
+.commentlist p {
+	margin: 10px 5px 10px 0;
+	line-height:18px;
+	}
+.commentmet_data{
+	width:100%;
+	overflow:hidden;
+}
+.commentmet_data td{
+	vertical-align:top;
+	text-align:left;
+}
+.commentmet_avatar{
+	width:102px;
+	padding:15px 0 0 0;
+}
+.commentmet_text{
+}
+.commentmet_avatar img{
+	border:3px solid #868686;
+}
+
+#commentform p {
+	margin: 5px 0;
+	}
+
+.commentmet_replay{
+	width:100%;
+	overflow:hidden;
+}
+.commentmet_replay a{
+	width:82px;
+	height:27px;
+	float:right;
+	display:block;
+	background:url(images/button_commentmet_replay.gif) no-repeat;
+	text-indent:-9999px;
+	text-transform:capitalize;
+}
+
+.nocomments {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	}
+
+.commentmetadata {
+	margin: 0;
+	display: block;
+	padding:0 0 5px 0;
+	color:#000000;
+	font-size:14px;
+	text-transform:capitalize;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-weight:bold;
+	}
+.commentmetadata a{
+	color:#b30101;
+}
+.commentmetadata span{
+	color:#000000;
+}
+.commentmetadata span.commentmetadata_title{
+	color:#b30101;
+}
+
+.commentmet_text{
+	font-size:12px;
+	color:#000;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#respond{
+	margin:40px 0 0 30px;
+	padding-bottom:60px;
+}
+.cancel-comment-reply small{
+	font-size:12px;
+}
+
+h3#respond_title{
+	font-size:29px;
+	color:#000;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0 0 6px 0;
+	padding:0 0 7px 0;
+	border-bottom:1px solid #d1ccc8;
+}
+
+#commentform{
+	margin-left:55px;
+	color:#000000;
+	font-size:12px;
+	width:80%;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.cancel-comment-reply{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	margin:0 0 0 55px;
+	color:#000000;
+}
+.cancel-comment-reply a{
+	color:#000000;
+}
+#commentform small{
+	position:relative;
+	top:-1px;
+	font-size:12px;
+}
+
+#commentform a{
+	color:#000000;
+}
+
+#commentform input{
+	background:#fafafa;
+	border:2px solid #cbcbcb;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	padding:6px;
+	color:#000000;
+}
+
+#commentform textarea{
+	background:#fafafa;
+	border:2px solid #cbcbcb;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	padding:6px;
+	margin:5px 0 0 0;
+	color:#000000;
+}
+
+#commentform input#submit{
+	background:none;
+	border:0px;
+}
+
+/* End Comments */
+
+/* Archives page */
+.page_archives_div{
+	width:100%;
+	margin:0 0 60px 0;
+}
+
+.page_archives_div h2{
+	font-size:29px;
+	color:#000;
+	font-weight:normal;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0 0 6px 0;
+	padding:0 0 7px 0;
+	border-bottom:1px solid #d1ccc8;
+}
+
+.page_archives_div ul{
+	margin:10px 0 40px 0;
+	padding:0px;
+}
+
+.page_archives_div ul li{
+	margin:0px;
+	padding:7px 0 8px 5px;
+	list-style:none;
+	background:url(images/bgr_arch_li.gif) no-repeat left bottom;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.page_archives_div ul li ul li{
+	border:0px;
+	background:none;
+}
+
+.page_archives_div ul li ul{
+	margin:0px;
+	padding:0px;
+	padding-left:10px;
+}
+
+.page_archives_div ul li a{
+	font-weight:normal;
+	color:#000;
+	font-size:13px;
+	background:url(images/ico_arch.gif) no-repeat left 6px;
+	padding:0 0 0 11px;
+}
+
+/**************************************************************/
+/* ==================================================================
+    Secure and Accessible PHP Contact Form v.2.0WP FIXED width
+    ACCESSITES.CSS made by Mike Cherim - http://green-beast.com 
+   Designed and built to work with the Accessites WordPress theme
+================================================================== */
+
+#gb_form_div { 
+  text-align : left;
+  width : 100%;
+  position:relative;
+  top:-30px;
+}
+
+#gb_form_div p {
+  margin-left : 12px;
+}
+
+#gb_form {
+  text-align : left;
+  background : transparent;
+}
+
+#gb_form_div a {
+  color : #4b4b4b;
+  text-decoration:none;
+}
+
+#gb_form_div a:hover, #gb_form_div a:focus, #gb_form_div a:active {
+  color : #4b4b4b;
+  text-decoration : none;
+  background-color : #fff;
+}
+
+#gb_form_div fieldset { 
+  border : 0;
+  margin-top : 10px;
+}
+
+#gb_form legend, legend, #gb_form dt { 
+  font-weight : bold; 
+  color : #4b4b4b;
+}
+
+#gb_form legend {
+  margin-left : -10px;
+  padding-top : 5px;
+}
+
+* html #gb_form legend {
+  margin-left : -5px;
+}
+
+#gb_form legend#mainlegend { 
+  font-size : 12px;
+  color : #4b4b4b;
+  margin-left : -10px;
+  padding-top : 5px;
+  padding-bottom : 10px;
+  background:url(images/dotted_grey.gif) repeat-x bottom;
+}
+
+* html #gb_form legend#mainlegend {
+  margin-left : -5px;
+}
+
+#gb_form legend#mainlegend small { 
+  font-size : 11px;
+  text-transform : uppercase;
+}
+
+#gb_form_div .formhead small a {
+  font-size : 11px;
+  background-image : none;
+  display : inline;
+  padding : 0;
+  margin : 0;
+}
+
+#gb_form_div .main_formhead, #gb_form_div .formhead {
+  font-size : 11px;
+  color : #4b4b4b;
+  width : 97%;
+}
+
+#gb_form_div .main_formhead {
+  margin-left : -35px;
+  text-indent:-9999px;
+}
+
+#gb_form_div label { 
+  color : #333; 
+  margin-top : 5px;
+  margin-left : 30px;
+  font-size : 11px;
+}
+
+#gb_form_div input.short, #gb_form_div input.med, select.med, #gb_form_div textarea.textbox, #gb_form_div textarea { 
+  color : #000; 
+  padding : 5px; 
+  border:1px solid #bebebe;
+  background-color : #eaeaea;
+  width : 50%;
+  font-size:12px;
+  font-family:Arial, Helvetica, sans-serif;
+  height : auto;
+  margin:0 0 5px 30px;
+}
+
+#gb_form_div input.short {
+  width : 7%;
+}
+
+#gb_form_div textarea.textbox, #gb_form_div textarea { 
+  width : 90%;
+  height : 220px;
+  line-height : 1.5em;
+}
+
+#gb_form_div select.med {
+  width : 60%;
+}
+
+#gb_form_div input.checkbox {
+  cursor : default;
+  background : transparent;
+  color : #cc6633;
+  border : 0;
+  padding : 0; 
+  margin : 0;
+  width : 14px;
+  height : 14px;
+}
+
+#gb_form_div input.button {
+	background:url(images/comm_sub.gif) no-repeat;
+	display:block;
+	border:0;
+	text-indent:-9999px;
+	text-transform:capitalize;
+	width:85px;
+	height:35px;
+}
+
+#content #gb_form input.button {
+  margin : 15px 5px 25px 5px;
+  padding : 2px 15px 2px 15px;
+}
+
+* html #content #gb_form input.button {
+  margin-left : -5px;
+}
+
+span.error, span.success, #gb_form_div dt { 
+  color : #cc0000;  
+  font-weight : bold; 
+}
+
+#gb_form_div dt small, #gb_form_div .formhead span.success, span.success, dl#result_dl_blockq dt {
+  color : #cc6633;
+}
+
+small.whythis{ 
+  font-size : 10px; 
+  text-decoration : none;
+  color : #333;
+}
+small.whythis a { 
+  color : #333;
+  text-decoration:none;
+}
+small.whythis a span{ 
+  color : #fff;
+}
+small.whythis a:hover span{
+  background:#000;
+}
+
+p.creditline small {
+  clear : both; 
+  display : block;
+  text-align : right;
+  margin : 0;
+  padding : 25px 0 15px 0;
+  font-size : 12px;
+  color : #666;
+}
+
+dl#result_dl_blockq blockquote {
+  margin-left : 0;
+}
+
+dl#result_dl_blockq blockquote p cite {
+  display : block;
+  text-align : right;
+}
+
+#gb_form_div span.items {
+  font-weight : bold;
+  color : #339999;
+}
+
+#gb_form_div ul {
+  margin : 10px 10px 20px 10px;
+}
+
+#gb_form_div ul li {
+  list-style-type : none;
+  margin : 0 10px 0 20px;
+}
+
+#gb_form_div small {
+	font-size:11px;
+}
+/* "Daisy, Daisy, give me your answer do. I'm half crazy all for the love of you.
+	It won't be a stylish marriage, I can't afford a carriage.
+	But you'll look sweet upon the seat of a bicycle built for two." */

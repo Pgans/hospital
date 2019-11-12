@@ -9,7 +9,7 @@ use yii\helpers\Json;
 use \yii\web\UploadedFile;
 
 /**
- * This is the model class for table "Award".
+ * This is the model class for table "award".
  *
  * @property integer $id
  * @property string $ref
@@ -18,16 +18,15 @@ use \yii\web\UploadedFile;
  * @property string $docs
  * @property string $create_date
  */
-class Award extends \yii\db\ActiveRecord
+class award extends \yii\db\ActiveRecord
 {
-    public $upload_foler ='uploads';
-    const UPLOAD_FOLDER = 'sheets';
+    const UPLOAD_FOLDER = 'award';
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'Award';
+        return 'award';
     }
 
     /**
@@ -38,18 +37,17 @@ class Award extends \yii\db\ActiveRecord
         return [
             [['create_date'], 'safe'],
             [['ref'], 'string', 'max' => 50],
-            [['ref'], 'string', 'max' => 50],
             [['title'], 'string', 'max' => 255],
             [['covenant'],'file','maxFiles'=>1],
             [['name', 'surname'], 'required'],
-            [['name'], 'string', 'max' => 100],
-            [['surname'], 'string'],
-            [['photo'], 'file',
-            'skipOnEmpty' => true,
-            'extensions' => 'png,jpg'
-            ]
-        ];
-    }
+            [['name', 'surname'], 'string', 'max' => 100],
+             [['photo'], 'file',
+          'skipOnEmpty' => true,
+          'extensions' => 'png,jpg'
+        ]
+    ];
+}
+            
 
     /**
      * @inheritdoc
@@ -60,15 +58,27 @@ class Award extends \yii\db\ActiveRecord
           'id' => 'ID',
           'ref' => 'หลายเลข referent สำหรับอัพโหลดไฟล์ ajax',
           'title' => 'หัวข้อ',
+          'name' =>'ชื่อรางวัล',
+          'surname' => 'รายละเอียด',
+          'photo' =>'รูปภาพ',
           'covenant' => 'ดาวน์โหลดไฟล์',
           'create_date' => 'วันที่อัพโหลด',
-          'name' => 'รางวัล',
-          'surname' => 'รายละเอียด',
-          'photo' => 'รูปภาพ',
-          'receive_date' => 'วันได้รับรางวัล',
-          'dep_id'=>'แผนก',
         ];
     }
+    public function upload($model,$attribute)
+{
+    $photo  = UploadedFile::getInstance($model, $attribute);
+      $path = $this->getUploadPath();
+    if ($this->validate() && $photo !== null) {
+
+        $fileName = md5($photo->baseName.time()) . '.' . $photo->extension;
+        //$fileName = $photo->baseName . '.' . $photo->extension;
+        if($photo->saveAs($path.$fileName)){
+          return $fileName;
+        }
+    }
+    return $model->isNewRecord ? false : $model->getOldAttribute($attribute);
+}
 
     public static function getUploadPath(){
         return Yii::getAlias('@webroot').'/'.self::UPLOAD_FOLDER.'/';
@@ -117,26 +127,11 @@ class Award extends \yii\db\ActiveRecord
          }
         return $initial;
     }
-    public function upload($model,$attribute)
-{
-    $photo  = UploadedFile::getInstance($model, $attribute);
-      $path = $this->getUploadPath();
-    if ($this->validate() && $photo !== null) {
-
-        $fileName = md5($photo->baseName.time()) . '.' . $photo->extension;
-        //$fileName = $photo->baseName . '.' . $photo->extension;
-        if($photo->saveAs($path.$fileName)){
-          return $fileName;
-        }
-    }
-    return $model->isNewRecord ? false : $model->getOldAttribute($attribute);
-}
-
-public function getPhotoViewer(){
-    return empty($this->photo) ? Yii::getAlias('@web').'/img/none.png' : $this->getUploadUrl().$this->photo;
-  }
-
-
+    public function getPhotoViewer(){
+        return empty($this->photo) ? Yii::getAlias('@web').'/img/none.png' : $this->getUploadUrl().$this->photo;
+      }
+    
 
 }
+
 

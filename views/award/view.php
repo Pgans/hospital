@@ -29,7 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'title',
+            'id',
+            'name',
+            'surname',
+            [
+                'format'=>'raw',
+                'attribute'=>'photo',
+                'value'=>Html::img($model->photoViewer,['class'=>'img-thumbnail','style'=>'width:200px;'])
+            ],
             ['attribute'=>'covenant','value'=>$model->listDownloadFiles('covenant'),'format'=>'html'],
             'create_date',
         ],

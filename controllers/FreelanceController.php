@@ -29,8 +29,8 @@ class FreelanceController extends Controller
     /**
      * @inheritdoc
      */
-    // public function behaviors()
-    // {
+    
+    // public function behaviors(){
     //     return [
     //         'verbs' => [
     //             'class' => VerbFilter::className(),
@@ -38,67 +38,41 @@ class FreelanceController extends Controller
     //                 'delete' => ['POST'],
     //             ],
     //         ],
-    //         'access' =>[
-    //           'class' => AccessControl::className(),
-    //           'only' => ['index', 'admin', 'view', 'create', 'update', 'delete'],
-    //           'rules' => [
-    //             [
-    //               'actions' => ['admin', 'create', 'update','delete'],
-    //               'allow' => true,
-    //               'roles' => ['@']
+    //         'access'=>[
+    //             'class'=>AccessControl::className(),
+    //             'only'=> ['index','create','update','view','delete'],
+    //             'ruleConfig'=>[
+    //                 'class'=>AccessRule::className()
     //             ],
-    //             [
-    //               'actions' => ['index', 'view'],
-    //               'allow' => true,
-    //               'roles' => ['?', '@']
+    //             'rules'=>[
+    //                 [
+    //                     'actions'=>['index','create','view'],
+    //                     'allow'=> true,
+    //                     'roles' => [
+    //                         //'?', 
+    //                        // '@',
+    //                         User::ROLE_USER,
+    //                        User::ROLE_EMPLOYEE,
+    //                        User::ROLE_ADMIN
+    //                      ]
+    //                 ],
+    //                 [
+    //                     'actions'=>['update'],
+    //                     'allow'=> true,
+    //                     'roles'=>[
+    //                         User::ROLE_EMPLOYEE,
+    //                         User::ROLE_ADMIN
+    //                     ]
+    //                 ],
+    //                 [
+    //                     'actions'=>['delete'],
+    //                     'allow'=> true,
+    //                     'roles'=>[User::ROLE_ADMIN]
+    //                 ]
     //             ]
-    //           ]
     //         ]
     //     ];
     // }
-    public function behaviors(){
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-            'access'=>[
-                'class'=>AccessControl::className(),
-                'only'=> ['index','create','update','view','delete'],
-                'ruleConfig'=>[
-                    'class'=>AccessRule::className()
-                ],
-                'rules'=>[
-                    [
-                        'actions'=>['index','create','view'],
-                        'allow'=> true,
-                        'roles' => [
-                            //'?', 
-                           // '@',
-                            User::ROLE_USER,
-                           User::ROLE_EMPLOYEE,
-                           User::ROLE_ADMIN
-                         ]
-                    ],
-                    [
-                        'actions'=>['update'],
-                        'allow'=> true,
-                        'roles'=>[
-                            User::ROLE_EMPLOYEE,
-                            User::ROLE_ADMIN
-                        ]
-                    ],
-                    [
-                        'actions'=>['delete'],
-                        'allow'=> true,
-                        'roles'=>[User::ROLE_ADMIN]
-                    ]
-                ]
-            ]
-        ];
-    }
 
     /**
      * Lists all Freelance models.
@@ -155,14 +129,14 @@ class FreelanceController extends Controller
             $model->docs = $this->uploadMultipleFile($model);
 
             if($model->save()){
-                 return $this->redirect(['view', 'id' => $model->id]);
+                 return $this->redirect(['index', 'id' => $model->id]);
             }
 
         } else {
              $model->ref = substr(Yii::$app->getSecurity()->generateRandomString(),10);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
     }

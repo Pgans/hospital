@@ -31,7 +31,8 @@
         "rmrevin/yii2-fontawesome": "~2.15",
         "dixonsatit/yii2-thai-year-formatter": "*",
         "ibrarturi/yii2-scrollup": "dev-master",
-        "sylletka/yii2-log": "dev-master"
+        "sylletka/yii2-log": "dev-master",
+        "bower-asset/fontawesome": "4.3.*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

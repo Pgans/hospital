@@ -7,6 +7,7 @@ use kartik\widgets\FileInput;
 use kartik\date\DatePicker;
 use yii\helpers\ArrayHelper;
 use app\models\Departments;
+use app\models\Award;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\awards */
@@ -19,11 +20,11 @@ use app\models\Departments;
 
 <?= $form->errorSummary($model); ?>
 
-     <!-- <?= $form->field($model, 'ref')->hiddenInput()->label(false); ?> -->
+      <?= $form->field($model, 'ref')->hiddenInput()->label(false); ?> 
 
-    <!-- <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?> -->
+    <!-- <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>  -->
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-    <!-- <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?> -->
+    
     <?= $form->field($model, 'surname')->textarea(['rows' => 6]) ?>
     <div class="row">
       <div class="col-md-2">
@@ -31,18 +32,12 @@ use app\models\Departments;
           <?= Html::img($model->getPhotoViewer(),['style'=>'width:100px;','class'=>'img-rounded']); ?>
         </div>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-5">
             <?= $form->field($model, 'photo')->fileInput() ?>
       </div>
     </div>
+   
     <div class="col-md-5">
-    <?= $form->field($model, 'dep_id')->dropDownList(
-        ArrayHelper::map(Departments::find()->all(),'id','name'),
-        ['prompt'=>'เลือกแผนก']
-        ) ?>
-    </div>
-
-    <div class="col-md-6">
      <?= $form->field($model, 'covenant')->widget(FileInput::classname(), [
     //'options' => ['accept' => 'image/*'],
     'pluginOptions' => [
@@ -57,11 +52,11 @@ use app\models\Departments;
     ]); ?>
     </div>
 
-    
-    <div class="form-group">
-        <?= Html::submitButton('<i class="glyphicon glyphicon-plus"></i> '.($model->isNewRecord ? 'Create' : 'Update'), ['class' => ($model->isNewRecord ? 'btn btn-success' : 'btn btn-primary').' btn-lg btn-block']) ?>
+       
+       <div class="form-group">
+        <?= Html::submitButton('<i class="glyphicon glyphicon-plus"></i> '.($model->isNewRecord ? 'บันทึกข้อมูล' : 'แก้ไข'), 
+        ['class' => ($model->isNewRecord ? 'btn btn-primary' : 'btn btn-info').' btn-lg btn-block']) ?>
     </div>
-
     <?php ActiveForm::end(); ?>
 
 </div>

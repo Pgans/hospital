@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\awardSearch */
@@ -10,16 +14,28 @@ use yii\grid\GridView;
 $this->title = 'รางวัลAward';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
- <div class="panel panel-danger">
-                        <div class="panel-heading"><h4><i class="glyphicon glyphicon-user"></i> รางวัลดีเด่น ยอดเยี่ยม</h4></div>
-                        <div class="panel-body">
-                        <div class="row">
+  <div class="award-index">
 
-    <p>
-        <?= Html::a('เพิ่มรางวัล', ['create'], ['class' => 'btn btn-warning']) ?>
-    </p>
-    <p><?= Html::a('รองรับประเภทไฟล์ pdf, doc, docx, xls, xlsx')?></p>
-    <div class="site-index">
+<div class="panel panel-danger">
+                    <div class="panel-heading"><h3><i class="glyphicon glyphicon-user"></i> ระบบการบันทึกรางวัลAwards</h3></div>
+                    <div class="panel-body">
+                    <div class="row">
+
+ <p>
+    <?= Html::button('เพิ่มข้อมูลรางวัล', ['value'=>Url::to(['award/create']), 'class' =>
+     'btn btn-success btn-lg','id'=>'modalButton']); ?> 
+     </p>
+
+<?php Modal::begin([
+    'id' => 'modal',
+    'header' => '<h4><a color-blue>CREATE AWARD</a></h4>',
+    'size'=>'modal-lg',
+    'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">ปิด</a>',
+    ]);
+    echo "<div id='modalContent'></div>";
+    Modal::end();
+    ?>
+    
   <?= GridView::widget([
       'dataProvider' => $dataProvider,
       'filterModel' => $searchModel,
@@ -46,8 +62,36 @@ $this->params['breadcrumbs'][] = $this->title;
          // 'title',
           ['attribute'=>'covenant','value'=>function($model){return $model->listDownloadFiles('covenant');},'format'=>'html'],
           'create_date',
-          ['class' => 'yii\grid\ActionColumn'],
-        ],
-        'layout' => '{items}{pager}',
-  ]); ?>
+          ['class' => 'yii\grid\ActionColumn',
+          'header'=>'คลิกดู',
+          'headerOptions' => ['style' => 'width:13%'],
+          'template'=>'<div class="btn-group btn-group-sm text-center" role="group"> {detail} {edit} {del} </div>',
+          'buttons'=>[
+              'detail' => function($url,$model,$key){
+                  return Html::a('ดู',
+                      ['view', 'id' => $model->id],
+                      ['class' => 'btn btn-info'],
+                      $url);
+              },
+              'edit' => function($url,$model,$key){
+                  return Html::a('ปรับปรุง',
+                      ['update', 'id' => $model->id],
+                      ['class' => 'btn btn-success'],
+                      $url);
+              },
+              'del' => function($url,$model,$key){
+                  return Html::a('ลบ',
+                      ['delete', 'id' => $model->id],
+                      ['class' => 'btn btn-danger'],
+                      $url);
+              },
+          ],
+      ],
+
+     ],
+ ]); ?>
+
 </div>
+<?php
+$this->registerJsFile('@web/js/main.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+?>

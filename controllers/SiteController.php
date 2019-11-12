@@ -217,4 +217,10 @@ class SiteController extends Controller {
     public function actionHolistic() {
         return $this->render('holistic');
     }
+    public function actionQuality() {
+        return $this->render('quality');
+    }
+    public function actionStrategic() {
+        return $this->render('strategic');
+    }
 }

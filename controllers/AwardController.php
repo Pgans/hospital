@@ -15,6 +15,7 @@ use yii\web\UploadedFile;
 use yii\helpers\BaseFileHelper;
 use yii\helpers\Json;
 use yii\helpers\ArrayHelper;
+
 /* เพิ่มคำสั่ง 3 บรรทัดต่อจากนี้ลงไป */
 use yii\filters\AccessControl;        // เรียกใช้ คลาส AccessControl
 use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
@@ -79,6 +80,7 @@ class AwardController extends Controller
         $searchModel = new AwardSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $dataProvider->pagination->pageSize=8;
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -106,10 +108,9 @@ class AwardController extends Controller
     {
         $model = new Award();
         
-        // if ($model->load(Yii::$app->request->post()) ) {
-            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-                $model->photo = $model->upload($model,'photo');
-                //$model->save();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->photo = $model->upload($model,'photo');
+            $model->save();
 
             $this->CreateDir($model->ref);
             $model->covenant = $this->uploadSingleFile($model);
@@ -123,20 +124,11 @@ class AwardController extends Controller
              $model->ref = substr(Yii::$app->getSecurity()->generateRandomString(),10);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
     }
-
-    //     if ($model->load(Yii::$app->request->post()) && $model->save()) {
-    //         return $this->redirect(['view', 'id' => $model->id]);
-    //     } else {
-    //         return $this->render('create', [
-    //             'model' => $model,
-    //         ]);
-    //     }
-    // }
-
+    
     /**
      * Updates an existing Award model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -148,15 +140,13 @@ class AwardController extends Controller
         $model = $this->findModel($id);
          $tempCovenant = $model->covenant;
         //$tempDocs     = $model->docs;
-         if ($model->load(Yii::$app->request->post())) {
-           // if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-                
-                //  $model->save();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->photo = $model->upload($model,'photo');
+            $model->save();
 
             $this->CreateDir($model->ref);
             $model->covenant = $this->uploadSingleFile($model,$tempCovenant);
-            // $model->photo = $model->upload($model,'photo');
-            // $model->save();
+            //$model->docs = $this->uploadMultipleFile($model,$tempDocs);
 
             if($model->save()){
                 return $this->redirect(['index', 'id' => $model->id]);
@@ -168,14 +158,7 @@ class AwardController extends Controller
         ]);
     }
 
-    //     if ($model->load(Yii::$app->request->post()) && $model->save()) {
-    //         return $this->redirect(['view', 'id' => $model->id]);
-    //     } else {
-    //         return $this->render('update', [
-    //             'model' => $model,
-    //         ]);
-    //     }
-    // }
+    
 
     /**
      * Deletes an existing Award model.
@@ -219,6 +202,7 @@ class AwardController extends Controller
                 }
             }
         }
+
         echo json_encode($status);
     }
 

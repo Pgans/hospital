@@ -12,8 +12,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="well" align="center">
 
+
     <p>
-        <img src="images/structure.jpg" class="img-thumbnail">
+         <!-- <img src="images/โครงสร้างองค์กร.jpg"  class="img-thumbnail" 'title'=>"Clcik to enlarge" >  -->
+        <!-- <img src="images/โครงสร้างองค์กร.jpg" alt="ทดสอบ ALT" width="100px" height="80px" /> -->
+        <img src="images/โครงสร้างองค์กร.jpg" title="โครงสร้างองค์กร"/>
+        
     </p>
     
     

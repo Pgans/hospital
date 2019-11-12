@@ -9,6 +9,9 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'th',
+    // 'aliases'=>[
+    //     '@agency' => '@app/themes/agency',
+    //          ],
     'modules' => [
         'gridview' => [
             'class' => '\kartik\grid\Module'

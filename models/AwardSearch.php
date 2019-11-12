@@ -19,7 +19,7 @@ class AwardSearch extends Award
     {
         return [
             [['id'], 'integer'],
-            [['ref', 'title', 'covenant', 'docs', 'create_date'], 'safe'],
+            [['ref', 'title', 'covenant', 'create_date'], 'safe'],
         ];
     }
 
@@ -65,9 +65,8 @@ class AwardSearch extends Award
 
         $query->andFilterWhere(['like', 'ref', $this->ref])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'covenant', $this->covenant])
-            ->andFilterWhere(['like', 'docs', $this->docs]);
-
+            ->andFilterWhere(['like', 'covenant', $this->covenant]);
+            
         return $dataProvider;
     }
 }

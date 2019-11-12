@@ -34,15 +34,15 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
         <div class="item"><?= Html::img('@web/images/2.jpg', ['alt' => 'ทดสอบ']) ?></div>
         <div class="item"><?= Html::img('@web/images/3.jpg', ['alt' => 'ทดสอบ']) ?></div>
         <div class="item"><?= Html::img('@web/images/4.jpg', ['alt' => 'ทดสอบ']) ?></div>
-        <div class="item"><?= Html::img('@web/images/5.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <!-- <div class="item"><?= Html::img('@web/images/5.jpg', ['alt' => 'ทดสอบ']) ?></div>
         <div class="item"><?= Html::img('@web/images/6.jpg', ['alt' => 'ทดสอบ']) ?></div>
         <div class="item"><?= Html::img('@web/images/7.jpg', ['alt' => 'ทดสอบ']) ?></div>
-        <div class="item"><?= Html::img('@web/images/8.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <div class="item"><?= Html::img('@web/images/8.jpg', ['alt' => 'ทดสอบ']) ?></div> -->
         <div class="item"><?= Html::img('@web/images/9.jpg', ['alt' => 'ทดสอบ']) ?></div>
-        <div class="item"><?= Html::img('@web/images/10.jpg', ['alt' => 'ทดสอบ']) ?></div>
+        <div class="item"><?= Html::img('@web/images/10.jpg', ['alt' => 'ทดสอบ']) ?></div> 
     </div>
         
-         <div class="col-lg-6 col-md-6 col-sm-6">
+         <!-- <div class="col-lg-6 col-md-6 col-sm-3">
              <div class="panel-body">
                  <div class="embed-responsive embed-responsive-16by9">
                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RSq66Sr9uac?playlist=RSq66Sr9uac&loop=1"></iframe>
@@ -55,7 +55,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/WYh1apXwVu0?playlist=WYh1apXwVu0&loop=1"></iframe>
                 </div>
             </div>
-         </div>
+         </div> -->
 
         <p />
         <div class="row">
@@ -80,8 +80,12 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             'content' => $newspurchase,
                         ],
                         [
-                            'label' => '<i class="glyphicon glyphicon-list"></i> ข่าวทั่วไป',
+                            'label' => '<i class="glyphicon glyphicon-list"></i> ข่าวรับทั่วไป',
                             'content' => $newsall,
+                        ],
+                        [
+                            'label' => '<i class="glyphicon glyphicon-list"></i> ข่าวรับสมัครงาน',
+                            'content' => $newswork,
                         ],
                     ];
                     echo TabsX::widget([
@@ -98,13 +102,14 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     </div>
                         <div class="panel-body">
                             <div>
-                          <ul class="xoxo blogroll">
-                         		<img src="images/h4u.png" width="700" height="450" border="0" alt=""></a>
+                           <!-- <ul class="xoxo blogroll">
+                          <a href= "http://localhost/hospital/web/images/ลอยกระทง.jpg" target="blank"><img src="images/ลอยกระทง.jpg" title="ขอเชิญร่วมงานลอยกระทง โรงพยาบาลม่วงสามสิบ
+                        "width="700" height=350" border="0" ></a> <br>
                                 <!-- <a href="https://www.facebook.com/2059017560848601/photos/p.2059140214169669/2059140214169669/" target="blank"><img src="images/แล่น1.jpg" width="700" height="350" border="0" alt=""></a>
-                                  <a href="http://m30hospital.com/run_m30/index.php" target= "blank">ตรวจสอบรายชื่อผู้สมัครวิ่ง แล่น ม่วน ม่วง</a>  (<b stye="color:red">แล่น ม่วน ม่วง</b>) -->
-						</ul>
+                                  <a href="http://m30hospital.com/run_m30/index.php" target= "blank">ตรวจสอบรายชื่อผู้สมัครวิ่ง แล่น ม่วน ม่วง</a>  (<b stye="color:red">แล่น ม่วน ม่วง</b>)  -->
+						</ul>  
 						<br>
-						<br><img src="images/พันธกิจ.jpg" width="250" height="60" border="0" alt="" >
+						<!-- <br><img src="images/พันธกิจ.jpg" width="250" height="60" border="0" alt="" >
 							<ul>
 							<li><a>1. ให้บริการรักษาพยาบาล ส่งเสริมสุขภาพ ป้องกันโรค และฟื้นฟูสภาพอย่างมีคุณภาพตามมาตรฐานวิชาชีพอย่างดีที่สุด </a></li>
 							<li><a>2. สนับสนุน เครือข่ายปฐมภูมิให้บริการที่มีคุณภาพได้มาตรฐาน   </a></li>
@@ -115,34 +120,135 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
 							<li><a>7. สนับสนุนบุคลากรให้มีความสุขในการทำงานและพัฒนาให้มีสมรรถนะตามมาตรฐาน</a></li>
                             <li><a>8. ดำเนินงานให้สอดคล้องและตอบสนองนโยบายระดับสูง </a></li>
 							</ul>
-                            </a>
+                            </a> -->
 						 <a href="http://m30hospital.com/web/index.php?r=requests%2Fcreate" target="blank"><img src="images/รับแจ้ง.jpg" width="250" height="60" border="0" alt=""></a>
 			<ul>
 				<li><a href="http://m30hospital.com/web/index.php?r=requests%2Fcreate" target= "blank">แจ้งข้อร้องเรียน</a>  (<b stye="color:red">ส่งตรงเข้าไลน์ผู้บริหารโรงพยาบาล</b>)</li>
 				<li><a href="http://m30hospital.com/web/index.php?r=recommend%2Fcreate" target="blank">แจ้งข้อเสนอแนะ</a>  (<b stye="color:red">ส่งตรงเข้าไลน์ผู้บริหารโรงพยาบาล</b>)</li>
 			</ul>
-			<br><a href= "http://m30hospital.com/1425/" target="blank"><img src="images/ธรรมาภิบาล.jpg" width="250" height="60" border="0" alt="" ></a>
+			<a href= "http://m30hospital.com/1425/" target="blank"><img src="images/ธรรมาภิบาล.jpg"   width="250" height="60" border="0" alt="" ></a>
                             </div>
                         </div>
                     </div>
 					
+                
 					<div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-bullhorn fa-flip-horizontal"></i>การบริการ</h3>
                     </div>
-                        <a href="http://m30hospital.com/web/index.php?r=site%2Fdental" target="blank"><img src="images/ทันตกรรม.jpg" width="250" height="80" border="0" alt=""></a>
-                         <a href="http://m30hospital.com/web/index.php?r=site%2Fthaimed" target="blank"><img src="images/แผนไทย.jpg" width="250" height="80" border="0" alt=""></a>
-						  <a href="http://m30hospital.com/web/index.php?r=site%2Fpcu" target="blank"><img src="images/pcu.jpg" width="300" height="80" border="0" alt=""></a>
-						 <br> <a href="http://m30hospital.com/web/index.php?r=site%2Fer" target="blank"><img src="images/er1.jpg" width="250" height="80" border="0" alt=""></a>
-						 <a href="http://m30hospital.com/web/index.php?r=site%2Fregister" target="blank"><img src="images/register1.jpg" width="250" height="80" border="0" alt=""></a>
-						  <a href="http://m30hospital.com/web/index.php?r=site%2Fclinic" target="blank"><img src="images/คลินิก.jpg" width="250" height="80" border="0" alt=""></a>
-						  <br> <a href="http://m30hospital.com/web/index.php?r=site%2Fphisical" target="blank"><img src="images/กายภาพ.jpg" width="250" height="80" border="0" alt=""></a>
-						 <a href="http://m30hospital.com/web/index.php?r=site%2Flr" target="blank"><img src="images/คลอด.jpg" width="250" height="80" border="0" alt=""></a>
-						  <a href="http://m30hospital.com/web/index.php?r=site%2Fckd" target="blank"><img src="images/ckd.jpg" width="250" height="80" border="0" alt=""></a>
-                          <br> <a href="http://m30hospital.com/web/index.php?r=site%2Fpharm" target="blank"><img src="images/ยา.jpg" width="250" height="80" border="0" alt=""></a>
-						 <a href="http://m30hospital.com/web/index.php?r=site%2Faids" target="blank"><img src="images/ให้คำปรึกษา.jpg" width="250" height="80" border="0" alt=""></a>
-						  <a href="http://m30hospital.com/web/index.php?r=site%2Fholistic" target="blank"><img src="images/ยาเสพติด.jpg" width="250" height="80" border="0" alt=""></a>
+                        <a href="http://m30hospital.com/web/index.php?r=site%2Fdental" target="blank"><img src="images/ทันตกรรม.jpg" title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
+                         <a href="http://m30hospital.com/web/index.php?r=site%2Fthaimed" target="blank"><img src="images/แผนไทย.jpg" title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
+						  <a href="http://m30hospital.com/web/index.php?r=site%2Fpcu" target="blank"><img src="images/pcu.jpg"title="Tel.045-489064"  width="300" height="80" border="0" alt=""></a>
+						 <br> <a href="http://m30hospital.com/web/index.php?r=site%2Fer" target="blank"><img src="images/er1.jpg"  title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
+						 <a href="http://m30hospital.com/web/index.php?r=site%2Fregister" target="blank"><img src="images/register1.jpg" title="Tel.045-489064"  width="250" height="80" border="0" alt=""></a>
+						  <a href="http://m30hospital.com/web/index.php?r=site%2Fclinic" target="blank"><img src="images/คลินิก.jpg"  title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
+						  <br> <a href="http://m30hospital.com/web/index.php?r=site%2Fphisical" target="blank"><img src="images/กายภาพ.jpg"title="Tel.045-489064"  width="250" height="80" border="0" alt=""></a>
+						 <a href="http://m30hospital.com/web/index.php?r=site%2Flr" target="blank"><img src="images/คลอด.jpg"  title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
+						  <a href="http://m30hospital.com/web/index.php?r=site%2Fckd" target="blank"><img src="images/ckd.jpg" title="Tel.045-489064"  width="250" height="80" border="0" alt=""></a>
+                          <br> <a href="http://m30hospital.com/web/index.php?r=site%2Fpharm" target="blank"><img src="images/ยา.jpg"  title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
+						 <a href="http://m30hospital.com/web/index.php?r=site%2Faids" target="blank"><img src="images/ให้คำปรึกษา.jpg"  title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
+						  <a href="http://m30hospital.com/web/index.php?r=site%2Fholistic" target="blank"><img src="images/ยาเสพติด.jpg" title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
                     </div>
+                    <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> วิดีโอแนวทางดูแลไข้เลือดออก โดย ศ.พญ.ศิริเพ็ญ กัลยาณรุจ </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/S31g5Ys04mg"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uN39BC_sINw"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ujxP7dhhYoI"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cI_-KyP6LaY"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XY3dH96mFLA"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L-Uqm-BbSTw"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OEx2ZUqzlso"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uYt2fKB-7gc"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yPrlkVdUW8g"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/jPJ5XBXTSwk"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com//embed/h_oahDc5OjY"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="panel-body">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L0fe19PiXZ4"></iframe> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+               
+                <!--<div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-calendar" aria-hidden="true"></i> ตารางปฏิบัติงาน / กิจกรรม</h3>
+                    </div>
+                    <div class="panel-body">                            
                     <!-- <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-bullhorn fa-flip-horizontal"></i> บทความ</h3>
@@ -256,7 +362,18 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             117251501692874%2F&tabs=timeline&width=270&height=500&small_header=false&adapt_container_width=true&hide_cover
                             =false&show_facepile=true&appId" width="300" height="500" style="border:none;overflow:hidden" 
                             scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-
+                        <div class="panel panel-info">
+                        <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> เกี่ยวกับโรงพยาบาล</h4></div>
+                        <div class="panel-body">
+                            <div>
+                                <ul class="xoxo blogroll">
+                                    <!-- <li><a href="https://consent.moph.go.th/" target="_blank">ConsentForm</a></li> -->
+                                    <li><a href="http://m30hospital.com/web/index.php?r=site%2Fstructure" target="_blank">วิสัยทัศน์ พันธกิจ</a></li>
+                                    <li><a href="http://m30hospital.com/web/index.php?r=site%2Fstruc_m30" target="_blank">โครงสร้างองค์กร</a></li>
+                                    <!-- <li><a href="https://ict.moph.go.th/upload_file/files/b636e184c7f932f65124e284156f7284.png" target="_blank">ขั้นตอนการใช้สมุดสุขภาพประชาชน</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
                     <div class="panel panel-warning">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> สมุดสุขภาพประชาชน(H4U)</h4></div>
                         <div class="panel-body">
@@ -275,16 +392,28 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                         <div class="panel-body">
                             <div>
                                 <ul class="xoxo blogroll">
-                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobservice%2Findex" target="_blank">แจ้งส่งซ่อมพัสดุ(ผู้ใช้)</a></li>
-                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobcom%2Findex" target="_blank">แจ้งซ่อมคอมพิวเตอร์</a></li>
-                                   <!-- <li><a href="http://m30hospital.com/service/frontend/web/index.php" target="_blank">ยืมคืนเวชระเบียน</a></li> -->
-                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=opdcard%2Fpermits" target="_blank">ยืมเวชระเบียน</a></li> 
-                                    <li><a href="http://192.168.200.4/meeting/index.php" target="_blank">จองห้องประชุม</a></li>
+                                    <li><a href="http://192.168.200.9/meeting/index.php" target="_blank">จองห้องประชุม</a></li>
+                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobservice%2Findex" target="_blank">แจ้งหน่วยซ่อมบำรุง(พัสดุ)</a></li>
+                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobcom%2Findex" target="_blank">แจ้งซ่อมคอมพิวเตอร์และสื่อโสต</a></li>
+                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=carjobs%2Findex" target="_blank">บันทึกการใช้รถ</a></li> 
+                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=rfcar%2Fcaractivity" target="_blank">หมวดรายงานการใช้รถ</a></li>
+                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=opdcard%2Fpermits" target="_blank">แจ้งยืมเวชระเบียน</a></li>
                                     <li><a href="http://192.168.200.8/service-support/fullcalendar1_2.php" target="_blank">จองรถยนต์</a></li>
-                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=apdcard%2Fpermits" target="_blank">คืนเวชระเบียน(admin)</a></li>
-                                    <li><a href="http://192.168.200.9/yii2a-services/backend/web/index.php?r=jobservice%2Findex" target="_blank">หน่วยซ่อมบำรุง(admin)</a></li>
-                                    <li><a href="http://192.168.200.9/yii2a-services/backend/web/index.php?r=jobcom%2Findex" target="_blank">ศูนย์คอมพิวเตอร์(admin)</a></li>
-                                    <li><a href="http://192.168.200.8/service-support/fullcalendar1_2.php" target="_blank">จองห้องประชุม(Demo)</a></li>
+                                    <!--<li><a href="http://192.168.200.8/service-support/fullcalendar1_2.php" target="_blank">จองห้องประชุม(Demo)</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-warning">
+                        <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> สำหรับADMIN</h4></div>
+                        <div class="panel-body">
+                            <div>
+                                <ul class="xoxo blogroll">
+                                    
+                                    <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=apdcard%2Fpermits" target="_blank">หมวดจัดการคืนเวชระเบียน</a></li>
+                                    <li><a href="http://192.168.200.9/yii2a-services/backend/web/index.php?r=jobservice%2Findex" target="_blank">หมวดจัดการหน่วยซ่อมบำรุง</a></li>
+                                    <li><a href="http://192.168.200.9/yii2a-services/backend/web/index.php?r=jobcom%2Findex" target="_blank">หมวดจัดการศูนย์คอมพิวเตอร์และโสต</a></li>
+                                    <!--<li><a href="http://192.168.200.8/service-support/fullcalendar1_2.php" target="_blank">จองห้องประชุม(Demo)</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -311,10 +440,10 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     <!--<div class="col-xs-6 col-md-4">-->
                     <!--<div class="panel-group">-->
                     <div class="panel panel-warning">
-                        <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> โรงพยาบาลชุมชน</h4></div>
+                        <!-- <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> โรงพยาบาลชุมชน</h4></div> -->
                         <div class="panel-body">
                             <div>
-                                <ul class="xoxo blogroll">
+                                <!-- <ul class="xoxo blogroll">
                                     <li><a href="http://www.kkphospital.go.th" target="_blank">โรงพยาบาลกุดข้าวปุ้น</a></li>
                                     <li><a href="http://www.dmdhospital.com/" target="_blank">โรงพยาบาลดอนมดแดง</a></li>
                                     <li><a href="http://www.trakanhospital.org/" target="_blank">โรงพยาบาลตระการพืชผล</a></li>
@@ -332,11 +461,11 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                                     <li><a href="http://www.kmhos.org/main/" target="_blank">โรงพยาบาลเขมราฐ</a></li>
                                     <li><a href="http://www.knhosp.go.th/" target="_blank">โรงพยาบาลเขื่องใน</a></li>
                                     <li><a href="http://www.khongchiamhospital.com/" target="_blank">โรงพยาบาลโขงเจียม</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                                 
-                        <div class="panel panel-warning">
+                        <!-- <div class="panel panel-warning">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-cogs" aria-hidden="true"></i> ระบบ MIS</h4></div>
                         <div class="panel-body">
                            
@@ -357,7 +486,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     </div>
 
                       </div>
-                    </div>
+                    </div> -->
                     <!--</div>-->
                 </div>
             </div>
