@@ -136,7 +136,8 @@ MaterialAsset::register($this);
                             '<li class="dropdown-header">เมนูไฟล์</li>',
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> อัพโหลดไฟล์', 'url' => ['/freelance/admin'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูอัลบั้มภาพ</li>',
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> เพิ่มอัลบั้มภาพ', 'url' => ['/photo-library/admin'], 'visible' => !Yii::$app->user->isGuest],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> เพิ่มอัลบั้มภาพทั่วไป', 'url' => ['/photo-library/admin'], 'visible' => !Yii::$app->user->isGuest],
+                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> เพิ่มอัลบั้มภาพรับบริจาค', 'url' => ['/donate/admin'], 'visible' => !Yii::$app->user->isGuest],
                             '<li class="dropdown-header">เมนูปฏิบัติงาน/กิจกรรม</li>',
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> เพิ่มตารางปฏิบัติงาน/กิจกรรม', 'url' => ['/event/admin'], 'visible' => !Yii::$app->user->isGuest],
                         ],
@@ -181,7 +182,7 @@ MaterialAsset::register($this);
                             <h3><i class="fa fa-fw fa-share-alt"></i> HOSPITAL</h3>
                             <li><a href="http://www.kkphospital.go.th" target="_blank">โรงพยาบาลกุดข้าวปุ้น</a></li>
                                     <li><a href="http://www.dmdhospital.com/" target="_blank">โรงพยาบาลดอนมดแดง</a></li>
-                                    <li><a href="http://www.trakanhospital.org/" target="_blank">โรงพยาบาลตระการพืชผล</a></li>
+                                    <li><a href="http://trakanhospital.moph.go.th/trakan/" target="_blank">โรงพยาบาลตระการพืชผล</a></li>
                                     <li><a href="http://www.tansumhospital.go.th/" target="_blank">โรงพยาบาลตาลสุม</a></li>
                                     <li><a href="http://www.nlhospital.go.th/" target="_blank">โรงพยาบาลนาจะหลวย</a></li>
                                     <li><a href="http://www.cupnatan.com/" target="_blank">โรงพยาบาลนาตาล</a></li>
@@ -201,6 +202,7 @@ MaterialAsset::register($this);
                          <div class="footer-col col-md-3" align="left">
                             <h3><i class="fa fa-globe"></i> MIS</h3>
                             <li><a href="http://www.phoubon.in.th/" target="_blank">สำนักงานสาธารณสุขจังหวัดอุบลราชธานี</a></li>
+                            <li><a href="http://sso14.net/" target="_blank">สำนักงานสาธารณสุขอำเภอม่วงสามสิบ</a></li>
                             <li><a href="https://ubn.hdc.moph.go.th/hdc/main/index_pk.php"" target="_blank">HDC จังหวัดอุบลราชธานี</a></li>
                             <li><a href="http://203.114.110.134:81/coopubon/" target="_blank">สหกรณ์ออมทรัพย์อุบลราชธานี</a></li>
                             <li><a href="http://uboncancer.go.th/ubcc2016v2/intro.php/" target="_blank">โรงพยาบาลมะเร็งอุบลราชธานี</a></li>
@@ -210,9 +212,38 @@ MaterialAsset::register($this);
                             
                         </div> 
                         <div class="footer-col col-md-3">
+                            <h3><i class="fa fa-fw fa-share-alt"></i> รพ.สต.</h3>
+
+                                    <li><a href="http://www.sso14.net/sso14/D.HTM" target="_blank">1.รพ.สต.หนองเมือง 03697</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/R.HTM" target="_blank">2.รพ.สต.หนองแสง 03694</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/X.HTM" target="_blank">3.รพ.สต.สร้างมิ่ง 03698</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/M.HTM" target="_blank">4.รพ.สต.บัวยาง 03695</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/E.HTM" target="_blank">5.รพ.สต.หนองหลัก 03692</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/N.HTM" target="_blank">6.รพ.สต.ขมิ้น 03693</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/O.HTM" target="_blank">7.รพ.สต.หนองขุ่น 03710</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/S.HTM" target="_blank">8.รพ.สต.ผักระย่า 03708</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/Q.HTM" target="_blank">9.รพ.สต.หนองสองห้อง 03709</a></li>
+                                    <li><a href="http://sso14.net/site/03712/index.html" target="_blank">10.รพ.สต.แสงไผ่ 03712</a></li>
+                                    <li><a href="http://sso14.net/site/03713/index.html" target="_blank">11.รพ.สต.ทุ่งมณี 03713</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/G.HTM" target="_blank">12.รพ.สต.ไผ่ใหญ่ 03711</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/T.HTM" target="_blank">13.รพ.สต.หนองฮาง 03707</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/B.HTM" target="_blank">14.รพ.สต.หนองเหล่า 03705</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/V.HTM" target="_blank">15.รพ.สต.โพนแพง 03714</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/U.HTM" target="_blank">16.รพ.สต.ดอนแดงใหญ่ 03706</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/I.HTM" target="_blank">17.รพ.สต.หนองไข่นก 03704</a></li>
+                                    <li><a href="http://www.m30hospital.com" target="_blank">18.PCU.ม่วงสามสิบ 99809</a></li>
+                                    <li><a href="http://sso14.net/site/03696/index.html" target="_blank">19.รพ.สต.พระโรจน์ 03696</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/T.HTM" target="_blank">20.รพ.สต.น้ำคำแดง 03700</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/T.HTM" target="_blank">21.รพ.สต.โนนขวาว 03699</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/C.HTM" target="_blank">22.รพ.สต.ยางสักกระโพหลุ่ม 03702</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/J.HTM" target="_blank">23.รพ.สต.นาดี 03701</a></li>
+                                    <li><a href="http://www.sso14.net/sso14/K.HTM" target="_blank">24.รพ.สต.ยางเครือ 03703</a></li>       
+                        </div>
+
+                        <div class="footer-col col-md-3">
                             <h3><i class="fa fa-fw fa-share-alt"></i> INTRANET</h3>
 
-                            <li><a href="http://192.168.200.9/meeting/index.php" target="_blank">จองห้องประชุม</a></li>
+                                    <li><a href="http://192.168.200.9/meeting/index.php" target="_blank">จองห้องประชุม</a></li>
                                     <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobservice%2Findex" target="_blank">แจ้งหน่วยซ่อมบำรุง(พัสดุ)</a></li>
                                     <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobcom%2Findex" target="_blank">แจ้งซ่อมคอมพิวเตอร์และสื่อโสต</a></li>
                                     <li><a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=carjobs%2Findex" target="_blank">บันทึกการใช้รถ</a></li> 
@@ -221,11 +252,15 @@ MaterialAsset::register($this);
                                     <li><a href="http://192.168.200.8/service-support/fullcalendar1_2.php" target="_blank">จองรถยนต์</a></li>
                         </div>
 
-                        <div class="footer-col col-md-2">
+                        <div class="footer-col col-md-3">
                             <h3><i class="fa fa-map-marker" aria-hidden="true"></i> ที่ตั้ง</h3>
                             <p>โรงพยาบาลม่วงสามสิบ 378 หมู่ 10
                                 <br>ต.ม่วงสามสิบ อ.ม่วงสามสิบ จ.อุบลราชธานี 34140
-                                <br>โทร 0-45489-064</p>
+                                <br>โทร 0-45489-064
+                            </p>
+                            </div>
+
+                         <div class="footer-col col-md-3">
                                 <h3><i class="fa fa-globe"></i> จำนวนผู้เข้าชมเว็บ</h3>
                             <p>
                               <script type='text/javascript' src='http://www.siamecohost.com/member/gcounter/graphcount.php?page=m30hospital.com&style=02'>

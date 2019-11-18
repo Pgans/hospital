@@ -17,6 +17,7 @@ use app\models\PhotoLibrarySearch;
 use yii\data\ActiveDataProvider;
 use app\models\Event;
 use app\models\EventSearch;
+use app\models\DonateSearch;
 
 class SiteController extends Controller {
 
@@ -75,6 +76,11 @@ class SiteController extends Controller {
         $dataProvider2 = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider2->sort->defaultOrder = ['id'=>'DESC'];
 
+        $searchModel = new DonateSearch();
+        $dataProvider3 = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider3->sort->defaultOrder = ['id'=>'DESC'];
+
+
         $events  = Event::find()->all();
         $eventos = [];
 
@@ -96,6 +102,7 @@ class SiteController extends Controller {
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
                     'dataProvider2' => $dataProvider2,
+                    'dataProvider3' => $dataProvider3,
                     'newswork' => $newswork,
                     'newspurchase' => $newspurchase,
                     'events' => $eventos,

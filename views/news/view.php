@@ -51,10 +51,10 @@ if(@is_file($basePath.$iconUrl)){
     <div class="list-group">
       <div class="list-group-item">
         <div class="row-picture">
-          <img class="media-object" src="<?= $img; ?>" alt="Generic placeholder image"><p />
+          <img class="media-object" src="<?= $img; ?>" alt="Generic placeholder image" width="80" height="80"><p />
         </div>
         <div class="row-content">
-          <h4 class="list-group-item-heading"><?= $this->title = $model->title; ?></h4>
+          <h4 class="list-group-item-heading" style="color:green"><?= $this->title = $model->title; ?></h4>
           <p class="list-group-item-text"><?= $model->detail; ?></p>
           <?= DetailView::widget([
               'model' => $model,

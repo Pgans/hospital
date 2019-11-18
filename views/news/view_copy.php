@@ -25,11 +25,11 @@ $basePath = Yii::getAlias('@webroot');
 
 $iconUrl = '/uploaded/news/icons/'.$model->id.'.png';
 
-if(@is_file($basePath.$iconUrl)){
-  $img = $baseUrl.$iconUrl;
-}else{
-  $img = $baseUrl.'/uploaded/news/icons/default.png';
-}
+// if(@is_file($basePath.$iconUrl)){
+//   $img = $baseUrl.$iconUrl;
+// }else{
+//   $img = $baseUrl.'/uploaded/news/icons/default.png';
+// }
 ?>
 <div class="news-view">
 

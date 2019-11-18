@@ -102,9 +102,11 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     </div>
                         <div class="panel-body">
                             <div>
-                           <!-- <ul class="xoxo blogroll">
-                          <a href= "http://localhost/hospital/web/images/ลอยกระทง.jpg" target="blank"><img src="images/ลอยกระทง.jpg" title="ขอเชิญร่วมงานลอยกระทง โรงพยาบาลม่วงสามสิบ
-                        "width="700" height=350" border="0" ></a> <br>
+                            <ul class="xoxo blogroll">
+                          <a href= "http://203.157.166.27/Ub-SIMs/" target="blank"><img src="images/Ub_sims.jpg" title="โปรแกรม Ub_sims สำนักงานสาธารณสุขจังหวัดอุบลราชธานี
+                        "width="700" height=180" border="0" ></a> <br>
+                        <!-- <a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobcom%2Findex" target="_blank"><img src="images/com002.jpg"
+                        title="แจ้งซ่อมคอมพิวเตอร์และโสตทัศนศึกษา" width="150" height="150"></a>  -->
                                 <!-- <a href="https://www.facebook.com/2059017560848601/photos/p.2059140214169669/2059140214169669/" target="blank"><img src="images/แล่น1.jpg" width="700" height="350" border="0" alt=""></a>
                                   <a href="http://m30hospital.com/run_m30/index.php" target= "blank">ตรวจสอบรายชื่อผู้สมัครวิ่ง แล่น ม่วน ม่วง</a>  (<b stye="color:red">แล่น ม่วน ม่วง</b>)  -->
 						</ul>  
@@ -149,6 +151,22 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
 						 <a href="http://m30hospital.com/web/index.php?r=site%2Faids" target="blank"><img src="images/ให้คำปรึกษา.jpg"  title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
 						  <a href="http://m30hospital.com/web/index.php?r=site%2Fholistic" target="blank"><img src="images/ยาเสพติด.jpg" title="Tel.045-489064" width="250" height="80" border="0" alt=""></a>
                     </div>
+
+                    <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><i class="fa fa-picture-o" aria-hidden="true"></i> ภาพบริจาค</h3>
+                    </div>
+                    <div class="panel-body">
+                        <?php
+                        echo ListView::widget([
+                            'dataProvider' => $dataProvider3,
+                            'itemView' => '/donate/_item',
+                            'layout' => '{items}{pager}',
+                        ]);
+                        ?>
+                    </div>
+                </div>
+
                     <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> วิดีโอแนวทางดูแลไข้เลือดออก โดย ศ.พญ.ศิริเพ็ญ กัลยาณรุจ </h3>
@@ -247,21 +265,10 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                 <!--<div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-calendar" aria-hidden="true"></i> ตารางปฏิบัติงาน / กิจกรรม</h3>
-                    </div>
-                    <div class="panel-body">                            
-                    <!-- <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-bullhorn fa-flip-horizontal"></i> บทความ</h3>
-                    </div>
-                        <div class="panel-body">
-                            <div>
-                         <ul class="xoxo blogroll">
-                        
-                         
-                            </div>
-                        </div>
-                    </div>
-                 -->
+                    </div>-->
+
+
+                   
                 <!--<div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-calendar" aria-hidden="true"></i> ตารางปฏิบัติงาน / กิจกรรม</h3>
@@ -297,6 +304,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                         ?>
                     </div>
                 </div>
+                
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> วิดีโอ</h3>
