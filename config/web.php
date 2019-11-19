@@ -33,6 +33,9 @@ $config = [
 
             'class' => 'app\modules\sheets\Module',
         ],
+        'anc' => [
+            'class' => 'app\modules\anc\Module',
+        ],
     ],
     'components' => [
         'request' => [

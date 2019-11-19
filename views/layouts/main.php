@@ -207,7 +207,9 @@ MaterialAsset::register($this);
                             <li><a href="http://203.114.110.134:81/coopubon/" target="_blank">สหกรณ์ออมทรัพย์อุบลราชธานี</a></li>
                             <li><a href="http://uboncancer.go.th/ubcc2016v2/intro.php/" target="_blank">โรงพยาบาลมะเร็งอุบลราชธานี</a></li>
                             <li><a href="http://eclaim.nhso.go.th/webComponent/contact/ContactAction.do" target="_blank">E-Claim สปสช</a></li>
-                            <li><a href="http://op.nhso.go.th/op/main/MainWebAction.do/" target="_blank">ตรวจสอบคุณภาพข้อมูล OP (สปสช.กลาง)</a></li>
+                            <!-- <li><a href="http://op.nhso.go.th/op/main/MainWebAction.do/" target="_blank">ตรวจสอบคุณภาพข้อมูล OP (สปสช.กลาง)</a></li> -->
+                            <li><a href="https://www.chi.or.th/" target="_blank">สำนักสารสนเทศบริการสุขภาพ (chi.or.th)</a></li>
+                            <li><a href="http://op.nhso.go.th/op/main/MainWebAction.do" target="_blank">OP/PP Individual Record (เว็บหน้าเขียว)</a></li>
                             
                             
                         </div> 
