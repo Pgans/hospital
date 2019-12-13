@@ -35,7 +35,7 @@ class Donate extends \yii\db\ActiveRecord
         return [
             [['detail'], 'string'],
             [['start_date'], 'safe'],
-            [['province_id'], 'integer'],
+            [['province_id','view'], 'integer'],
             [['ref'], 'string', 'max' => 50],
             [['event_name', 'location'], 'string', 'max' => 255],
             [['ref'], 'unique'],
@@ -56,6 +56,7 @@ class Donate extends \yii\db\ActiveRecord
             'start_date' => 'วันที่ถ่ายภาพ',
             'location' => 'สถานที่',
             'province_id' => 'จังหวัด',
+            'view' => 'จำนวนผู้เข้าชม',
         ];
     }
 

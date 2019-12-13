@@ -12,12 +12,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="well" align="left">
 
+    <li><a href="https://drive.google.com/open?id=1lT_qvOCa_2locIzAFDFyG3393wNudqVE" taget="_blank">แนวทางการจัดสรรOPPP งานแพทย์แผนไทยปี2563</a></li>
+    </p>
     <p>
     <li><a href="https://drive.google.com/open?id=1bamhOeBnnR99Gx8mNMW8Hk4lc43zzeE7" target="_blank">Claim_Fee_ Schedule_บริการสร้างเสริมสุขภาพและป้องกันโรค2563</a></li>
     </p>
     <p>
     <li><a href="https://drive.google.com/open?id=1NYasxJm-Qf8zJVPKht0CdgWHZ0cd08io" target="_blank">การบันทึกFee Schedule 2563</a></li>
     </p>
+    <p>
+    
     
 </div>
 </div>

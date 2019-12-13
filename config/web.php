@@ -36,6 +36,11 @@ $config = [
         'anc' => [
             'class' => 'app\modules\anc\Module',
         ],
+        'ehr' => [
+
+            'class' => 'app\modules\ehr\Module',
+
+        ],
     ],
     'components' => [
         'request' => [
@@ -77,6 +82,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'db3' => require(__DIR__ . '/db3.php'),
         /*
           'urlManager' => [
           'enablePrettyUrl' => true,

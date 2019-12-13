@@ -13,6 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="panel panel-warning">
+
+
                         <div class="panel-heading"><h4><i class="glyphicon glyphicon-download-alt"></i> ดาวน์โหลดไฟล์</h4></div>
                         <div class="panel-body">
                         <div class="row">
@@ -25,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
           'title',
           ['attribute'=>'covenant','value'=>function($model){return $model->listDownloadFiles('covenant');},'format'=>'html'],
           'create_date',
+          'view',
         ],
         'layout' => '{items}{pager}',
   ]); ?>

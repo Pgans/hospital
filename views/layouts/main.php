@@ -88,8 +88,9 @@ MaterialAsset::register($this);
                     [
                         'label' => 'ยุทธศาสตร์', 'visible',
                         'items' => [
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ไฟล์ข้อมูล(New)', 'url' => ['/site/strategic']],
-                            ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ข้อเสนอแนะ', 'url' => ['/recommend/create']],
+                            ['label' => '<i class="glyphicon glyphicon .glyphicon-info-sign"></i> ไฟล์ข้อมูล(New)', 'url' => ['/site/strategic']],
+                            ['label' =>'<a href="https://drive.google.com/open?id=1YVc_2-ZIe1Z-ul9yphJIsgAn-iJ0J0NN" target="_blank">สเปคคอมพิวเตอร์ ICT_2562</a>'],
+                            ['label' =>'<a href="https://drive.google.com/file/d/1JJb-H5_arwVX3YzzRXJiRRceOClN28mB/view?usp=sharing" target="_blank">การใช้งานHDC กระทรวงสาธรณสุข</a>'],
                             //['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งเสียชีวิต', 'url' => ['/deaths30/create']],
                             
                         ],

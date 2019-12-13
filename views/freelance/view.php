@@ -12,6 +12,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Freelances', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="freelance-view">
+<?php
+  $view = $model->view + 1;
+  $model->covenant = $view;
+  $model->save();
+?>
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php if(!Yii::$app->user->isGuest){ ?>
@@ -32,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             ['attribute'=>'covenant','value'=>$model->listDownloadFiles('covenant'),'format'=>'html'],
             'create_date',
+            'view',
         ],
     ]) ?>
 

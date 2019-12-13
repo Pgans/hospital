@@ -12,6 +12,11 @@ $this->params['breadcrumbs'][] = ['label' => 'กิจกรรม', 'url' => [
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="donate-view">
+<?php
+  $view = $model->view + 1;
+  $model->view = $view;
+  $model->save();
+?>
 
     <!-- <h1><?= Html::encode($this->title) ?></h1> -->
     <?php if (!Yii::$app->user->isGuest) { ?>

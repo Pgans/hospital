@@ -105,10 +105,9 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             <ul class="xoxo blogroll">
                           <a href= "http://203.157.166.27/Ub-SIMs/" target="blank"><img src="images/Ub_sims.jpg" title="โปรแกรม Ub_sims สำนักงานสาธารณสุขจังหวัดอุบลราชธานี
                         "width="700" height=180" border="0" ></a> <br>
-                        <!-- <a href="http://192.168.200.9/yii2a-services/frontend/web/index.php?r=jobcom%2Findex" target="_blank"><img src="images/com002.jpg"
-                        title="แจ้งซ่อมคอมพิวเตอร์และโสตทัศนศึกษา" width="150" height="150"></a>  -->
-                                <!-- <a href="https://www.facebook.com/2059017560848601/photos/p.2059140214169669/2059140214169669/" target="blank"><img src="images/แล่น1.jpg" width="700" height="350" border="0" alt=""></a>
-                                  <a href="http://m30hospital.com/run_m30/index.php" target= "blank">ตรวจสอบรายชื่อผู้สมัครวิ่ง แล่น ม่วน ม่วง</a>  (<b stye="color:red">แล่น ม่วน ม่วง</b>)  -->
+                        <!-- <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com"> -->
+                        <!-- <img src="images/ปชส-รอบชิง_0.jpg" title="ขอเชิญเจ้าหน้าที่คปสช.ม่วงสามสิบ ร่วมเป็นเจ้าภาพการแข่งขันก๊ฬาโซน
+                        "width="700" height=250" border="0" > <br>บรายชื่อผู้สมัครวิ่ง แล่น ม่วน ม่วง</a>  (<b stye="color:red">แล่น ม่วน ม่วง</b>)   -->
 						</ul>  
 						<br>
 						<!-- <br><img src="images/พันธกิจ.jpg" width="250" height="60" border="0" alt="" >

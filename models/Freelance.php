@@ -39,7 +39,7 @@ class Freelance extends \yii\db\ActiveRecord
     {
         return [
           [['title'],'required'],
-          //[['description'], 'string'],
+          [['view'], 'integer'],
           //[['start_date', 'end_date', 'success_date', 'create_date','docs'], 'safe'],
           [['ref'], 'string', 'max' => 50],
           [['title'], 'string', 'max' => 255],
@@ -59,6 +59,7 @@ class Freelance extends \yii\db\ActiveRecord
           'title' => 'หัวข้อ',
           'covenant' => 'ดาวน์โหลดไฟล์',
           'create_date' => 'วันที่อัพโหลด',
+          'view' => 'จำนวนผู้เข้าชม',
         ];
     }
 
