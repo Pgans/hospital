@@ -12,6 +12,7 @@ The latest version includes following features:
 * Account and profile management
 * Console commands
 * User management interface
+* Ability to impersonate as another user given admin access is available
 
 > **NOTE:** Module is in initial development. Anything may change at any time.
 
@@ -19,7 +20,7 @@ The latest version includes following features:
 
 [Read the Documentation for master](docs/README.md)
 
-[Read the Documentation for v0.9.9](https://github.com/dektrium/yii2-user/blob/0.9.9/docs/README.md)
+[Read the Documentation for v0.9.12](https://github.com/dektrium/yii2-user/blob/0.9.12/docs/README.md)
 
 ## Installation
 

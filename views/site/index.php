@@ -105,9 +105,9 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             <ul class="xoxo blogroll">
                           <a href= "http://203.157.166.27/Ub-SIMs/" target="blank"><img src="images/Ub_sims.jpg" title="โปรแกรม Ub_sims สำนักงานสาธารณสุขจังหวัดอุบลราชธานี
                         "width="700" height=180" border="0" ></a> <br>
-                        <!-- <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com"> -->
-                        <!-- <img src="images/ปชส-รอบชิง_0.jpg" title="ขอเชิญเจ้าหน้าที่คปสช.ม่วงสามสิบ ร่วมเป็นเจ้าภาพการแข่งขันก๊ฬาโซน
-                        "width="700" height=250" border="0" > <br>บรายชื่อผู้สมัครวิ่ง แล่น ม่วน ม่วง</a>  (<b stye="color:red">แล่น ม่วน ม่วง</b>)   -->
+                       
+                         <img src="images/เพลินวาน.jpg" title="งานปีใหม่ โรงพยาบาลม่วงสามสิบ 2563
+                        "width="700" height=400" border="0" >  
 						</ul>  
 						<br>
 						<!-- <br><img src="images/พันธกิจ.jpg" width="250" height="60" border="0" alt="" >

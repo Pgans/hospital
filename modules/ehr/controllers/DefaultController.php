@@ -142,10 +142,10 @@ class DefaultController extends Controller {
                 s.hospcode,s.seq,h.hosname as hospname,p.pid,
                 IF(a.an IS NULL,'N','Y') AS tadmit,
                 IF(a.an IS NULL,' ',a.AN) AS an
-                FROM service2 s
+                FROM service s
                 LEFT JOIN person p ON p.hospcode = s.hospcode AND p.pid =s.pid
                 LEFT JOIN chospital  h ON h.hoscode = s.hospcode
-		LEFT JOIN tmp_admission a ON a.HOSPCODE = s.HOSPCODE AND a.SEQ = s.SEQ
+		LEFT JOIN admission a ON a.HOSPCODE = s.HOSPCODE AND a.SEQ = s.SEQ
                 WHERE  p.cid = '$cid'
                 ORDER BY date_serv DESC";
         $rawData = $connection->createCommand($sqld)
@@ -184,7 +184,7 @@ class DefaultController extends Controller {
         
         $sqlcc = "SELECT date_serv,CHIEFCOMP,sbp,dbp,pr,rr,btemp,h.hosname as hospname,
                     CONCAT(left(time_serv,2),':',SUBSTR(time_serv,3,2),':',right(time_serv,2)) as time_serv
-                    FROM service2 s
+                    FROM service s
                     LEFT JOIN chospital  h ON h.hoscode = s.hospcode
                     WHERE s.hospcode='$hospcode' AND seq ='$seq' 
                     LIMIT 1";

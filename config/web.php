@@ -113,7 +113,8 @@ if (YII_ENV_DEV) {
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
+       // 'class' => 'yii\gii\Module',
+       'class' => '\kartik\grid\Module',
     ];
 }
 

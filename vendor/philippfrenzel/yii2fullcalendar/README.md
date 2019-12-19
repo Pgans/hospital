@@ -15,7 +15,6 @@ http://yii2fullcalendar.beeye.org
 [![Latest Stable Version](https://poser.pugx.org/philippfrenzel/yii2fullcalendar/v/stable.svg)](https://packagist.org/packages/philippfrenzel/yii2fullcalendar)
 [![Build Status](https://travis-ci.org/philippfrenzel/yii2fullcalendar.svg?branch=master)](https://travis-ci.org/philippfrenzel/yii2fullcalendar)
 [![Code Climate](https://codeclimate.com/github/philippfrenzel/yii2fullcalendar.png)](https://codeclimate.com/github/philippfrenzel/yii2fullcalendar)
-[![Version Eye](https://www.versioneye.com/php/philippfrenzel:yii2fullcalendar/badge.svg)](https://www.versioneye.com/php/philippfrenzel:yii2fullcalendar)
 [![License](https://poser.pugx.org/philippfrenzel/yii2fullcalendar/license.svg)](https://packagist.org/packages/philippfrenzel/yii2fullcalendar)
 
 Installation
@@ -39,6 +38,7 @@ And ensure, that you have the following plugin installed global:
 Changelog
 ---------
 
+19-01-2017 Updated to include non-standard fields
 29-11-2014 Updated to latest 2.2.3 Version of the library
 
 Usage
@@ -54,6 +54,10 @@ Quickstart Looks like this:
   $Event->id = 1;
   $Event->title = 'Testing';
   $Event->start = date('Y-m-d\TH:i:s\Z');
+  $Event->nonstandard = [
+    'field1' => 'Something I want to be included in object #1',
+    'field2' => 'Something I want to be included in object #2',
+  ];
   $events[] = $Event;
 
   $Event = new \yii2fullcalendar\models\Event();
@@ -63,7 +67,7 @@ Quickstart Looks like this:
   $events[] = $Event;
 
   ?>
-  
+
   <?= \yii2fullcalendar\yii2fullcalendar::widget(array(
       'events'=> $events,
   ));
@@ -71,9 +75,18 @@ Quickstart Looks like this:
 
 Note, that this will only view the events without any detailed view or option to add a new event.. etc.
 
+Non-Standard fields
+===================
+
+You can add non-standard fields via the non-standard fields array, for which you can pass any key/value pair, as described in the [Event Fields](https://fullcalendar.io/docs/event_data/Event_Object/) documentation.
+
+So, using the Quick Start example above, you can read `field1` and `fields2` in your JavaScript using notation similar to `event.nonstandard.field1` and `event.nonstandard.field2`.
+
 AJAX Usage
 ==========
 If you wanna use ajax loader, this could look like this:
+
+# 20171023 ajaxEvents are replaced by events - pls. check fullcalendar io documentation for details
 
 ```php
 <?= yii2fullcalendar\yii2fullcalendar::widget([
@@ -81,7 +94,7 @@ If you wanna use ajax loader, this could look like this:
         'lang' => 'de',
         //... more options to be defined here!
       ],
-      'ajaxEvents' => Url::to(['/timetrack/default/jsoncalendar'])
+      'events' => Url::to(['/timetrack/default/jsoncalendar'])
     ]);
 ?>
 ```

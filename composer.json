@@ -32,7 +32,8 @@
         "dixonsatit/yii2-thai-year-formatter": "*",
         "ibrarturi/yii2-scrollup": "dev-master",
         "sylletka/yii2-log": "dev-master",
-        "bower-asset/fontawesome": "4.3.*"
+        "bower-asset/fontawesome": "4.3.*",
+        "kartik-v/yii2-grid": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

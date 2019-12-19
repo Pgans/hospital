@@ -1,7 +1,7 @@
 
 ## Reporting Bugs
 
-Each bug report MUST have a [JSFiddle/JSBin] recreation before any work can begin. [further instructions &raquo;](http://fullcalendar.io/wiki/Reporting-Bugs/)
+Each bug report MUST have a [Codepen/JSFiddle] recreation before any work can begin. [further instructions &raquo;](http://fullcalendar.io/wiki/Reporting-Bugs/)
 
 
 ## Requesting Features
@@ -23,7 +23,7 @@ In the description of your [Pull Request][Using Pull Requests], please include r
 
 ## Contributing Locales
 
-Please edit the original files in the `locale/` directory. DO NOT edit anything in the `dist/` directory. The build system will responsible for merging FullCalendar's `locale/` data with the [MomentJS locale data].
+Please edit the original files in the `packages/core/locales/` directory.
 
 
 ## Other Ways to Contribute
@@ -33,11 +33,7 @@ Please edit the original files in the `locale/` directory. DO NOT edit anything 
 
 ## Getting Set Up
 
-You will need [Git][git], [Node][node], and NPM installed. For clarification, please view the [jQuery readme][jq-readme], which requires a similar setup.
-
-Also, you will need the [gulp-cli][gulp-cli] package installed globally (`-g`) on your system:
-
-	npm install -g gulp-cli
+You will need [Git][git], [Node][node] and NPM installed. You will also need [SASS][sass] globally installed.
 
 Then, clone FullCalendar's git repo:
 
@@ -49,28 +45,33 @@ Enter the directory and install FullCalendar's dependencies:
 	npm install
 
 
-## What to edit
+## What to Edit
 
-When modifying files, please do not edit the generated or minified files in the `dist/` directory. Please edit the original `src/` files.
+When modifying files, please do not edit generated files in the `dist/` directories. Please edit the original files in the `src/` directories.
 
 
 ## Development Workflow
 
-After you make code changes, you'll want to compile the JS/CSS so that it can be previewed from the tests and demos. You can either manually rebuild each time you make a change:
+After you make code changes, you'll want to compile the JS/CSS so that it can be previewed from the tests and examples. You can either manually rebuild each time you make a change:
 
-	gulp dev
+	npm run build
 
 Or, you can run a script that automatically rebuilds whenever you save a source file:
 
-	gulp watch
-
-When you are finished, run the following command to write the distributable files into the `./dist/` directory:
-
-	gulp dist
+	npm run watch
 
 If you want to clean up the generated files, run:
 
-	gulp clean
+	npm run clean
+
+
+## Git
+
+Because this repo has a few git submodules, it will be very convenient to set your default `git push` behavior to be recursive. Do something like this:
+
+```
+git config --global push.recurseSubmodules on-demand
+```
 
 
 ## Style Guide
@@ -103,25 +104,24 @@ Notes about whitespace:
 
 Run the command line tool to automatically check your style:
 
-	gulp lint
+	npm run lint
 
 
 ## Before Submitting your Code
 
 If you have edited code (including **tests** and **translations**) and would like to submit a pull request, please make sure you have done the following:
 
-1. Conformed to the style guide (successfully run `gulp lint`)
+1. Conformed to the style guide (successfully run `npm run lint`)
 
 2. Written automated tests. View the [Automated Test Readme]
 
 
-[JSFiddle/JSBin]: http://fullcalendar.io/wiki/Reporting-Bugs/
+[Codepen/JSFiddle]: http://fullcalendar.io/wiki/Reporting-Bugs/
 [Issue Tracker]: https://github.com/fullcalendar/fullcalendar/issues
 [Using Pull Requests]: https://help.github.com/articles/using-pull-requests/
 [MomentJS locale data]: https://github.com/moment/moment/tree/develop/locale
 [git]: http://git-scm.com/
 [node]: http://nodejs.org/
-[gulp-cli]: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
-[jq-readme]: https://github.com/jquery/jquery/blob/master/README.md#what-you-need-to-build-your-own-jquery
-[Google JavaScript Style Guide]: http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+[sass]: https://sass-lang.com/install
+[Google JavaScript Style Guide]: https://google.github.io/styleguide/jsguide.html
 [Automated Test Readme]: https://github.com/fullcalendar/fullcalendar/wiki/Automated-Tests
