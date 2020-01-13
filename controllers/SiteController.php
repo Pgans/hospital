@@ -91,7 +91,7 @@ class SiteController extends Controller {
             $Event->backgroundColor = 'light blue';
             $Event->borderColor = 'yellow';
             $Event->title = $event->title;
-            $Event->description = $event->description;
+            //$Event->description = $event->description;
             $Event->start = $event->created_date;
             $Event->end = date('Y-m-d', strtotime('+1 day', strtotime($event->end)));
             //$Event->url = 'index.php?r=event/view&id='.$event->id;

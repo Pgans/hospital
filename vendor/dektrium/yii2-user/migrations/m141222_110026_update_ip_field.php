@@ -9,23 +9,24 @@
  * file that was distributed with this source code.
  */
 
-use dektrium\user\migrations\Migration;
+use yii\db\Migration;
 use yii\db\Query;
+use yii\db\Schema;
 
 class m141222_110026_update_ip_field extends Migration
 {
     public function up()
     {
-        $users = (new Query())->from('{{%user}}')->select('id, registration_ip ip')->all($this->db);
+        $users = (new Query())->from('{{%user}}')->select('id, registration_ip ip')->all();
 
-        $transaction = $this->db->beginTransaction();
+        $transaction = Yii::$app->db->beginTransaction();
         try {
-            $this->alterColumn('{{%user}}', 'registration_ip', $this->string(45));
+            $this->alterColumn('{{%user}}', 'registration_ip', Schema::TYPE_STRING . '(45)');
             foreach ($users as $user) {
                 if ($user['ip'] == null) {
                     continue;
                 }
-                $this->db->createCommand()->update('{{%user}}', [
+                Yii::$app->db->createCommand()->update('{{%user}}', [
                     'registration_ip' => long2ip($user['ip']),
                 ], 'id = ' . $user['id'])->execute();
             }
@@ -38,22 +39,21 @@ class m141222_110026_update_ip_field extends Migration
 
     public function down()
     {
-        $users = (new Query())->from('{{%user}}')->select('id, registration_ip ip')->all($this->db);
+        $users = (new Query())->from('{{%user}}')->select('id, registration_ip ip')->all();
 
-        $transaction = $this->db->beginTransaction();
+        $transaction = Yii::$app->db->beginTransaction();
         try {
             foreach ($users as $user) {
-                if ($user['ip'] == null) {
+                if ($user['ip'] == null)
                     continue;
-                }
-                $this->db->createCommand()->update('{{%user}}', [
+                Yii::$app->db->createCommand()->update('{{%user}}', [
                     'registration_ip' => ip2long($user['ip'])
                 ], 'id = ' . $user['id'])->execute();
             }
-            if ($this->dbType == 'pgsql') {
-                $this->alterColumn('{{%user}}', 'registration_ip', $this->bigInteger() . ' USING registration_ip::bigint');
+            if ($this->db->driverName == 'pgsql') {
+                $this->alterColumn('{{%user}}', 'registration_ip', Schema::TYPE_BIGINT . ' USING registration_ip::bigint');
             } else {
-                $this->alterColumn('{{%user}}', 'registration_ip', $this->bigInteger());
+                $this->alterColumn('{{%user}}', 'registration_ip', Schema::TYPE_BIGINT);
             }
 
             $transaction->commit();

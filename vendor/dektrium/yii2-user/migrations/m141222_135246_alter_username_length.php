@@ -9,37 +9,18 @@
  * file that was distributed with this source code.
  */
 
-use dektrium\user\migrations\Migration;
+use yii\db\Migration;
+use yii\db\Schema;
 
 class m141222_135246_alter_username_length extends Migration
 {
     public function up()
     {
-        if ($this->dbType == 'sqlsrv') {
-            $this->dropIndex('{{%user_unique_username}}', '{{%user}}');
-        }
-        if ($this->dbType == 'pgsql') {
-            $this->alterColumn('{{%user}}', 'username', 'SET NOT NULL');
-        } else {
-            $this->alterColumn('{{%user}}', 'username', $this->string(255)->notNull());
-        }
-        if ($this->dbType == 'sqlsrv') {
-            $this->createIndex('{{%user_unique_username}}', '{{%user}}', 'username', true);
-        }
+        $this->alterColumn('{{%user}}', 'username', Schema::TYPE_STRING . '(255)');
     }
 
     public function down()
     {
-        if ($this->dbType == 'sqlsrv') {
-            $this->dropIndex('{{%user_unique_username}}', '{{%user}}');
-        }
-        if ($this->dbType == 'pgsql') {
-            $this->alterColumn('{{%user}}', 'username', 'DROP NOT NULL');
-        } else {
-            $this->alterColumn('{{%user}}', 'username', $this->string(255)->notNull());
-        }
-        if ($this->dbType == 'sqlsrv') {
-            $this->createIndex('{{%user_unique_username}}', '{{%user}}', 'username', true);
-        }
+        $this->alterColumn('{{%user}}', 'username', Schema::TYPE_STRING . '(25)');
     }
 }

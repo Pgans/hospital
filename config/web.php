@@ -33,9 +33,7 @@ $config = [
 
             'class' => 'app\modules\sheets\Module',
         ],
-        'anc' => [
-            'class' => 'app\modules\anc\Module',
-        ],
+        
         'ehr' => [
 
             'class' => 'app\modules\ehr\Module',
@@ -60,7 +58,9 @@ $config = [
         'user' => [
             //'identityClass' => 'app\models\User',
             'identityClass' => 'dektrium\user\models\User',
-            'enableAutoLogin' => true,
+            #'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'authTimeout'=>300,  //Number of second to Automatic Logout if inactive
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -82,7 +82,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        'db3' => require(__DIR__ . '/db3.php'),
+       // 'db3' => require(__DIR__ . '/db3.php'),
         /*
           'urlManager' => [
           'enablePrettyUrl' => true,
@@ -113,8 +113,9 @@ if (YII_ENV_DEV) {
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-       // 'class' => 'yii\gii\Module',
-       'class' => '\kartik\grid\Module',
+        'class' => 'yii\gii\Module',
+      // 'class' => '\kartik\grid\Module',
+       
     ];
 }
 

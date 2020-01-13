@@ -14,7 +14,7 @@ namespace dektrium\user;
 use dektrium\user\models\query\AccountQuery;
 use dektrium\user\models\Token;
 use yii\authclient\ClientInterface;
-use yii\base\BaseObject;
+use yii\base\Object;
 use yii\db\ActiveQuery;
 
 /**
@@ -22,7 +22,7 @@ use yii\db\ActiveQuery;
  *
  * @author Dmitry Erofeev <dmeroff@gmail.com>
  */
-class Finder extends BaseObject
+class Finder extends Object
 {
     /** @var ActiveQuery */
     protected $userQuery;

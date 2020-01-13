@@ -105,9 +105,9 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             <ul class="xoxo blogroll">
                           <a href= "http://203.157.166.27/Ub-SIMs/" target="blank"><img src="images/Ub_sims.jpg" title="โปรแกรม Ub_sims สำนักงานสาธารณสุขจังหวัดอุบลราชธานี
                         "width="700" height=180" border="0" ></a> <br>
-                       
+<!--                        
                          <img src="images/เพลินวาน.jpg" title="งานปีใหม่ โรงพยาบาลม่วงสามสิบ 2563
-                        "width="700" height=400" border="0" >  
+                        "width="700" height=400" border="0" >   -->
 						</ul>  
 						<br>
 						<!-- <br><img src="images/พันธกิจ.jpg" width="250" height="60" border="0" alt="" >
@@ -166,7 +166,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     </div>
                 </div>
 
-                    <div class="panel panel-info">
+                    <!-- <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3 class="panel-title"><i class="fa fa-chain-broken" aria-hidden="true"></i> วิดีโอแนวทางดูแลไข้เลือดออก โดย ศ.พญ.ศิริเพ็ญ กัลยาณรุจ </h3>
                     </div>
@@ -258,7 +258,7 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                
                
                 <!--<div class="panel panel-info">
@@ -365,10 +365,11 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                     <!--<div class="panel-group">-->
     
                     
-                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmhosp-
+                            <!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmhosp-
                             117251501692874%2F&tabs=timeline&width=270&height=500&small_header=false&adapt_container_width=true&hide_cover
                             =false&show_facepile=true&appId" width="300" height="500" style="border:none;overflow:hidden" 
                             scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                             -->
                         <div class="panel panel-info">
                         <div class="panel-heading"><h4 class="panel-title"><i class="fa fa-h-square" aria-hidden="true"></i> เกี่ยวกับโรงพยาบาล</h4></div>
                         <div class="panel-body">
@@ -377,6 +378,9 @@ $this->registerJsFile("http://www.jacklmoore.com/colorbox/jquery.colorbox.js", [
                                     <!-- <li><a href="https://consent.moph.go.th/" target="_blank">ConsentForm</a></li> -->
                                     <li><a href="http://m30hospital.com/web/index.php?r=site%2Fstructure" target="_blank">วิสัยทัศน์ พันธกิจ</a></li>
                                     <li><a href="http://m30hospital.com/web/index.php?r=site%2Fstruc_m30" target="_blank">โครงสร้างองค์กร</a></li>
+                                    <li><a href="https://drive.google.com/open?id=1MJssii2ozybOu_WzOeNGUSO04S6wjJ-5" target="_blank">ยุทธศาสตร์ของประเทศ</a></li>
+                                    <li><a href="https://drive.google.com/open?id=1v5ybSSyLpw7HdtQ-tlK_dXOjPipNbbDz"" target="_blank">พระราชบัญญัติมาตรฐานทางจริยธรรม</a></li>
+                                    <li><a href="https://drive.google.com/open?id=10s4bgmP4qh8OvzBN-fxxYKnLX_oeC6HR"" target="_blank">ประมวลจริธรรมข้าราชการพลเรือน</a></li>
                                     <!-- <li><a href="https://ict.moph.go.th/upload_file/files/b636e184c7f932f65124e284156f7284.png" target="_blank">ขั้นตอนการใช้สมุดสุขภาพประชาชน</a></li> -->
                                 </ul>
                             </div>

@@ -10,47 +10,58 @@ use yii\data\ArrayDataProvider;
 use kartik\tabs\TabsX;
 use yii\filters\VerbFilter;
 use app\modules\ehr\models\LogEhr;
+
 /* เพิ่มคำสั่ง 3 บรรทัดต่อจากนี้ลงไป */
 use yii\filters\AccessControl;        // เรียกใช้ คลาส AccessControl
-use common\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
-use common\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
+use app\models\User;             // เรียกใช้ Model คลาส User ที่ปรับปรังปรุงไว้
+use app\components\AccessRule;   // เรียกใช้ คลาส Component AccessRule ที่เราสร้างใหม่
 
 
 class DefaultController extends Controller {
 
-    public $enableCsrfValidation = false; //เพิ่ม
+  //  public $enableCsrfValidation = false; //เพิ่ม
     
-    // public function behaviors(){
-    //     return [
-    //         'verbs' => [
-    //             'class' => VerbFilter::className(),
-    //             'actions' => [
-    //                 'delete' => ['post'],
-    //             ],
-    //         ],
-    //         'access'=>[
-    //             'class'=>AccessControl::className(),
-    //             'only'=> ['index','create','update','view','delete'],
-    //             'ruleConfig'=>[
-    //                 'class'=>AccessRule::className()
-    //             ],
-    //             'rules'=>[
-    //                 [
-    //                     'actions'=>['index'],
-    //                     'allow'=> true,
-    //                     'roles'=>[
-    //                         //'?',
-    //                        // '@',
-    //                         User::ROLE_USER,
-    //                         User::ROLE_EMPLOYEE,
-    //                         User::ROLE_ADMIN
-
-    //                     ]
-    //                 ],
-    //             ]
-    //         ]
-    //     ];
-    // }
+    public function behaviors(){
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+            'access'=>[
+                'class'=>AccessControl::className(),
+                'only'=> ['index','create','update','view','delete'],
+                'ruleConfig'=>[
+                    'class'=>AccessRule::className()
+                ],
+                'rules'=>[
+                    [
+                        'actions'=>['index','create','view'],
+                        'allow'=> true,
+                        'roles' => [
+                            User::ROLE_USER,
+                           User::ROLE_EMPLOYEE,
+                           User::ROLE_ADMIN
+                         ]
+                    ],
+                    [
+                        'actions'=>['update'],
+                        'allow'=> true,
+                        'roles'=>[
+                            User::ROLE_EMPLOYEE,
+                            User::ROLE_ADMIN
+                        ]
+                    ],
+                    [
+                        'actions'=>['delete'],
+                        'allow'=> true,
+                        'roles'=>[User::ROLE_ADMIN]
+                    ]
+                ]
+            ]
+        ];
+    }
     public function actionIndex() {
         
         //throw ConflictHttpException('ระบบ EHR ถูกปิด');
@@ -142,11 +153,12 @@ class DefaultController extends Controller {
                 s.hospcode,s.seq,h.hosname as hospname,p.pid,
                 IF(a.an IS NULL,'N','Y') AS tadmit,
                 IF(a.an IS NULL,' ',a.AN) AS an
-                FROM service s
+                FROM service1 s
                 LEFT JOIN person p ON p.hospcode = s.hospcode AND p.pid =s.pid
                 LEFT JOIN chospital  h ON h.hoscode = s.hospcode
 		LEFT JOIN admission a ON a.HOSPCODE = s.HOSPCODE AND a.SEQ = s.SEQ
                 WHERE  p.cid = '$cid'
+                AND s.date_serv >= '2015-01-01' 
                 ORDER BY date_serv DESC";
         $rawData = $connection->createCommand($sqld)
                 ->queryAll();
@@ -184,9 +196,10 @@ class DefaultController extends Controller {
         
         $sqlcc = "SELECT date_serv,CHIEFCOMP,sbp,dbp,pr,rr,btemp,h.hosname as hospname,
                     CONCAT(left(time_serv,2),':',SUBSTR(time_serv,3,2),':',right(time_serv,2)) as time_serv
-                    FROM service s
+                    FROM service1 s
                     LEFT JOIN chospital  h ON h.hoscode = s.hospcode
-                    WHERE s.hospcode='$hospcode' AND seq ='$seq' 
+                    WHERE s.hospcode='$hospcode' AND seq ='$seq'
+                    AND s.date_serv >= '2015-01-01' 
                     LIMIT 1";
         $datacc = $connection->createCommand($sqlcc)
                 ->queryAll();

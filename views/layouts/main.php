@@ -67,6 +67,7 @@ MaterialAsset::register($this);
                     [
                         'label' => 'บริการ', 'visible',
                         'items' => [
+                           // ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ประวัติบริการ', 'url' => ['/ehr']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> แพทย์แผนไทย', 'url' => ['/site/thaimed']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ศูนย์สุขภาพชุมชนม่วงสามสิบ', 'url' => ['/site/pcu']],
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ทันตกรรม', 'url' => ['/site/dental']],
@@ -91,7 +92,9 @@ MaterialAsset::register($this);
                             ['label' => '<i class="glyphicon glyphicon .glyphicon-info-sign"></i> ไฟล์ข้อมูล(New)', 'url' => ['/site/strategic']],
                             ['label' =>'<a href="https://drive.google.com/open?id=1YVc_2-ZIe1Z-ul9yphJIsgAn-iJ0J0NN" target="_blank">สเปคคอมพิวเตอร์ ICT_2562</a>'],
                             ['label' =>'<a href="https://drive.google.com/file/d/1JJb-H5_arwVX3YzzRXJiRRceOClN28mB/view?usp=sharing" target="_blank">การใช้งานHDC กระทรวงสาธรณสุข</a>'],
+                            ['label' =>'<a href="https://drive.google.com/open?id=1ongQHcO2oWRNTZkNmiT1TE3lgVp_fdAo" target="_blank">แนวทางfee_schedule2563</a>'],
                             //['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งเสียชีวิต', 'url' => ['/deaths30/create']],
+                           
                             
                         ],
                     ],
@@ -103,6 +106,18 @@ MaterialAsset::register($this);
                             ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ไฟล์เอกสารที่เกี่ยวข้อง', 'url' => ['/site/quality']],
                            // ['label' => '<i class="glyphicon glyphicon-menu-right"></i> ห้องบัตร', 'url' => ['/site/register']],
                                
+                        ],
+                    ],
+                    [
+                        'label' => 'ITA', 'visible',
+                        'items' => [
+                            ['label' => '<i class="glyphicon glyphicon .glyphicon-info-sign"></i> ไฟล์ข้อมูล(New)', 'url' => ['/site/strategic']],
+                            //['label' =>'<a href="https://drive.google.com/open?id=1YVc_2-ZIe1Z-ul9yphJIsgAn-iJ0J0NN" target="_blank">สเปคคอมพิวเตอร์ ICT_2562</a>'],
+                           // ['label' =>'<a href="https://drive.google.com/file/d/1JJb-H5_arwVX3YzzRXJiRRceOClN28mB/view?usp=sharing" target="_blank">การใช้งานHDC กระทรวงสาธรณสุข</a>'],
+                           // ['label' =>'<a href="https://drive.google.com/open?id=1ongQHcO2oWRNTZkNmiT1TE3lgVp_fdAo" target="_blank">แนวทางfee_schedule2563</a>'],
+                            //['label' => '<i class="glyphicon glyphicon-menu-right"></i> แจ้งเสียชีวิต', 'url' => ['/deaths30/create']],
+                           
+                            
                         ],
                     ],
                     

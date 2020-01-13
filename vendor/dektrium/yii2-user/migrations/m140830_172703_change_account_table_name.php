@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use dektrium\user\migrations\Migration;
+use yii\db\Migration;
 
 /**
  * @author Dmitry Erofeev <dmeroff@gmail.com>

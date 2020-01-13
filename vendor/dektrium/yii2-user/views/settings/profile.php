@@ -10,14 +10,11 @@
  */
 
 use yii\helpers\Html;
-use dektrium\user\helpers\Timezone;
-use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
 
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
- * @var dektrium\user\models\Profile $model
+ * @var dektrium\user\models\Profile $profile
  */
 
 $this->title = Yii::t('user', 'Profile settings');
@@ -36,16 +33,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::encode($this->title) ?>
             </div>
             <div class="panel-body">
-                <?php $form = ActiveForm::begin([
+                <?php $form = \yii\widgets\ActiveForm::begin([
                     'id' => 'profile-form',
                     'options' => ['class' => 'form-horizontal'],
                     'fieldConfig' => [
                         'template' => "{label}\n<div class=\"col-lg-9\">{input}</div>\n<div class=\"col-sm-offset-3 col-lg-9\">{error}\n{hint}</div>",
                         'labelOptions' => ['class' => 'col-lg-3 control-label'],
                     ],
-                    'enableAjaxValidation' => true,
+                    'enableAjaxValidation'   => true,
                     'enableClientValidation' => false,
-                    'validateOnBlur' => false,
+                    'validateOnBlur'         => false,
                 ]); ?>
 
                 <?= $form->field($model, 'name') ?>
@@ -59,8 +56,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form
                     ->field($model, 'timezone')
                     ->dropDownList(
-                        ArrayHelper::map(
-                            Timezone::getAll(),
+                        \yii\helpers\ArrayHelper::map(
+                            \dektrium\user\helpers\Timezone::getAll(),
                             'timezone',
                             'name'
                         )
@@ -68,18 +65,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form
                     ->field($model, 'gravatar_email')
-                    ->hint(Html::a(Yii::t('user', 'Change your avatar at Gravatar.com'), 'http://gravatar.com')) ?>
+                    ->hint(
+                        \yii\helpers\Html::a(
+                            Yii::t('user', 'Change your avatar at Gravatar.com'),
+                            'http://gravatar.com'
+                        )
+                    ) ?>
 
                 <?= $form->field($model, 'bio')->textarea() ?>
 
                 <div class="form-group">
                     <div class="col-lg-offset-3 col-lg-9">
-                        <?= Html::submitButton(Yii::t('user', 'Save'), ['class' => 'btn btn-block btn-success']) ?>
-                        <br>
+                        <?= \yii\helpers\Html::submitButton(
+                            Yii::t('user', 'Save'),
+                            ['class' => 'btn btn-block btn-success']
+                        ) ?><br>
                     </div>
                 </div>
 
-                <?php ActiveForm::end(); ?>
+                <?php \yii\widgets\ActiveForm::end(); ?>
             </div>
         </div>
     </div>

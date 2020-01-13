@@ -29,14 +29,8 @@ class Mailer extends Component
     /** @var string|array Default: `Yii::$app->params['adminEmail']` OR `no-reply@example.com` */
     public $sender;
 
-    /** @var \yii\mail\BaseMailer Default: `Yii::$app->mailer` */
-    public $mailerComponent;
-
     /** @var string */
     protected $welcomeSubject;
-
-    /** @var string */
-    protected $newPasswordSubject;
 
     /** @var string */
     protected $confirmationSubject;
@@ -68,26 +62,6 @@ class Mailer extends Component
     public function setWelcomeSubject($welcomeSubject)
     {
         $this->welcomeSubject = $welcomeSubject;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNewPasswordSubject()
-    {
-        if ($this->newPasswordSubject == null) {
-            $this->setNewPasswordSubject(Yii::t('user', 'Your password on {0} has been changed', Yii::$app->name));
-        }
-
-        return $this->newPasswordSubject;
-    }
-
-    /**
-     * @param string $newPasswordSubject
-     */
-    public function setNewPasswordSubject($newPasswordSubject)
-    {
-        $this->newPasswordSubject = $newPasswordSubject;
     }
 
     /**
@@ -177,24 +151,6 @@ class Mailer extends Component
     }
 
     /**
-     * Sends a new generated password to a user.
-     *
-     * @param User  $user
-     * @param Password $password
-     *
-     * @return bool
-     */
-    public function sendGeneratedPassword(User $user, $password)
-    {
-        return $this->sendMessage(
-            $user->email,
-            $this->getNewPasswordSubject(),
-            'new_password',
-            ['user' => $user, 'password' => $password, 'module' => $this->module]
-        );
-    }
-
-    /**
      * Sends an email to a user with confirmation link.
      *
      * @param User  $user
@@ -264,7 +220,8 @@ class Mailer extends Component
      */
     protected function sendMessage($to, $subject, $view, $params = [])
     {
-        $mailer = $this->mailerComponent === null ? Yii::$app->mailer : Yii::$app->get($this->mailerComponent);
+        /** @var \yii\mail\BaseMailer $mailer */
+        $mailer = Yii::$app->mailer;
         $mailer->viewPath = $this->viewPath;
         $mailer->getView()->theme = Yii::$app->view->theme;
 

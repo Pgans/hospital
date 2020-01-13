@@ -12,7 +12,7 @@
 namespace dektrium\user\helpers;
 
 /**
- * Timezone helper.
+ * Password helper.
  *
  * @author Dmitry Erofeev <dmeroff@gmail.com>
  */
@@ -31,11 +31,10 @@ class Timezone
 
         foreach ($timeZoneIdentifiers as $timeZone) {
             $date = new \DateTime('now', new \DateTimeZone($timeZone));
-            $offset = $date->getOffset();
-            $tz = ($offset > 0 ? '+' : '-') . gmdate('H:i', abs($offset));
+            $offset = $date->getOffset() / 60 / 60;
             $timeZones[] = [
                 'timezone' => $timeZone,
-                'name' => "{$timeZone} (UTC {$tz})",
+                'name' => "{$timeZone} (UTC " . ($offset > 0 ? '+' : '') . "{$offset})",
                 'offset' => $offset
             ];
         }

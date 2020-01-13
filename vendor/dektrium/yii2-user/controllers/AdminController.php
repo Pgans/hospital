@@ -16,10 +16,8 @@ use dektrium\user\Finder;
 use dektrium\user\models\Profile;
 use dektrium\user\models\User;
 use dektrium\user\models\UserSearch;
-use dektrium\user\helpers\Password;
 use dektrium\user\Module;
 use dektrium\user\traits\EventTrait;
-use yii;
 use yii\base\ExitException;
 use yii\base\Model;
 use yii\base\Module as Module2;
@@ -28,7 +26,6 @@ use yii\filters\VerbFilter;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\ForbiddenHttpException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
@@ -66,18 +63,6 @@ class AdminController extends Controller
      * Triggered with \dektrium\user\events\UserEvent.
      */
     const EVENT_AFTER_UPDATE = 'afterUpdate';
-
-    /**
-     * Event is triggered before impersonating as another user.
-     * Triggered with \dektrium\user\events\UserEvent.
-     */
-    const EVENT_BEFORE_IMPERSONATE = 'beforeImpersonate';
-
-    /**
-     * Event is triggered after impersonating as another user.
-     * Triggered with \dektrium\user\events\UserEvent.
-     */
-    const EVENT_AFTER_IMPERSONATE = 'afterImpersonate';
 
     /**
      * Event is triggered before updating existing user's profile.
@@ -139,13 +124,6 @@ class AdminController extends Controller
      */
     const EVENT_AFTER_UNBLOCK = 'afterUnblock';
 
-    /**
-     * Name of the session key in which the original user id is saved
-     * when using the impersonate user function.
-     * Used inside actionSwitch().
-     */
-    const ORIGINAL_USER_SESSION_KEY = 'original_user';
-
     /** @var Finder */
     protected $finder;
 
@@ -168,11 +146,9 @@ class AdminController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete'          => ['post'],
-                    'confirm'         => ['post'],
-                    'resend-password' => ['post'],
-                    'block'           => ['post'],
-                    'switch'          => ['post'],
+                    'delete'  => ['post'],
+                    'confirm' => ['post'],
+                    'block'   => ['post'],
                 ],
             ],
             'access' => [
@@ -181,11 +157,6 @@ class AdminController extends Controller
                     'class' => AccessRule::className(),
                 ],
                 'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['switch'],
-                        'roles' => ['@'],
-                    ],
                     [
                         'allow' => true,
                         'roles' => ['admin'],
@@ -286,7 +257,7 @@ class AdminController extends Controller
             $profile = \Yii::createObject(Profile::className());
             $profile->link('user', $user);
         }
-        $event = $this->getProfileEvent($profile);
+        $event   = $this->getProfileEvent($profile);
 
         $this->performAjaxValidation($profile);
 
@@ -319,45 +290,6 @@ class AdminController extends Controller
         return $this->render('_info', [
             'user' => $user,
         ]);
-    }
-
-    /**
-     * Switches to the given user for the rest of the Session.
-     * When no id is given, we switch back to the original admin user
-     * that started the impersonation.
-     *
-     * @param int $id
-     *
-     * @return string
-     */
-    public function actionSwitch($id = null)
-    {
-        if (!$this->module->enableImpersonateUser) {
-            throw new ForbiddenHttpException(Yii::t('user', 'Impersonate user is disabled in the application configuration'));
-        }
-
-        if(!$id && Yii::$app->session->has(self::ORIGINAL_USER_SESSION_KEY)) {
-            $user = $this->findModel(Yii::$app->session->get(self::ORIGINAL_USER_SESSION_KEY));
-
-            Yii::$app->session->remove(self::ORIGINAL_USER_SESSION_KEY);
-        } else {
-            if (!Yii::$app->user->identity->isAdmin) {
-                throw new ForbiddenHttpException;
-            }
-
-            $user = $this->findModel($id);
-            Yii::$app->session->set(self::ORIGINAL_USER_SESSION_KEY, Yii::$app->user->id);
-        }
-
-        $event = $this->getUserEvent($user);
-
-        $this->trigger(self::EVENT_BEFORE_IMPERSONATE, $event);
-        
-        Yii::$app->user->switchIdentity($user, 3600);
-        
-        $this->trigger(self::EVENT_AFTER_IMPERSONATE, $event);
-
-        return $this->goHome();
     }
 
     /**
@@ -458,27 +390,6 @@ class AdminController extends Controller
     }
 
     /**
-     * Generates a new password and sends it to the user.
-     *
-     * @return Response
-     */
-    public function actionResendPassword($id)
-    {
-        $user = $this->findModel($id);
-        if ($user->isAdmin) {
-            throw new ForbiddenHttpException(Yii::t('user', 'Password generation is not possible for admin users'));
-        }
-
-        if ($user->resendPassword()) {
-            Yii::$app->session->setFlash('success', \Yii::t('user', 'New Password has been generated and sent to user'));
-        } else {
-            Yii::$app->session->setFlash('danger', \Yii::t('user', 'Error while trying to generate new password'));
-        }
-
-        return $this->redirect(Url::previous('actions-redirect'));
-    }
-
-    /**
      * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
@@ -509,7 +420,7 @@ class AdminController extends Controller
         if (\Yii::$app->request->isAjax && !\Yii::$app->request->isPjax) {
             if ($model->load(\Yii::$app->request->post())) {
                 \Yii::$app->response->format = Response::FORMAT_JSON;
-                \Yii::$app->response->data = json_encode(ActiveForm::validate($model));
+                echo json_encode(ActiveForm::validate($model));
                 \Yii::$app->end();
             }
         }
